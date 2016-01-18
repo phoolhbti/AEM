@@ -1,0 +1,2 @@
+/media/scripts/citraining/foundation/font-awesome/css/font-awesome.min.css
+

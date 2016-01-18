@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/citraining"/>
+    <filter root="/content/dam/citraining"/>
+    <filter root="/etc/segmentation/citraining"/>
+    <filter root="/content/campaigns/citraining"/>
+</workspaceFilter>

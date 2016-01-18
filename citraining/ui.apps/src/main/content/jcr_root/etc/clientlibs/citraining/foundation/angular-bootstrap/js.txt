@@ -1,0 +1,1 @@
+/media/scripts/citraining/foundation/angular-bootstrap/ui-bootstrap-tpls.min.js

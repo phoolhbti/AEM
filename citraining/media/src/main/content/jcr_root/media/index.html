@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="phpro">
+
+<head>
+
+<title>PHPRO</title>
+<!-- load bootstrap and friends -->
+<link rel="stylesheet" href="/media/scripts/citraining/foundation/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/media/scripts/citraining/foundation/font-awesome/css/font-awesome.min.css" />
+
+<!-- load angularjs and the seperate route module -->
+<script src="/media/scripts/citraining/foundation/angular/angular.min.js"></script>
+<script src="/media/scripts/citraining/foundation/angular/angular.route.min.js"></script>
+
+<!-- load up our app -->
+<script src="scripts/app/app.js"></script>
+</head>
+
+<body>
+
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="#">PHPRO.ORG</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="active"><a href="#">Home</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="http://phpro.org/tutorials">Tutorials</a></li>
+<li><a href="http://phpro.org/articles">Articles</a></li>
+<li><a href="http://phpro.org/examples">Examples</a></li>
+</ul>
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+
+<div class="container">
+
+<!-- content is injected here -->
+<div ng-view></div>
+
+</div> <!-- /container -->
+
+</body>
+</html>

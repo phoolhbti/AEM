@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <lastTrade
+        jcr:primaryType="nt:unstructured"
+        lastTrade="&quot;4:00pm - &lt;b>89.17&lt;/b>&quot;"
+        lastUpdate="{Date}2016-01-17T20:46:05.417+05:30"/>
+</jcr:root>
