@@ -1,4 +1,4 @@
-# Sample AEM project template
+# AEM Citraining template
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
 
@@ -7,6 +7,9 @@ This is a project template for AEM-based applications. It is intended as a best-
 The main parts of the template are:
 
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* taglib: Java bundle containing all jstl functionality .
+* jax-ws : integaration of jersey with osgi
+* media : used for static code development 
 * ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
 * ui.content: contains sample content using the components from the ui.apps
 * ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
