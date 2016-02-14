@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/citraining">
-        <exclude pattern="/apps/citraining/install" />
-    </filter>
-    <filter root="/apps/sling" />
-    <filter root="/etc/designs/citraining"/>
-    <filter root="/etc/clientlibs/citraining"/>
-    <filter root="/etc/importers/polling/adobe_stock"/>
-    <filter root="/etc/workflow/models/stockalert"/>
-    <filter root="/etc/workflow/launcher/config/stock_alert_process"/>
+	<filter root="/apps/citraining">
+		<exclude pattern="/apps/citraining/install" />
+	</filter>
+	<filter root="/apps/sling" />
+	<filter root="/apps/cq" />
+	<filter root="/etc/vanity-url" />
+	<filter root="/etc/designs/citraining" />
+	<filter root="/etc/clientlibs/citraining" />
+	<filter root="/etc/importers/polling/adobe_stock" />
+	<filter root="/etc/workflow/models/stockalert" />
+	<filter root="/etc/workflow/launcher/config/stock_alert_process" />
 </workspaceFilter>

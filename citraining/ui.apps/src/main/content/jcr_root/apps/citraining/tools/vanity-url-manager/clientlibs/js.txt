@@ -1,0 +1,17 @@
+#base=js
+
+angular.min.js
+angular-animate.min.js
+angular-cookies.min.js
+angular-loader.min.js
+angular-resource.min.js
+angular-route.min.js
+angular-sanitize.min.js
+angular-touch.min.js
+
+    bootstrap-min.js
+ui-bootstrap-tpls-0.14.3-min.js
+xeditable-min.js
+angular-treeview.js
+    underscore-min.js
+app.js

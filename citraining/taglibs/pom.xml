@@ -33,7 +33,7 @@
 				<configuration>
 					<instructions>
 						<!-- <Embed-Dependency> artifactId1, artifactId2;inline=true </Embed-Dependency> -->
-						<Export-Package>com.citraining.core.*,com.citraining.core.taglibs</Export-Package>
+						<Export-Package>com.citraining.core.taglibs</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

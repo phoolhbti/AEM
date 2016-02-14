@@ -4,4 +4,4 @@
     jcr:primaryType="sling:Folder"
     interval="{Long}40"
     source="Stock:ADBE"
-    target="/content/citraining"/>
+    target="/content/citraining/en"/>

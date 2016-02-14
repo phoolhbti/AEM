@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.regex.Pattern;
@@ -25,6 +24,9 @@ import org.slf4j.LoggerFactory;
 import com.day.cq.commons.jcr.JcrUtil;
 import com.day.cq.polling.importer.ImportException;
 import com.day.cq.polling.importer.Importer;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+import com.day.cq.wcm.api.WCMException;
 
 @Component
 @Service(value=Importer.class)
@@ -65,13 +67,29 @@ public class StockDataImporter implements Importer{
 	private void writeToRepository(String stockSymbol,String lastTrade,Resource resource) throws RepositoryException{
 		LOGGER.error("starting point of writeToRepository");
 		Node parent=resource.adaptTo(Node.class);
+		PageManager pm=resource.getResourceResolver().adaptTo(PageManager.class);
+		
 		LOGGER.debug("parent path::::::::"+parent.getPath());
 		LOGGER.debug("stockSymbol::::::::::::"+stockSymbol);
-		Node stockPageNode=JcrUtil.createPath(parent.getPath()+"/"+stockSymbol, "cq:Page", parent.getSession());
+		try {
+			Page stockdetails=pm.create(parent.getPath(), stockSymbol, "/apps/citraining/templates/page-content", "Stockpage");
+			Node contentRes=stockdetails.getContentResource().adaptTo(Node.class);
+			LOGGER.debug("Path of contentRes::::::::::::"+contentRes.getPath());
+			Node pageLastTradeNode=contentRes.addNode("par/lastTrade", "nt:unstructured");
+			LOGGER.debug("Path of lastTrade::::::::::::"+pageLastTradeNode);
+			pageLastTradeNode.setProperty("lastTrade", lastTrade);
+			pageLastTradeNode.setProperty("lastUpdate", Calendar.getInstance());
+			pageLastTradeNode.setProperty("sling:resourceType", "citraining/components/content/text");
+			pageLastTradeNode.getSession().save();
+		} catch (WCMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		/*Node stockPageNode=JcrUtil.createPath(parent.getPath()+"/"+stockSymbol, "cq:Page", parent.getSession());
 		Node lastTradeNode=JcrUtil.createPath(stockPageNode.getPath()+"/lastTrade", "nt:unstructured", parent.getSession());
 		lastTradeNode.setProperty("lastTrade", lastTrade);
 		lastTradeNode.setProperty("lastUpdate", Calendar.getInstance());
-		parent.getSession().save();
+		parent.getSession().save();*/
 	}
 
 }

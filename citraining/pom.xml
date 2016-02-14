@@ -23,6 +23,7 @@
     <description>citraining</description>
     
     <modules>
+		<module>jax-rs</module>
         <module>core</module>
 		<module>taglibs</module>
         <module>ui.apps</module>

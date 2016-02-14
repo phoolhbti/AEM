@@ -1,0 +1,120 @@
+/*
+ * #%L
+ * @Author Lokesh BS
+ * http://adobeaemclub.com
+ *
+ */
+#vanity-url-manager-app .content-container {
+  width: 100%;
+}
+#vanity-url-manager-app .content-container .content-container-inner {
+  width: 1200px;
+  margin: 0 auto;
+}
+#vanity-url-manager-app .section {
+  margin: 2em 0;
+}
+#vanity-url-manager-app .section h2 {
+  margin-bottom: .5em;
+}
+#vanity-url-manager-app .notifications {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 750px;
+  z-index: 1000;
+}
+#vanity-url-manager-app .index-table {
+  clear: both;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+#vanity-url-manager-app .index-table .reindexing td {
+  background-color: #FFF5F5 !important;
+}
+#vanity-url-manager-app .index-table .reindex-status {
+  text-align: center;
+}
+#vanity-url-manager-app .index-table .empty-results {
+  font-size: 1.25em;
+  padding: 2em 0;
+  text-align: center;
+}
+#vanity-url-manager-app .filter-input {
+  width: 500px;
+}
+#vanity-url-manager-app .running-indicator {
+  margin-top: 2px;
+  margin-right: 1em;
+}
+#vanity-url-manager-app .reindex-button {
+  font-size: 1.5em;
+}
+.unsupported {
+  margin: 2em auto;
+  width: 750px;
+}
+input,
+button,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+}
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+li {
+  line-height: 20px;
+}
+td {
+  vertical-align: top;
+}
+#tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#tabs ul li {
+  float: left;
+  border: 1px solid #000;
+  border-bottom-width: 0;
+  margin: 3px 3px 0px 3px;
+  padding: 5px 5px 0px 5px;
+  background-color: #CCC;
+  color: #696969;
+}
+#mainView {
+  border: 1px solid black;
+  clear: both;
+  padding: 0 1em;
+}
+.active {
+  background-color: #FFF;
+  color: #000;
+}
+.ng-cloak {
+  display: none !important;
+}
+
+button, .button {
+    min-width: 0.5rem;
+}

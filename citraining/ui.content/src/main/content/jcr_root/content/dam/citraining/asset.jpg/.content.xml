@@ -7,14 +7,14 @@
     <jcr:content
         cq:name="asset.jpg"
         cq:parentPath="/content/dam/citraining"
-        jcr:lastModified="{Date}2016-01-17T14:56:40.938+05:30"
+        jcr:lastModified="{Date}2016-01-31T21:35:31.493+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
             dam:ColorSpace="{Long}-1"
             dam:ExifOffset="{Long}232"
-            dam:extracted="{Date}2016-01-17T14:56:22.795+05:30"
+            dam:extracted="{Date}2015-01-01T00:00:00.000Z"
             dam:Fileformat="JPEG"
             dam:JpgFromRawLength="{Long}988"
             dam:JpgFromRawStart="{Long}382"
@@ -34,12 +34,12 @@
             exif:ExifImageWidth="{Long}940"
             exif:PixelXDimension="{Long}72"
             exif:PixelYDimension="{Long}72"
-            jcr:lastModified="{Date}2016-01-17T14:56:00.034+05:30"
+            jcr:lastModified="{Date}2016-01-31T21:34:42.738+05:30"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             photoshop:ColorMode="{Long}3"
-            tiff:BitsPerSample="\[S@7af5e7"
+            tiff:BitsPerSample="\[S@1d78cdf"
             tiff:Compression="{Long}6"
             tiff:ImageLength="{Long}51"
             tiff:ImageWidth="{Long}940"
@@ -49,10 +49,10 @@
             tiff:SamplesPerPixel="{Long}3"
             tiff:XResolution="72"
             tiff:YResolution="72"
-            xmp:CreateDate="{Date}2014-05-26T17:52:20.000+02:00"
+            xmp:CreateDate="{Date}2015-01-01T00:00:00.000Z"
             xmp:CreatorTool="Adobe Photoshop CC (Macintosh)"
-            xmp:MetadataDate="{Date}2014-05-26T17:53:28.000+02:00"
-            xmp:ModifyDate="{Date}2014-05-26T17:53:28.000+05:30"
+            xmp:MetadataDate="{Date}2015-01-01T00:00:00.000Z"
+            xmp:ModifyDate="{Date}2015-01-01T00:00:00.000+05:30"
             xmpMM:DocumentID="xmp.did:AE2E3F741ACA11E39F4CD06DF927654C"
             xmpMM:InstanceID="xmp.iid:61e45f9c-a0cb-4560-83c5-054bb35d320a"
             xmpMM:OriginalDocumentID="xmp.did:4576AD9C112068118083FEAE8F0AE3A0">
@@ -72,7 +72,7 @@
                     stEvt:changed="/"
                     stEvt:instanceID="xmp.iid:61e45f9c-a0cb-4560-83c5-054bb35d320a"
                     stEvt:softwareAgent="Adobe Photoshop CC (Macintosh)"
-                    stEvt:when="{Date}2014-05-26T17:53:28.000+02:00"
+                    stEvt:when="{Date}2015-01-01T00:00:00.000Z"
                     xmpNodeType="xmpStruct"/>
             </xmpMM:History>
         </metadata>

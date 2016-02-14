@@ -124,6 +124,78 @@
                             <artifactId>citraining.core</artifactId>
                             <target>/apps/citraining/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.citraining</groupId>
+                            <artifactId>citraining.taglibs</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.citraining</groupId>
+                            <artifactId>citraining.jax-rs</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <!-- jersey dep -->
+                         <embedded>
+                            <groupId>com.eclipsesource.jaxrs</groupId>
+           					<artifactId>jersey-all</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                             <groupId>com.eclipsesource.jaxrs</groupId>
+            					<artifactId>publisher</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.eclipsesource.jaxrs</groupId>
+            				<!--  <artifactId>multipart</artifactId> -->
+            				<artifactId>provider-multipart</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            				<artifactId>jackson-jaxrs-base</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.core</groupId>
+            				<artifactId>jackson-core</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                             <groupId>com.fasterxml.jackson.core</groupId>
+            				<artifactId>jackson-databind</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.core</groupId>
+            				<artifactId>jackson-annotations</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.module</groupId>
+            				<artifactId>jackson-module-jaxb-annotations</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+	<artifactId>jackson-jaxrs-json-provider</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                             <groupId>com.eclipsesource.jaxrs</groupId>
+            					<artifactId>provider-security</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml</groupId>
+            				<artifactId>classmate</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>org.jboss.logging</groupId>
+            				<artifactId>jboss-logging</artifactId>
+                            <target>/apps/citraining/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -198,7 +270,16 @@
             <artifactId>citraining.core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
+		<dependency>
+            <groupId>com.citraining</groupId>
+            <artifactId>citraining.taglibs</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.citraining</groupId>
+            <artifactId>citraining.jax-rs</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-api</artifactId>

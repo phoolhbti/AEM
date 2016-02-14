@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <tools jcr:primaryType="nt:unstructured">
+        <vanity-url
+            jcr:description="View and Manage Vanity URLs"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Vanity URL Manager"
+            href="/etc/vanity-url.html"
+            id="vanity-url"
+            target="_blank"/>
+        <acs-commons/>
+    </tools>
+</jcr:root>
