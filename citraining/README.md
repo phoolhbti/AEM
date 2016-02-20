@@ -48,5 +48,6 @@ There are three levels of testing contained in the project:
 * client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
 
     in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
+	added Gunt dependinces
 
 
