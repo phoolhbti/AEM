@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="{Long}0"
+    height="700"
+    helpPath="en/cq/current/wcm/default_components.html#Forms Image Button"
+    width="700"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <url
+            jcr:primaryType="nt:unstructured"
+            title="Title and Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <name
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Configuration URL"
+                    name="./configurl"
+                    predicate="nosystem"
+                    rootPath="/content/aemquiz/en/configurations"
+                    xtype="pathfield"/>
+            </items>
+        </url>
+    </items>
+</jcr:root>

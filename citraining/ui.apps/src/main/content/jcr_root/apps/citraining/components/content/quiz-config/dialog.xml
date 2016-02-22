@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    autoWidth="true"
+    height="1200"
+    width="1200"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <questions
+            jcr:primaryType="nt:unstructured"
+            autoScroll="true"
+            height="1200"
+            title="Questions"
+            width="1200"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <question
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Click '+' to add questions"
+                    fieldLabel="Add Questions"
+                    name="./questionData"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        xtype="pfquestions"/>
+                </question>
+            </items>
+        </questions>
+        <config
+            jcr:primaryType="nt:unstructured"
+            title="Title and Text"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <name
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Name of Quiz"
+                    name="./nameofquiz"
+                    xtype="textfield"/>
+                <main
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Display Text"
+                    name="./displayText"
+                    xtype="richtext"/>
+                <results
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Result"
+                    name="./results"
+                    xtype="textfield"/>
+                <level1
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Level 1 Answer"
+                    name="./level1"
+                    xtype="richtext"/>
+                <level2
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Level 2 Answer"
+                    name="./level2"
+                    xtype="richtext"/>
+                <level3
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Level 3 Answer"
+                    name="./level3"
+                    xtype="richtext"/>
+                <level4
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Level 4 Answer"
+                    name="./level4"
+                    xtype="richtext"/>
+                <level5
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldLabel="Level 5 Answer"
+                    name="./level5"
+                    xtype="richtext"/>
+            </items>
+        </config>
+        <options
+            jcr:primaryType="nt:unstructured"
+            title="Text Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <checkAnswerText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Check My Answer"
+                    fieldDescription="The text to use on the check answer button, Default 'Check My Answer!'"
+                    fieldLabel="Check Answer Text"
+                    inputValue="true"
+                    name="./checkAnswerText"
+                    xtype="textfield"/>
+                <preventUnansweredText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="You must select at least one answer."
+                    fieldDescription="The text to display if a user submits a blank answer while preventUnanswered is enabled, Default: 'You must select at least one answer.'"
+                    fieldLabel="Prevent Unanswered Text"
+                    inputValue="true"
+                    name="./preventUnansweredText"
+                    xtype="textfield"/>
+                <questionCountText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Question %current of %total"
+                    fieldDescription="This will format that text using the string provided. %current and %total are placeholders that will output the appropriate values, Default:'Question %current of %total'"
+                    fieldLabel="Question Count Text"
+                    inputValue="true"
+                    name="./questionCountText"
+                    xtype="textfield"/>
+                <nextQuestionText
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="The text to use on the next question button, Default: 'Next »'"
+                    fieldLabel="Next Question Text"
+                    inputValue="true"
+                    name="./nextQuestionText"
+                    xtype="textfield"/>
+            </items>
+        </options>
+        <functionalityOptions
+            jcr:primaryType="nt:unstructured"
+            title="Functionality Options"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <numberOfQuestions
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="The number of questions to load from the question set in the JSON object, defaults to null (all questions)"
+                    fieldLabel="Number Of Questions"
+                    name="./numberOfQuestions"
+                    xtype="textfield"/>
+                <randomSortQuestions
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Whether or not to randomly sort questions ONLY, Default: false "
+                    fieldLabel="Random Sort Questions"
+                    inputValue="true"
+                    name="./randomSortQuestions"
+                    type="checkbox"
+                    xtype="selection"/>
+                <randomSortAnswers
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Whether or not to randomly sort answers ONLY, Default: false "
+                    fieldLabel="Random Sort Answers"
+                    inputValue="true"
+                    name="./randomSortAnswers"
+                    type="checkbox"
+                    xtype="selection"/>
+                <preventUnanswered
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Prevents submitting a question with zero answers, Default: false"
+                    fieldLabel="Prevent Unanswered"
+                    inputValue="true"
+                    name="./preventUnanswered"
+                    type="checkbox"
+                    xtype="selection"/>
+                <perQuestionResponseMessaging
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="true"
+                    fieldDescription="Displays correct / incorrect response messages after each question is submitted, Default: true"
+                    fieldLabel="Per Question Response Messaging"
+                    name="./perQuestionResponseMessaging"
+                    type="checkbox"
+                    xtype="selection"/>
+                <completionResponseMessaging
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Displays all questions and answers with correct or incorrect response messages when the quiz is completed, Default: false"
+                    fieldLabel="Completion Response Messaging"
+                    inputValue="true"
+                    name="./completionResponseMessaging"
+                    type="checkbox"
+                    xtype="selection"/>
+                <displayQuestionCount
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="true"
+                    fieldDescription="Whether or not to display the number of questions and which question the user is on, for example &quot;Question 3 of 10, Default: true"
+                    fieldLabel="Display Question Count"
+                    inputValue="true"
+                    name="./displayQuestionCount"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </functionalityOptions>
+    </items>
+</jcr:root>
