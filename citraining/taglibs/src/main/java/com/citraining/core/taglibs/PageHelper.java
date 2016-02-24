@@ -1,4 +1,4 @@
-package com.citraining.core;
+package com.citraining.core.taglibs;
 
 public class PageHelper {
 
