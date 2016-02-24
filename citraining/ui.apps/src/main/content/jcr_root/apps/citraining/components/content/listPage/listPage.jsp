@@ -15,7 +15,7 @@
 */-->
 <%@include file="/libs/foundation/global.jsp"%>
 <%@taglib prefix="citraining" uri="http://com.citraining.taglibs/authorbox/1.1" %>
-<jsp:useBean id="pageHelper" class="com.citraining.core.PageHelper"/>
+<jsp:useBean id="pageHelper" class="com.citraining.core.taglibs.PageHelper"/>
 
 
 <c:forEach items="<%=currentPage.listChildren()%>" var="currentChild" varStatus="status">
