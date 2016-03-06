@@ -49,5 +49,11 @@ There are three levels of testing contained in the project:
 
     in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
 	added Gunt dependinces
+---------------------------------------------------------------------------------------------------------------
+Replacement of repository.loginAdministrative value in OSGI service is:
+com.citraining.core.services.WriteService
+Reference:
+http://www.wemblog.com/2014/08/how-to-use-sessions-and-resource.html
+http://stackoverflow.com/questions/31350548/resourceresolverfactory-getserviceresourceresolver-throws-exception-in-aem-6-1
 
 
