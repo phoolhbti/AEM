@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:emptyText="Enter header and body component"
+    cq:layout="editbar"
+    jcr:primaryType="cq:EditConfig">
+    <cq:listeners
+        jcr:primaryType="cq:EditListenersConfig"
+        afteredit="REFRESH_PAGE"/>
+    <cq:dropTargets jcr:primaryType="nt:unstructured">
+        <head
+            jcr:primaryType="cq:DropTargetConfig"
+            sling:resourceType="citraining/components/content/press-release/head"
+            propertyName="./head"/>
+        <body
+            jcr:primaryType="cq:DropTargetConfig"
+            sling:resourceType="citraining/components/content/press-release/body"
+            propertyName="./body"/>
+    </cq:dropTargets>
+    <cq:inplaceEditing
+        jcr:primaryType="cq:InplaceEditingConfig"
+        active="{Boolean}true"
+        editorType="article">
+        <config
+            jcr:primaryType="nt:unstructured"
+            textPropertyName="./fileReference"/>
+    </cq:inplaceEditing>
+</jcr:root>

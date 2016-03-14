@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2016-03-13T14:10:06.066+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/citraining/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Stockpage"
+        sling:resourceType="citraining/components/structure/page">
+        <logo
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="citraining/components/structure/logo"/>
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="citraining/components/content/title"/>
+        <topnav
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="citraining/components/structure/topnav"/>
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/text"
+                text="&lt;p>This is a content page&lt;/p>"
+                textIsRich="true"/>
+            <lastTrade
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/text"
+                lastTrade="&quot;4:00pm - &lt;b>86.00&lt;/b>&quot;"
+                lastUpdate="{Date}2016-03-12T20:03:42.375+05:30"/>
+            <press_release
+                jcr:created="{Date}2016-03-13T13:29:23.227+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2016-03-13T13:29:23.227+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/press-release">
+                <body jcr:primaryType="nt:unstructured">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"/>
+                </body>
+                <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys">
+                    <body
+                        jcr:created="{Date}2016-03-13T14:10:06.059+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-03-13T14:10:06.059+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="citraining/components/content/press-release/body"/>
+                </par>
+            </press_release>
+        </par>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Heading"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <title
+            jcr:primaryType="cq:Widget"
+            allowBlank="false"
+            fieldDescription="This is the title of the press release.       Make it hook people in!"
+            fieldLabel="Title"
+            maxLength="40"
+            name="./title"
+            xtype="textfield"/>
+        <Byline
+            jcr:primaryType="cq:Widget"
+            collapsed="{Boolean}true"
+            collapsible="{Boolean}true"
+            fieldDescription="This is the title of the press release.       Make it hook people in!"
+            fieldLabel="Title"
+            title="Byline"
+            xtype="dialogfieldset">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <author
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    fieldDescription="Your name here, please."
+                    fieldLabel="Author"
+                    maxLength="20"
+                    name="./author"
+                    xtype="textfield"/>
+                <location
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Select the appropriate office."
+                    fieldLabel="Location"
+                    layout="hbox"
+                    name="./location"
+                    type="radio"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <CA
+                            jcr:primaryType="nt:unstructured"
+                            text="Sunnyvale, CA"
+                            value="CA"/>
+                        <MD
+                            jcr:primaryType="nt:unstructured"
+                            text="Bethesda, MD"
+                            value="MD"/>
+                        <IL
+                            jcr:primaryType="nt:unstructured"
+                            text="Chicago, IL"
+                            value="IL"/>
+                    </options>
+                    <optionsConfig
+                        jcr:primaryType="nt:unstructured"
+                        width="100"/>
+                </location>
+            </items>
+        </Byline>
+    </items>
+</jcr:root>

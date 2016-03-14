@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Section"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <subheading
+            jcr:primaryType="cq:Widget"
+            allowBlank="false"
+            fieldDescription="This is just a section subheading."
+            fieldLabel="Subheading"
+            maxLength="40"
+            name="./subheading"
+            xtype="textfield"/>
+        <paragraph
+            jcr:primaryType="cq:Widget"
+            fieldLabel="paragraph"
+            name="./paragraph"
+            orderable="{Boolean}true"
+            xtype="multifield">
+            <fieldConfig
+                jcr:primaryType="cq:Widget"
+                xtype="richtext">
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    destroy="function() {this.el.dom={};}"/>
+            </fieldConfig>
+        </paragraph>
+    </items>
+</jcr:root>
