@@ -1,1 +1,5 @@
 http://www.accunitysoft.com/tag/aem6-1-resource-resolver/
+http://experiencedelivers.adobe.com/cemblog/en/experiencedelivers/2013/01/create_a_custom_adapter.html
+http://cq5tutorials.blogspot.com/2014/01/how-to-create-page-in-cq5.html
+http://robandlauren.com/2011/07/13/user-agent-checks-in-jsp/
+http://summit.adobe.com/na/sessions/online2014/
