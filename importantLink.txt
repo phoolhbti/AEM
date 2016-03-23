@@ -10,17 +10,17 @@ FInd listeners
 select * from nt:unstructured where jcr:path like '/apps/%' and contains(*, 'listeners')
 
 select * from cq:Component where contains(*, ' Full Width Tile')
-SELECT * FROM [nt:folder] AS t WHERE ISDESCENDANTNODE('/apps/att/') AND t.['jcr:primaryType'] like 'nt:folder'
-SELECT * from [nt:folder] AS t WHERE ISDESCENDANTNODE([/apps/att]) AND contains(t.*, 'att')
+SELECT * FROM [nt:folder] AS t WHERE ISDESCENDANTNODE('/apps/test/') AND t.['jcr:primaryType'] like 'nt:folder'
+SELECT * from [nt:folder] AS t WHERE ISDESCENDANTNODE([/apps/test]) AND contains(t.*, 'test')
 
-SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/att]) and CONTAINS(s.*, '/apps/att/')
+SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/test]) and CONTAINS(s.*, '/apps/test/')
 
-select * from [nt:folder]  AS t where ISDESCENDANTNODE([/apps/att%]) and t.['jcr:primaryType'] like 'nt:folder'
+select * from [nt:folder]  AS t where ISDESCENDANTNODE([/apps/test%]) and t.['jcr:primaryType'] like 'nt:folder'
 
-select * from [nt:folder]  AS t where ISDESCENDANTNODE(/apps/att/) and t.['jcr:primaryType'] like 'nt:folder'
+select * from [nt:folder]  AS t where ISDESCENDANTNODE(/apps/test/) and t.['jcr:primaryType'] like 'nt:folder'
 
-SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/att]) and CONTAINS(s.*, '/apps/att/')
+SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/test]) and CONTAINS(s.*, '/apps/test/')
 
-SELECT * FROM nt:folder WHERE jcr:path like '/apps/att/%' and not jcr:path like '/apps/att/%/%'
+SELECT * FROM nt:folder WHERE jcr:path like '/apps/test/%' and not jcr:path like '/apps/test/%/%'
 
 http://stackoverflow.com/questions/22780347/order-by-based-on-a-expression
