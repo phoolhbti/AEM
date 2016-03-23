@@ -3,3 +3,24 @@ http://experiencedelivers.adobe.com/cemblog/en/experiencedelivers/2013/01/create
 http://cq5tutorials.blogspot.com/2014/01/how-to-create-page-in-cq5.html
 http://robandlauren.com/2011/07/13/user-agent-checks-in-jsp/
 http://summit.adobe.com/na/sessions/online2014/
+
+
+select * from nt:base where jcr:path like '/apps/%' and contains(*, 'org.apache.felix.webconsole.internal.servlet.OsgiManager')
+FInd listeners
+select * from nt:unstructured where jcr:path like '/apps/%' and contains(*, 'listeners')
+
+select * from cq:Component where contains(*, ' Full Width Tile')
+SELECT * FROM [nt:folder] AS t WHERE ISDESCENDANTNODE('/apps/att/') AND t.['jcr:primaryType'] like 'nt:folder'
+SELECT * from [nt:folder] AS t WHERE ISDESCENDANTNODE([/apps/att]) AND contains(t.*, 'att')
+
+SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/att]) and CONTAINS(s.*, '/apps/att/')
+
+select * from [nt:folder]  AS t where ISDESCENDANTNODE([/apps/att%]) and t.['jcr:primaryType'] like 'nt:folder'
+
+select * from [nt:folder]  AS t where ISDESCENDANTNODE(/apps/att/) and t.['jcr:primaryType'] like 'nt:folder'
+
+SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/att]) and CONTAINS(s.*, '/apps/att/')
+
+SELECT * FROM nt:folder WHERE jcr:path like '/apps/att/%' and not jcr:path like '/apps/att/%/%'
+
+http://stackoverflow.com/questions/22780347/order-by-based-on-a-expression
