@@ -178,7 +178,7 @@
                         </embedded>
                         <embedded>
                             <groupId>com.fasterxml.jackson.jaxrs</groupId>
-	<artifactId>jackson-jaxrs-json-provider</artifactId>
+							<artifactId>jackson-jaxrs-json-provider</artifactId>
                             <target>/apps/citraining/install</target>
                         </embedded>
                         <embedded>
@@ -196,6 +196,12 @@
             				<artifactId>jboss-logging</artifactId>
                             <target>/apps/citraining/install</target>
                         </embedded>
+                       <!-- <embedded>
+            				<groupId>net.bican</groupId>
+            				<artifactId>jwordpress</artifactId>
+            				<target>/apps/citraining/install</target>
+       				</embedded>
+       				 --> 
                     </embeddeds>
                 </configuration>
             </plugin>

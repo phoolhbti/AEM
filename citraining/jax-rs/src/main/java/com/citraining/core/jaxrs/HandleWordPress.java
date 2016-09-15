@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/*
 import net.bican.wordpress.FilterPost;
 import net.bican.wordpress.Post;
 import net.bican.wordpress.Wordpress;
-
+*/
 import java.util.List;
 
 @SlingServlet(paths = "/bin/myWordPress", methods = "GET", metatype = true)
@@ -40,9 +40,9 @@ public class HandleWordPress extends SlingAllMethodsServlet {
 			String url = request.getParameter("url");
 
 			log.info("*********** THE WordPress ID is " + wordpressid);
-
+			String listString = "";
 			// Create the WordPress instance
-			Wordpress wp = new Wordpress(wordpressid, mypassword, url);
+			/*Wordpress wp = new Wordpress(wordpressid, mypassword, url);
 
 			final FilterPost filter = new FilterPost();
 			filter.setNumber(7);
@@ -64,12 +64,12 @@ public class HandleWordPress extends SlingAllMethodsServlet {
 				size++;
 			}
 
-			String listString = "";
+			
 
 			for (String s : posts) {
 				listString += s + "\n";
 			}
-
+*/
 			// Set Response
 			response.setContentType("text/html");
 			response.getWriter().write(listString);
