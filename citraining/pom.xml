@@ -491,6 +491,19 @@
                 <version>1.4</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+				<groupId>com.adobe.aem</groupId>
+				<artifactId>uber-jar</artifactId>
+				<version>6.1.0</version>
+				<scope>provided</scope>
+				<classifier>obfuscated-apis</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.citring</groupId>
+				<artifactId>com.citring.reports</artifactId>
+				<version>1.0.0</version>
+				<scope>provided</scope>				
+			</dependency>
         </dependencies>
     </dependencyManagement>
 

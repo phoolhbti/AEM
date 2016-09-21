@@ -136,6 +136,17 @@
 	<version>2.1.6</version>
 	<scope>provided</scope>
 </dependency>
- -->
+ --><dependency>
+	<groupId>com.day.commons</groupId>
+	<artifactId>day.commons.datasource.poolservice</artifactId>
+	<version>1.0.10</version>
+	<scope>provided</scope>
+</dependency>
+		 <dependency>
+				<groupId>com.citraining</groupId>
+				<artifactId>com.citraining.reports</artifactId>
+				<version>1.0.0</version>
+				<scope>provided</scope>											
+			</dependency>
     </dependencies>
 </project>
