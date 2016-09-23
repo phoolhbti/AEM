@@ -28,3 +28,9 @@ String title=properties.get("sqlTitle",DEFAULT_TITLE);
 </c:forEach>
 </ul>
 </div>
+<div>
+    <%
+String pageName=SearchUtils.getLastMoidifedPage(resourceResolver.adaptTo(Session.class),"/content","/libs/cq/personalization/templates/campaign");
+out.println("Hello worl.."+pageName);
+    %>
+</div>
