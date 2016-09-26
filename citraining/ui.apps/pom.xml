@@ -202,6 +202,17 @@
             				<target>/apps/citraining/install</target>
        				</embedded>
        				 --> 
+       				 <embedded>
+            				<groupId>com.citraining</groupId>
+							<artifactId>com.citraining.reports</artifactId>
+            				<target>/apps/citraining/install</target>
+       				</embedded>
+       				
+       				<embedded>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
+			<target>/apps/citraining/install</target>
+		</embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -342,5 +353,15 @@
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
         </dependency>
+         <dependency>
+				<groupId>com.citraining</groupId>
+				<artifactId>com.citraining.reports</artifactId>
+				<version>1.0.0</version>
+				<scope>provided</scope>											
+			</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
+		</dependency>
     </dependencies>
 </project>

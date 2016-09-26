@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Sample Classic UI Multi Field Component"
     sling:resourceSuperType="foundation/components/parbase"
-    componentGroup="Experience AEM"/>
+    componentGroup="citraining"/>

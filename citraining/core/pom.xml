@@ -37,14 +37,19 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!--
-                        <Embed-Dependency>
-                            artifactId1,
-                            artifactId2;inline=true
-                        </Embed-Dependency>
-                       
-                         <Export-Package>com.citraining.core.taglibs</Export-Package>
-                          -->
+                        <Import-Package>
+							!com.ibm.*,
+							!com.sun.*,
+							!javax.jmdns.*,
+							!javax.jms.*,
+							!jline.*,
+							!org.jboss.netty.*,
+							!org.relaxng.datatype.*,
+							*
+						</Import-Package>
+						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+						<Embed-Directory>OSGI-INF/lib</Embed-Directory>
+						<Embed-Transitive>false</Embed-Transitive>
                         <Sling-Model-Packages>com.citraining.core.models</Sling-Model-Packages>
                      </instructions>
                 </configuration>
@@ -75,6 +80,17 @@
         </profile>
     </profiles>
     <dependencies>
+    <dependency>
+    <groupId>org.apache.geronimo.specs</groupId>
+    <artifactId>geronimo-atinject_1.0_spec</artifactId>
+    <version>1.0</version>
+    <scope>provided</scope>
+</dependency>
+    	<dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>uber-jar</artifactId>
+            <classifier>obfuscated-apis</classifier>
+        </dependency>
         <!-- OSGi Dependencies -->
         <dependency>
             <groupId>org.apache.felix</groupId>
@@ -109,6 +125,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
+         <dependency>
+	<groupId>com.day.commons</groupId>
+	<artifactId>day.commons.datasource.poolservice</artifactId>	
+</dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-api</artifactId>
@@ -136,17 +156,40 @@
 	<version>2.1.6</version>
 	<scope>provided</scope>
 </dependency>
- --><dependency>
-	<groupId>com.day.commons</groupId>
-	<artifactId>day.commons.datasource.poolservice</artifactId>
-	<version>1.0.10</version>
-	<scope>provided</scope>
-</dependency>
+-->
+
+
 		 <dependency>
 				<groupId>com.citraining</groupId>
 				<artifactId>com.citraining.reports</artifactId>
 				<version>1.0.0</version>
 				<scope>provided</scope>											
 			</dependency>
+			<!-- Solr Dependencies -->
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.noggit</groupId>
+			<artifactId>noggit</artifactId>
+			<version>0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+		<!-- Solr Dependencies -->
+		
     </dependencies>
 </project>
