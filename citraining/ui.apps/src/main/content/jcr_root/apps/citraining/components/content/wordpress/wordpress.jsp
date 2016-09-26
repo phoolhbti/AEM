@@ -1,4 +1,4 @@
-<%@include file="/libs/foundation/global.jsp"%>
+<%@include file="/apps/citraining/global.jsp"%>
 <cq:includeClientLib categories="cq.jquery" />
 <script>
 
