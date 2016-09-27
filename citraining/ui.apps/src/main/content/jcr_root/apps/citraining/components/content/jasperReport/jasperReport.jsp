@@ -3,7 +3,7 @@
 <%
    
 com.citraining.core.report.BuildReport report = sling.getService(com.citraining.core.report.BuildReport.class);
-String ff = report.BuildReport();
+String ff = report.jasperBuildReport();
 %>
    
 <h2>Report Component</h2>
