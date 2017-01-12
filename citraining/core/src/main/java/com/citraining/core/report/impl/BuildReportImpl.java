@@ -2,8 +2,11 @@ package com.citraining.core.report.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -23,33 +26,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.report.BuildReport;
+import com.day.commons.datasource.poolservice.DataSourceNotFoundException;
 import com.day.commons.datasource.poolservice.DataSourcePool;
 
 //This is a component so it can provide or consume services
-@Component
-
-@Service
-
-public class BuildReportImpl implements BuildReport {
-
-	//Inject a Sling ResourceResolverFactory
-    @Reference
-    private ResourceResolverFactory resolverFactory;
-     
-    @Reference
-    private DataSourcePool source;
-     
-     
-    /** Default log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass());
-	@Override
-	public String jasperBuildReport() {
-		//DataSource dataSource = null;
-        Connection connection = null;
-		try {
-			log.debug("with in Builder report...");
-			 connection =  getConnection();
-             
+	@Component	 
+	@Service	 
+	public class BuildReportImpl implements BuildReport  {	     
+		//Inject a Sling ResourceResolverFactory
+	    @Reference
+	    private ResourceResolverFactory resolverFactory;
+	     
+	    @Reference
+	    private DataSourcePool source;
+	     
+	     
+	    /** Default log. */
+	    protected final Logger log = LoggerFactory.getLogger(BuildReportImpl.class);
+	     
+	    public String jasperBuildReport(){         
+	         
+	        DataSource dataSource = null;
+	        Connection connection = null;
+	         
+	        try{
+	             
+	             // Create a Connection object
+	            connection =  getConnection();
+	             
 	            //Use JasperReport app logic in an AEM Service 
 	            JasperReportBuilder report = DynamicReports.report();//a new report
 	            report
@@ -84,60 +88,66 @@ public class BuildReportImpl implements BuildReport {
 	                  
 	                log.info("Details is " +reportDetails);
 	                  
-	                return "Report was successfully created";	
-		} catch (Exception e) {
-			  log.info(e.getMessage());
-		}
-        
-		return "ERROR";
-	}
-	//Returns a connection using the configured DataSourcePool 
-    private Connection getConnection()
-    {
-    	log.debug("with in get connection method...");
-            // DataSource dataSource = null;
-             Connection con = null;
-             try
-             {
-                 //Inject the DataSourcePool right here! 
-            	 DataSource   dataSource = (DataSource) source.getDataSource("Customer");
-                 con = dataSource.getConnection();
-                 log.debug("connnection is"+con);
-                 return con;
-                  
-               }
-             catch (Exception e)
-             {
-                 e.printStackTrace(); 
-             }
-                 return null; 
-    }
-  //Write the Jasper Report to the DAM 
-    //Save the uploaded file into the AEM DAM using AssetManager APIs
-      private String writeToDam(InputStream is, String fileName)
-      {
-      try
-      {
-          //Inject a ResourceResolver
-          ResourceResolver resourceResolver = resolverFactory.getAdministrativeResourceResolver(null);
-            
-          //Use AssetManager to place the file into the AEM DAM
-          com.day.cq.dam.api.AssetManager assetMgr = resourceResolver.adaptTo(com.day.cq.dam.api.AssetManager.class);
-           
-           
-          String newFile = "/content/dam/reports/"+fileName ; 
-           
-           
-          assetMgr.createAsset(newFile, is,"application/pdf", true);
-                
-          // Return the path to the file was stored
-          return newFile;
-      }
-      catch(Exception e)
-      {
-          log.info("Error IS "+e.getMessage())  ;
-      }
-      return null;
-      }
-       
-}
+	                return "Report was successfully created";
+	                  
+	            }
+	            catch (Exception e)
+	            {
+	                log.info(e.getMessage());
+	            }
+	              
+	            return "ERROR" ; 
+	              
+	            }
+	         
+	        //Write the Jasper Report to the DAM 
+	      //Save the uploaded file into the AEM DAM using AssetManager APIs
+	        private String writeToDam(InputStream is, String fileName)
+	        {
+	        try
+	        {
+	            //Inject a ResourceResolver
+	            ResourceResolver resourceResolver = resolverFactory.getAdministrativeResourceResolver(null);
+	              
+	            //Use AssetManager to place the file into the AEM DAM
+	            com.day.cq.dam.api.AssetManager assetMgr = resourceResolver.adaptTo(com.day.cq.dam.api.AssetManager.class);
+	             
+	             
+	            String newFile = "/content/dam/reports/"+fileName ; 
+	             
+	             
+	            assetMgr.createAsset(newFile, is,"application/pdf", true);
+	                  
+	            // Return the path to the file was stored
+	            return newFile;
+	        }
+	        catch(Exception e)
+	        {
+	            log.info("Error IS "+e.getMessage())  ;
+	        }
+	        return null;
+	        }
+	         
+	         
+	         
+	      //Returns a connection using the configured DataSourcePool 
+	        private Connection getConnection()
+	        {
+	                 DataSource dataSource = null;
+	                 Connection con = null;
+	                 try
+	                 {
+	                     //Inject the DataSourcePool right here! 
+	                     dataSource = (DataSource) source.getDataSource("customer");
+	                     con = dataSource.getConnection();
+	                     return con;
+	                      
+	                   }
+	                 catch (Exception e)
+	                 {
+	                     e.printStackTrace(); 
+	                 }
+	                     return null; 
+	        }
+	 
+	    }

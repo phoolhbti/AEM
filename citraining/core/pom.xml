@@ -150,7 +150,7 @@
 
 		<dependency>
 			<groupId>com.citraining</groupId>
-			<artifactId>com.citraining.reports</artifactId>
+			<artifactId>com.citraining.core.report</artifactId>
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>

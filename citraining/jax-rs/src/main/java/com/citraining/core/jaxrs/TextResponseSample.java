@@ -40,7 +40,12 @@ import org.apache.felix.scr.annotations.Service;
 	  public String sayXMLHello() {
 	    return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
 	  }
-
+	// This method is called if JSON is request
+	  @GET
+	  @Produces(MediaType.APPLICATION_JSON_TYPE)
+	  public String sayJSONHello() {
+	    return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+	  }
 	  // This method is called if HTML is request
 	  @GET
 	  @Produces(MediaType.TEXT_HTML)
