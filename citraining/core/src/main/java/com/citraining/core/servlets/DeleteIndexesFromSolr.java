@@ -16,26 +16,24 @@ import org.slf4j.LoggerFactory;
 
 import com.citraining.core.search.SolrServerConfiguration;
 
-
-
-
 /**
  * 
- * @author kavarana 
- * This servlet deletes all the indexes from the configured Solr server
+ * @author kavarana This servlet deletes all the indexes from the configured
+ *         Solr server
  *
  */
-@SlingServlet(paths = "/bin/solr/delete/all/indexes", methods="POST")
+@SlingServlet(paths = "/bin/solr/delete/all/indexes", methods = "POST")
 public class DeleteIndexesFromSolr extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(DeleteIndexesFromSolr.class);
 	@Reference
 	SolrServerConfiguration solrConfigurationService;
-	
+
 	@Override
-    protected void doPost(final SlingHttpServletRequest reqest,
-            final SlingHttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(final SlingHttpServletRequest reqest,
+			final SlingHttpServletResponse response) throws ServletException,
+			IOException {
 		response.setContentType("text/html");
 		final String protocol = solrConfigurationService.getSolrProtocol();
 		final String serverName = solrConfigurationService.getSolrServerName();
@@ -48,11 +46,11 @@ public class DeleteIndexesFromSolr extends SlingAllMethodsServlet {
 			server.deleteByQuery("*:*");
 			server.commit();
 			server.close();
-			response.getWriter().write("<h3>Deleted all the indexes from solr server </h3>");
+			response.getWriter().write(
+					"<h3>Deleted all the indexes from solr server </h3>");
 		} catch (SolrServerException e) {
 			LOG.error("Exception due to", e);
 		}
-		
-        
-    }
+
+	}
 }

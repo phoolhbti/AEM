@@ -14,11 +14,20 @@
     limitations under the License.
 */-->
 <%@include file="/libs/foundation/global.jsp"%>
-<%@taglib prefix="citraining" uri="http://com.citraining.taglibs/authorbox/1.1" %>
-<jsp:useBean id="pageHelper" class="com.citraining.core.taglibs.PageHelper"/>
+<%@taglib prefix="citraining"
+	uri="http://com.citraining.taglibs/authorbox/1.1"%>
+<jsp:useBean id="pageHelper"
+	class="com.citraining.core.taglibs.PageHelper" />
 
 
-<c:forEach items="<%=currentPage.listChildren()%>" var="currentChild" varStatus="status">
-    <p><c:out value="${status.count}"/>:<c:out value="${currentChild.title}"/></p>  
+<c:forEach items="<%=currentPage.listChildren()%>" var="currentChild"
+	varStatus="status">
+	<p>
+		<c:out value="${status.count}" />
+		:
+		<c:out value="${currentChild.title}" />
+	</p>
 </c:forEach>
-<citraining:authorbox><c:out value="${pageHelper.message}"/></citraining:authorbox>
+<citraining:authorbox>
+	<c:out value="${pageHelper.message}" />
+</citraining:authorbox>

@@ -9,7 +9,7 @@ public interface SolrServerConfiguration {
 	public String getSolrServerPort();
 
 	public String getSolrCoreName();
-	
+
 	public String getContentPagePath();
-	
+
 }

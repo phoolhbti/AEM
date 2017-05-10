@@ -57,9 +57,9 @@ public class PackageWithAC extends SlingAllMethodsServlet {
 	QueryBuilder qbuilder;
 	Session session = null;
 	String resultMessage = "";
-	
+
 	HashSet<String> nodePaths = new HashSet<String>();
-	
+
 	@Property(label = "Package Group Name", description = "Enter Package Group Name")
 	public static final String PACK_GROUP = "packageGroupName";
 	private String packageGroupName;
@@ -79,7 +79,8 @@ public class PackageWithAC extends SlingAllMethodsServlet {
 			 */
 			session = repository.loginAdministrative(null);
 			// session =repository.login(); get the current user session
-			resp.getOutputStream().println("Your package mangaer is got ....session");
+			resp.getOutputStream().println(
+					"Your package mangaer is got ....session");
 			try {
 				JcrPackageManager packageManager = (JcrPackageManager) PackagingService
 						.getPackageManager(session);
@@ -89,18 +90,22 @@ public class PackageWithAC extends SlingAllMethodsServlet {
 				 * else it will take default, packageName is the name of the
 				 * package and 1.0 is the version of the package
 				 */
-				resp.getOutputStream().println("Your package mangaer is got ....session pack..");
+				resp.getOutputStream().println(
+						"Your package mangaer is got ....session pack..");
 				JcrPackage pack = packageManager.create(this.packageGroupName,
 						this.packageName, "1.0");
 				JcrPackageDefinition definition = pack.getDefinition();
-				resp.getOutputStream().println("Your package mangaer is got ....JcrPackageDefinition def..");
+				resp.getOutputStream()
+						.println(
+								"Your package mangaer is got ....JcrPackageDefinition def..");
 				DefaultWorkspaceFilter filter = new DefaultWorkspaceFilter();
 				Set<String> nodePaths = new HashSet<String>();
-				Node startingNode=session.getNode("/content/geometrixx/en_UK/products");
-				nodePaths=associatedContent(startingNode,session);
+				Node startingNode = session
+						.getNode("/content/geometrixx/en_UK/products");
+				nodePaths = associatedContent(startingNode, session);
 				nodePaths.add(startingNode.getPath());
-				//nodePaths.add("/content/geometrixx/en_UK/products");
-				//nodePaths.add("/content/geometrixx/en_UK/company");
+				// nodePaths.add("/content/geometrixx/en_UK/products");
+				// nodePaths.add("/content/geometrixx/en_UK/company");
 				/* nodePaths is the List containing the list of paths */
 				for (String nodePath : nodePaths) {
 					resp.getOutputStream().println("Node Path is" + nodePath);
@@ -134,51 +139,59 @@ public class PackageWithAC extends SlingAllMethodsServlet {
 			e.printStackTrace();
 		}
 	}
+
 	private void configure(final Map<String, Object> config) {
-        
-        this.packageGroupName = PropertiesUtil.toString(config.get(PACK_GROUP), null);
-        this.packageName = PropertiesUtil.toString(config.get(PACK_NAME), null);
-      
-    }
- @Activate
-    protected void activate(final Map<String, Object> config) {
-        configure(config);
-    }
- private HashSet<String> associatedContent(Node node,Session session){
-	
-	 try{
-		 log.debug("with in start function..."+node.getPath());
-	// nodePaths.add(node.getPath());
-	 String arrofprop[]=new String[]{"fileReference"};
-	 for(int shopCopm=0;shopCopm<arrofprop.length;shopCopm++){ 
-	 Map<String, String> map = new HashMap<String, String>();
-	 map.put("path",node.getPath());
-     map.put("type", "nt:unstructured");
-     map.put("property", arrofprop[shopCopm]);     		       
-     Query   query = qbuilder.createQuery(PredicateGroup.create(map), session);
-	    query.setStart(0);
-		query.setHitsPerPage(10000);
-		SearchResult result = query.getResult();
-     Iterator<Node> childrensub = result.getNodes();
-     log.debug("Before while...with in start function...");
-	 while(childrensub.hasNext()){
-		   log.debug("Before while...with in start function...");
-		Node childrensubchild = childrensub.next() ;
-		if(childrensubchild.hasProperty(arrofprop[shopCopm])){
-		Node subNode=session.getNode(childrensubchild.getProperty(arrofprop[shopCopm]).getString());
-		nodePaths.add(childrensubchild.getProperty(arrofprop[shopCopm]).getString());
+
+		this.packageGroupName = PropertiesUtil.toString(config.get(PACK_GROUP),
+				null);
+		this.packageName = PropertiesUtil.toString(config.get(PACK_NAME), null);
+
+	}
+
+	@Activate
+	protected void activate(final Map<String, Object> config) {
+		configure(config);
+	}
+
+	private HashSet<String> associatedContent(Node node, Session session) {
+
+		try {
+			log.debug("with in start function..." + node.getPath());
+			// nodePaths.add(node.getPath());
+			String arrofprop[] = new String[] { "fileReference" };
+			for (int shopCopm = 0; shopCopm < arrofprop.length; shopCopm++) {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("path", node.getPath());
+				map.put("type", "nt:unstructured");
+				map.put("property", arrofprop[shopCopm]);
+				Query query = qbuilder.createQuery(PredicateGroup.create(map),
+						session);
+				query.setStart(0);
+				query.setHitsPerPage(10000);
+				SearchResult result = query.getResult();
+				Iterator<Node> childrensub = result.getNodes();
+				log.debug("Before while...with in start function...");
+				while (childrensub.hasNext()) {
+					log.debug("Before while...with in start function...");
+					Node childrensubchild = childrensub.next();
+					if (childrensubchild.hasProperty(arrofprop[shopCopm])) {
+						Node subNode = session.getNode(childrensubchild
+								.getProperty(arrofprop[shopCopm]).getString());
+						nodePaths.add(childrensubchild.getProperty(
+								arrofprop[shopCopm]).getString());
+					}
+					/*
+					 * if(subNode.hasNodes()){
+					 * associatedContent(subNode,session); }
+					 */
+
+				}
+				// nodePaths.add(node.getPath());
+			}
+		} catch (RepositoryException e) {
+			log.debug("error is" + e);
 		}
-		/*if(subNode.hasNodes()){
-		associatedContent(subNode,session);
-		}*/
-		
-	 }
-	 //nodePaths.add(node.getPath());
-	 }
-	 }catch(RepositoryException e){
-		 log.debug("error is"+e);
-	 }
-	 return nodePaths;
-	 
- }
+		return nodePaths;
+
+	}
 }

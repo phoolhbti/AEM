@@ -24,3 +24,7 @@ SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE([/apps/test]) and CONTAINS(s
 SELECT * FROM nt:folder WHERE jcr:path like '/apps/test/%' and not jcr:path like '/apps/test/%/%'
 
 http://stackoverflow.com/questions/22780347/order-by-based-on-a-expression
+
+https://helpx.adobe.com/experience-manager/using/jasper_reports.html
+
+mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/test171_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true

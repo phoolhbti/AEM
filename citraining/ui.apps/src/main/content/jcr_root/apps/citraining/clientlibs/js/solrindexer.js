@@ -1,7 +1,7 @@
 CQ.search = CQ.search || {};
 
 CQ.search.SolrIndexer = CQ.Ext.extend(CQ.Ext.Viewport, {
-    constructor : function(config) {
+    constructor : function (config) {       
         this.results = document.createElement("iframe");
         this.results.id = "results_cq-solrindexer";
         this.results.name = "results_cq-solrindexer";

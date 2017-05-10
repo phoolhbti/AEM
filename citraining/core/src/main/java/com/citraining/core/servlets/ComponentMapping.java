@@ -20,125 +20,195 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.citraining.core.utils.CommonUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
-@Component(metatype = true, label = "Component Mapping Servlet", 
-description = "Servlet for converting template type with other resource type")
+
+@Component(metatype = true, label = "Component Mapping Servlet", description = "Servlet for converting template type with other resource type")
 @Service(value = Servlet.class)
 @Properties({
-@Property(name = "sling.servlet.paths", value = "/bin/componentMapping"),	
-@Property(name = "sling.servlet.methods", value = "GET")
-})
+		@Property(name = "sling.servlet.paths", value = "/bin/componentMapping"),
+		@Property(name = "sling.servlet.methods", value = "GET") })
+public class ComponentMapping extends SlingAllMethodsServlet {
 
-public class ComponentMapping extends SlingAllMethodsServlet{
-	 
 	private static final long serialVersionUID = 1L;
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Reference
-    private SlingRepository repository;
+	private SlingRepository slingRepository;
+
 	@Reference
-	QueryBuilder qbuilder;
-	 	@Property(label = "A parameter", description = "Can be configured in /system/console/configMgr")
-	    public static final String MY_PARAMETER = "myParameter";
-	    private String myParameter;
-	    
-	    @Property(label = "Src path", description = "Select a Page path, which you want to convert from src template to dest template")
-	    public static final String SRC_PATH = "srcPath";
-	    private String srcPath;
-	    
-	    @Property(label = "Dest template",  description = "Whether or not to schedule this task concurrently")
-	    public static final String DEST_TEMPLATE = "distTemplate";
-	    private String distTemplate;
-	    
-	    @Property(unbounded=PropertyUnbounded.ARRAY,label = "Component Manpping from to",  description = "Plase specify which component need to change e.g 'collab/calendar/components/exportlink' to 'geometrixx-media/components/popular-articles'")
-	    public static final String COMPONENT_MAPPINGS = "componentMappings";
-	    private String[] componentMappings;
-	    
-	    Session session = null;
-	   
-	    
-	    
+	QueryBuilder queryBuilder;
+
+	@Reference
+	private ResourceResolverFactory resourceResolverFactory;
+
+	@Property(label = "Src path", description = "Select a Page path, which you want to convert from src template to dest template")
+	public static final String SOURCE_PATH = "sourcePath";
+	private String sourcePath;
+
+	@Property(label = "Dest template", description = "Whether or not to schedule this task concurrently")
+	public static final String DESTINATION_TEMPLATE = "distinationTemplate";
+	private String distinationTemplate;
+
+	@Property(unbounded = PropertyUnbounded.ARRAY, label = "Component Manpping from to", description = "Plase specify which component need to change e.g 'collab/calendar/components/exportlink' to 'geometrixx-media/components/popular-articles'")
+	public static final String COMPONENT_MAPPINGS = "componentMappings";
+	private String[] componentMappings;
+
+	Session session = null;
+
 	@Override
-	protected void doGet(SlingHttpServletRequest req,
-			 SlingHttpServletResponse resp) throws ServletException, IOException {
-		Resource resource = req.getResource();		
-		resp.getOutputStream().println(resource.toString());
-		try{
-			session =repository.loginAdministrative(null);	
-			//session =repository.login(); get the current user session
-			/* Query code */
-			if(this.srcPath!=null && !"".equals(this.srcPath)){
-				resp.getOutputStream().println("Path Whose Convert:"+this.srcPath);
-				resp.getOutputStream().println("<br>New Template of Sales CQ:"+this.distTemplate);
-				Node rootNode=session.getNode(this.srcPath);
-				if(rootNode.hasNode("jcr:content")){
-					Node templateNode=session.getNode(this.distTemplate);
-					Node jcrNode=rootNode.getNode("jcr:content");
-					boolean template=jcrNode.hasProperty("cq:template");
-					if(template){
-						resp.getOutputStream().println("<br>Changes Page Template Path:"+jcrNode.getPath());
-						jcrNode.setProperty("cq:template", this.distTemplate);	
-					//	jcrNode.getSession().save();
+	protected void doGet(SlingHttpServletRequest slingRequest,
+			SlingHttpServletResponse slingResponse) throws ServletException,
+			IOException {
+		Resource resource = slingRequest.getResource();
+		write(slingResponse, resource.toString(),"Hello world...");
+		ResourceResolver resourceResolver = null;
+		try {
+			resourceResolver = CommonUtil
+					.getResourceResolver(resourceResolverFactory);
+
+			session = resourceResolver.adaptTo(Session.class);
+
+			if (this.sourcePath != null && !"".equals(this.sourcePath)) {
+
+				write(slingResponse, "Path Whose Convert:", sourcePath);
+
+				write(slingResponse, "<br>New Template of Sales CQ:",
+						distinationTemplate);
+
+				Node rootNode = session.getNode(this.sourcePath);
+				String nodePath = "";
+				if (hasJCRContent(rootNode)) {
+					Node templateNode = session
+							.getNode(this.distinationTemplate);
+					Node jcrNode = getJCRContent(rootNode);
+					boolean template = jcrNode.hasProperty("cq:template");
+					if (template) {
+						nodePath = jcrNode.getPath();
+						write(slingResponse, "<br>Changes Page Template Path:",
+								nodePath);
+						jcrNode.setProperty("cq:template",
+								this.distinationTemplate);
+
 					}
-					boolean reType=jcrNode.hasProperty("sling:resourceType");
-					if(reType){
-						resp.getOutputStream().println("<br>Changes Page Component Path:"+jcrNode.getPath());
-						jcrNode.setProperty("sling:resourceType", templateNode.getNode("jcr:content").getProperty("sling:resourceType").getString());	
-						//jcrNode.getSession().save();
+					boolean reType = jcrNode.hasProperty("sling:resourceType");
+					if (reType) {
+						nodePath = jcrNode.getPath();
+						write(slingResponse,
+								"<br>Changes Page Component Path:", nodePath);
+
+						jcrNode.setProperty("sling:resourceType",
+								templateNode.getNode("jcr:content")
+										.getProperty("sling:resourceType")
+										.getString());
+
 					}
 					jcrNode.getSession().save();
 				}
 				Map<String, String> map = new HashMap<String, String>();
 				Query query = null;
-				Node childrensubchild=null;
-				for(int srcCopm=0;srcCopm<this.componentMappings.length;){
-					resp.getOutputStream().println("<br>Component Name From src to destination:"+this.componentMappings[srcCopm]);					
-			        map.put("path",this.srcPath );
-			        map.put("type", "nt:unstructured");
-			        map.put("property", "sling:resourceType");
-			        map.put("property.value", this.componentMappings[srcCopm]);			       
-				    query = qbuilder.createQuery(PredicateGroup.create(map), session);
-				    query.setStart(0);
+				Node childrensubchild = null;
+				for (int srcCopm = 0; srcCopm < this.componentMappings.length;) {
+					write(slingResponse,
+							"<br>Component Name From src to destination:",
+							this.componentMappings[srcCopm]);
+
+					map.put("path", this.sourcePath);
+					map.put("type", "nt:unstructured");
+					map.put("property", "sling:resourceType");
+					map.put("property.value", this.componentMappings[srcCopm]);
+					query = queryBuilder.createQuery(
+							PredicateGroup.create(map), session);
+					query.setStart(0);
 					query.setHitsPerPage(10000);
 					SearchResult result = query.getResult();
-	                Iterator<Node> childrensub = result.getNodes();
-	                while (childrensub.hasNext()) {
-	                	 childrensubchild = childrensub.next() ;
-	                	resp.getOutputStream().println("<br>Changes Component From shop to Sales:"+childrensubchild.getPath()+"saved path New is::"+this.componentMappings[srcCopm+1]);
-	                	log.debug("Path of the node:::"+childrensubchild.getPath());
-	                	childrensubchild.setProperty("sling:resourceType", this.componentMappings[srcCopm+1]);
-	                	//childrensubchild.getSession().save();
-	                }
-				    srcCopm=srcCopm+2;
+					Iterator<Node> childrensub = result.getNodes();
+					while (childrensub.hasNext()) {
+						childrensubchild = childrensub.next();
+
+						write(slingResponse,
+								"<br>Changes Component From shop to Sales:",
+								childrensubchild.getPath(),
+								"saved path New is::",
+								this.componentMappings[srcCopm + 1]);
+						log.debug("Path of the node:::"
+								+ childrensubchild.getPath());
+						childrensubchild.setProperty("sling:resourceType",
+								this.componentMappings[srcCopm + 1]);
+
+					}
+					srcCopm = srcCopm + 2;
 				}
 				childrensubchild.getSession().save();
-			
-				
+
 			}
-		}catch(RepositoryException e){
-			resp.getOutputStream().println("error is"+e);
-			e.printStackTrace();}
+		} catch (LoginException e) {
+
+			e.printStackTrace();
+		} catch (RepositoryException e) {
+			slingResponse.getOutputStream().println("error is" + e);
+			e.printStackTrace();
+		}
 	}
-	 private void configure(final Map<String, Object> config) {
-	        this.myParameter = PropertiesUtil.toString(config.get(MY_PARAMETER), null);
-	        this.srcPath = PropertiesUtil.toString(config.get(SRC_PATH), null);
-	        this.distTemplate = PropertiesUtil.toString(config.get(DEST_TEMPLATE), null);
-	        this.componentMappings = PropertiesUtil.toStringArray(config.get(COMPONENT_MAPPINGS), null);
-	        log.debug("configure: myParameter='{}''", this.myParameter);
-	        log.debug("second prperty is...");
-	    }
-	 @Activate
-	    protected void activate(final Map<String, Object> config) {
-	        configure(config);
-	    }
+
+	private void configure(final Map<String, Object> config) {
+
+		this.sourcePath = PropertiesUtil
+				.toString(config.get(SOURCE_PATH), null);
+		this.distinationTemplate = PropertiesUtil.toString(
+				config.get(DESTINATION_TEMPLATE), null);
+		this.componentMappings = PropertiesUtil.toStringArray(
+				config.get(COMPONENT_MAPPINGS), null);
+
+		log.debug("second prperty is...");
+	}
+
+	@Activate
+	protected void activate(final Map<String, Object> config) {
+		configure(config);
+	}
+
+	private void write(SlingHttpServletResponse slingResponse,
+			String... messages) {
+		try {
+			for (String message : messages) {
+				slingResponse.getOutputStream().print(message);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	boolean hasJCRContent(Node node) {
+		boolean jcrConent = false;
+		try {
+			jcrConent = node.hasNode("jcr:content");
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		}
+		return jcrConent;
+	}
+
+	Node getJCRContent(Node node) {
+		Node jcrConentNode = null;
+		try {
+			jcrConentNode = node.getNode("jcr:content");
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		}
+		return jcrConentNode;
+	}
 }

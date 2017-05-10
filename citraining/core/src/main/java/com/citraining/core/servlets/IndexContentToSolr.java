@@ -23,8 +23,6 @@ import org.slf4j.LoggerFactory;
 import com.citraining.core.search.SolrSearchService;
 import com.citraining.core.search.SolrServerConfiguration;
 
-
-
 /**
  * 
  * This servlet acts as a bulk update to index content pages and assets to the
@@ -33,8 +31,7 @@ import com.citraining.core.search.SolrServerConfiguration;
  */
 @Component(immediate = true, metatype = true)
 @Service(Servlet.class)
-@Properties({
-		@Property(name = "sling.servlet.methods", value = "GET"),
+@Properties({ @Property(name = "sling.servlet.methods", value = "GET"),
 		@Property(name = "sling.servlet.paths", value = "/bin/solr/push/pages") })
 public class IndexContentToSolr extends SlingAllMethodsServlet {
 

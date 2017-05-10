@@ -14,7 +14,6 @@ public final class SolrUtils {
 	private SolrUtils() {
 	}
 
-
 	/**
 	 * This method is used to extract the tags from the content page
 	 * 
@@ -33,11 +32,11 @@ public final class SolrUtils {
 		return tagsArray;
 	}
 
-
 	/**
 	 * This method converts jcr formatted date to Solr specification format
 	 * 
-	 * @param Takes input as Calendar
+	 * @param Takes
+	 *            input as Calendar
 	 * @return Solr formatted date of type string
 	 */
 	public static String solrDate(Calendar cal) {

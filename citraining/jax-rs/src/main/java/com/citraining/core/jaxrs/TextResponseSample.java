@@ -42,9 +42,15 @@ import org.apache.felix.scr.annotations.Service;
 	  }
 	// This method is called if JSON is request
 	  @GET
-	  @Produces(MediaType.APPLICATION_JSON_TYPE)
-	  public String sayJSONHello() {
-	    return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+	  @Produces(MediaType.APPLICATION_JSON)
+	  public Track  sayJSONHello() {
+	    //return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+		Track track = new Track();
+		track.setTitle("Enter Sandman");
+		track.setSinger("Metallica");
+
+		return track;
+
 	  }
 	  // This method is called if HTML is request
 	  @GET

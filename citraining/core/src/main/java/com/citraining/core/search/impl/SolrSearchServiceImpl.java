@@ -24,10 +24,6 @@ import org.apache.solr.common.SolrInputDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
-
-
 import com.citraining.core.search.SolrSearchService;
 import com.citraining.core.search.SolrServerConfiguration;
 import com.citraining.core.utils.SolrUtils;
@@ -81,7 +77,7 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 			if (resourceType.equalsIgnoreCase("cq:PageContent")) {
 				return createPageMetadataArray(searchResults);
 			}
-			
+
 		} catch (RepositoryException e) {
 			LOG.error("Exception due to", e);
 		} finally {
@@ -121,8 +117,12 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	}
 
 	/**
-	 * This method creates JSONObject which has all the page metadata which is used to index in Solr server
-	 * @param It takes resource of type cq:PageContent to extract the page metadata
+	 * This method creates JSONObject which has all the page metadata which is
+	 * used to index in Solr server
+	 * 
+	 * @param It
+	 *            takes resource of type cq:PageContent to extract the page
+	 *            metadata
 	 * @return Json object with page's metadata
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 				"jcr:description", String.class)));
 		propertiesMap.put("publishDate", SolrUtils.checkNull(properties.get(
 				"publishdate", String.class)));
-		propertiesMap.put("body","");
+		propertiesMap.put("body", "");
 		propertiesMap.put("lastModified", SolrUtils.solrDate(properties.get(
 				"cq:lastModified", Calendar.class)));
 		propertiesMap.put("contentType", "page");
@@ -148,11 +148,14 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		return new JSONObject(propertiesMap);
 	}
 
-
 	/**
-	 * This method connects to the Solr server and indexes page content using Solrj api. This is used by bulk update handler (servlet)
-	 * @param Takes Json array and iterates over each object and index to solr
-	 * @return boolean true if it indexes successfully to solr server, else false. 
+	 * This method connects to the Solr server and indexes page content using
+	 * Solrj api. This is used by bulk update handler (servlet)
+	 * 
+	 * @param Takes
+	 *            Json array and iterates over each object and index to solr
+	 * @return boolean true if it indexes successfully to solr server, else
+	 *         false.
 	 */
 	@Override
 	public boolean indexPagesToSolr(JSONArray indexPageData,
@@ -173,9 +176,13 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	}
 
 	/**
-	 * This method connects to the Solr server and indexes page content using Solrj api. This is used by transport handler
-	 * @param Takes Json object and index to solr
-	 * @return boolean true if it indexes successfully to solr server, else false. 
+	 * This method connects to the Solr server and indexes page content using
+	 * Solrj api. This is used by transport handler
+	 * 
+	 * @param Takes
+	 *            Json object and index to solr
+	 * @return boolean true if it indexes successfully to solr server, else
+	 *         false.
 	 */
 	@Override
 	public boolean indexPageToSolr(JSONObject indexPageData,
@@ -191,8 +198,8 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		return false;
 	}
 
-	
-	private SolrInputDocument createPageSolrDoc(JSONObject pageJsonObject) throws JSONException {
+	private SolrInputDocument createPageSolrDoc(JSONObject pageJsonObject)
+			throws JSONException {
 		SolrInputDocument doc = new SolrInputDocument();
 		doc.addField("id", pageJsonObject.get("id"));
 		doc.addField("title", pageJsonObject.get("title"));
@@ -205,6 +212,5 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		return doc;
 
 	}
-
 
 }

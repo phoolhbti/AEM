@@ -55,5 +55,6 @@ com.citraining.core.services.WriteService
 Reference:
 http://www.wemblog.com/2014/08/how-to-use-sessions-and-resource.html
 http://stackoverflow.com/questions/31350548/resourceresolverfactory-getserviceresourceresolver-throws-exception-in-aem-6-1
-
+---------------------
+mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/dynamic-report-core_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
 
