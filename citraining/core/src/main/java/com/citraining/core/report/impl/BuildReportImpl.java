@@ -1,33 +1,16 @@
 package com.citraining.core.report.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.sql.Connection;
-
-import javax.sql.DataSource;
-
-import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
-import net.sf.dynamicreports.report.builder.DynamicReports;
-import net.sf.dynamicreports.report.builder.column.Columns;
-import net.sf.dynamicreports.report.builder.component.Components;
-import net.sf.dynamicreports.report.builder.datatype.DataTypes;
-import net.sf.dynamicreports.report.constant.HorizontalAlignment;
-import net.sf.dynamicreports.report.exception.DRException;
-
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.report.BuildReport;
-import com.citraining.core.utils.CommonUtil;
 import com.day.commons.datasource.poolservice.DataSourcePool;
 
-//This is a component so it can provide or consume services
+
 @Component
 @Service
 public class BuildReportImpl implements BuildReport {
@@ -45,10 +28,6 @@ public class BuildReportImpl implements BuildReport {
 
 		try {
 
-			boolean reportDetails = generateReport("Hello wrold");
-
-			logger.info("Details is " + reportDetails);
-
 			return "Report was successfully created";
 
 		} catch (Exception e) {
@@ -60,80 +39,57 @@ public class BuildReportImpl implements BuildReport {
 	}
 
 	// Write the Jasper Report to the DAM
-	// Save the uploaded file into the AEM DAM using AssetManager APIs
-	private String writeToDam(InputStream is, String fileName) {
-		try {
-			ResourceResolver resourceResolver = CommonUtil
-					.getResourceResolver(resolverFactory);
-
-			com.day.cq.dam.api.AssetManager assetMgr = resourceResolver
-					.adaptTo(com.day.cq.dam.api.AssetManager.class);
-
-			String newFile = "/content/dam/reports/" + fileName;
-
-			assetMgr.createAsset(newFile, is, "application/pdf", true);
-
-			// Return the path to the file was stored
-			return newFile;
-		} catch (Exception e) {
-			logger.info("Error IS " + e.getMessage());
-		}
-		return null;
-	}
-
-	// Returns a connection using the configured DataSourcePool
-	private Connection getConnection() {
-
-		try {
-			// Inject the DataSourcePool right here!
-			DataSource dataSource = (DataSource) dataSourcePool
-					.getDataSource("customer");
-			Connection connection = dataSource.getConnection();
-			return connection;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public boolean generateReport(String reportName) {
-
-		Connection connection = getConnection();
-		JasperReportBuilder jsperReport = DynamicReports.report();
-		jsperReport
-				.columns(
-						Columns.column("Customer Id", "custId",
-								DataTypes.integerType()),
-						Columns.column("First Name", "custFirst",
-								DataTypes.stringType()),
-						Columns.column("Last Name", "custLast",
-								DataTypes.stringType()),
-						Columns.column("Description", "custDesc",
-								DataTypes.stringType()))
-				.title(Components.text(reportName).setHorizontalAlignment(
-						HorizontalAlignment.CENTER))
-				.pageFooter(Components.pageXofY())
-				.setDataSource(
-						"SELECT custId, custFirst, custLast, custDesc FROM customer",
-						connection);
-		try {
-			jsperReport.show();
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			InputStream inputStream = new ByteArrayInputStream(
-					byteArrayOutputStream.toByteArray());
-			// int length = inputStream.available();
-
-			// logger.info("IS IS THIS BIG " + length);
-
-			// Persist the PDF Report in the AEM DAM
-			String reportDetails = writeToDam(inputStream, "JasperReport.pdf");
-			// jsperReport.toPdf(new FileOutputStream("D:/report.pdf"));
-		} catch (DRException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-
-	}
+	/*
+	 * // Save the uploaded file into the AEM DAM using AssetManager APIs
+	 * private String writeToDam(InputStream is, String fileName) { try {
+	 * ResourceResolver resourceResolver = CommonUtil
+	 * .getResourceResolver(resolverFactory);
+	 * 
+	 * com.day.cq.dam.api.AssetManager assetMgr = resourceResolver
+	 * .adaptTo(com.day.cq.dam.api.AssetManager.class);
+	 * 
+	 * String newFile = "/content/dam/reports/" + fileName;
+	 * 
+	 * assetMgr.createAsset(newFile, is, "application/pdf", true);
+	 * 
+	 * // Return the path to the file was stored return newFile; } catch
+	 * (Exception e) { logger.info("Error IS " + e.getMessage()); } return null;
+	 * }
+	 * 
+	 * // Returns a connection using the configured DataSourcePool private
+	 * Connection getConnection() {
+	 * 
+	 * try { // Inject the DataSourcePool right here! DataSource dataSource =
+	 * (DataSource) dataSourcePool .getDataSource("customer"); Connection
+	 * connection = dataSource.getConnection(); return connection;
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); } return null; }
+	 * 
+	 * public boolean generateReport(String reportName) {
+	 * 
+	 * Connection connection = getConnection(); JasperReportBuilder jsperReport
+	 * = DynamicReports.report(); jsperReport .columns(
+	 * Columns.column("Customer Id", "custId", DataTypes.integerType()),
+	 * Columns.column("First Name", "custFirst", DataTypes.stringType()),
+	 * Columns.column("Last Name", "custLast", DataTypes.stringType()),
+	 * Columns.column("Description", "custDesc", DataTypes.stringType()))
+	 * .title(Components.text(reportName).setHorizontalAlignment(
+	 * HorizontalAlignment.CENTER)) .pageFooter(Components.pageXofY())
+	 * .setDataSource(
+	 * "SELECT custId, custFirst, custLast, custDesc FROM customer",
+	 * connection); try { jsperReport.show(); ByteArrayOutputStream
+	 * byteArrayOutputStream = new ByteArrayOutputStream(); InputStream
+	 * inputStream = new ByteArrayInputStream(
+	 * byteArrayOutputStream.toByteArray()); // int length =
+	 * inputStream.available();
+	 * 
+	 * // logger.info("IS IS THIS BIG " + length);
+	 * 
+	 * // Persist the PDF Report in the AEM DAM String reportDetails =
+	 * writeToDam(inputStream, "JasperReport.pdf"); // jsperReport.toPdf(new
+	 * FileOutputStream("D:/report.pdf")); } catch (DRException e) {
+	 * e.printStackTrace(); return false; } return true;
+	 * 
+	 * }
+	 */
 }
