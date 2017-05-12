@@ -1,2 +1,2 @@
 # AEM
-AEM sample code whcih are frequently used in project...
+AEM project which is based on AEM 6.3 with enhanced code and sample.
