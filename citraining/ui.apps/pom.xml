@@ -317,11 +317,11 @@
 			<artifactId>citraining.jax-rs</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.adobe.aem</groupId>
 			<artifactId>aem-api</artifactId>
 		</dependency>
-
+ -->
 		<dependency>
 			<groupId>javax.jcr</groupId>
 			<artifactId>jcr</artifactId>
@@ -342,9 +342,10 @@
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
 		</dependency>
+		 -->
 	</dependencies>
 </project>

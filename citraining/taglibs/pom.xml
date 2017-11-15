@@ -97,9 +97,15 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 		</dependency>
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>com.adobe.aem</groupId>
 			<artifactId>aem-api</artifactId>
+		</dependency>
+		 -->
+		 <dependency>
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>apis</classifier>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -113,7 +119,11 @@
 			<groupId>junit-addons</groupId>
 			<artifactId>junit-addons</artifactId>
 		</dependency>
-
+		<!-- <dependency>
+			<groupId>com.day.cq.wcm</groupId>
+			<artifactId>cq-wcm-api</artifactId>	
+		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.sling</groupId>
 			<artifactId>org.apache.sling.scripting.jsp</artifactId>

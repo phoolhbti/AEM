@@ -27,4 +27,7 @@ http://stackoverflow.com/questions/22780347/order-by-based-on-a-expression
 
 https://helpx.adobe.com/experience-manager/using/jasper_reports.html
 
-mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/test171_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/dynamic-report-core_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+
+------------ LDAP integration with AEM 6.3------------------------
+https://github.com/Adobe-Marketing-Cloud/aem-ldap-tutorial/
