@@ -8,11 +8,11 @@ import com.adobe.cq.sightly.WCMUsePojo;
 public class QuizService extends WCMUsePojo {
 
 	protected QuizImpl services;
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public void activate() {
-		this.services = ((QuizImpl) getSlingScriptHelper().getService(
-				QuizImpl.class));
+		this.services = ((QuizImpl) getSlingScriptHelper().getService(QuizImpl.class));
 		this.logger.info("**** THE QUIZ Activate method was invoked");
 	}
 

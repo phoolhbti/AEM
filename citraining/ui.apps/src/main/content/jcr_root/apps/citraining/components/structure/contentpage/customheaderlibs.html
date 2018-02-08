@@ -1,0 +1,5 @@
+<!--/* Include a Basic Dependencies Client Lib as a Best Practice */-->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='we-retail.dependencies'}"/>
+<!--/* Include Context Hub */-->
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>

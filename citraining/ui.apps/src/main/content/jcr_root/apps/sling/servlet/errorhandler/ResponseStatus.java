@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 package apps.sling.servlet.errorhandler;
-
+/*
 import com.adobe.cq.sightly.WCMUse;
 
 public class ResponseStatus extends WCMUse {
@@ -23,4 +23,4 @@ public class ResponseStatus extends WCMUse {
     public void activate() throws Exception {
         getResponse().setStatus(404);
     }
-}
+}*/

@@ -17,14 +17,11 @@
 	<description>citraining</description>
 
 	<modules>
-		<module>jax-rs</module>
 		<module>core</module>
-		<module>taglibs</module>
 		<module>ui.apps</module>
 		<module>ui.content</module>
 		<module>it.tests</module>
 		<module>it.launcher</module>
-		<module>media</module>
 	</modules>
 
 	<properties>
@@ -36,14 +33,18 @@
 		<sling.password>admin</sling.password>
 		<vault.user>admin</vault.user>
 		<vault.password>admin</vault.password>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
+
 	<build>
 		<plugins>
 			<!-- Maven Release Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>2.5.3</version>
 				<configuration>
 					<scmCommentPrefix>[maven-scm] :</scmCommentPrefix>
 					<preparationGoals>clean install</preparationGoals>
@@ -55,22 +56,14 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
+				<version>3.0.1</version>
 				<inherited>true</inherited>
-			</plugin>
-			<!-- Maven Resources Plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
 			</plugin>
 			<!-- Maven Jar Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.5</version>
+				<version>3.0.2</version>
 			</plugin>
 			<!-- Maven Enforcer Plugin -->
 			<plugin>
@@ -85,7 +78,7 @@
 						<configuration>
 							<rules>
 								<requireMavenVersion>
-									<version>[2.2.1,)</version>
+									<version>[3.3.9,)</version>
 								</requireMavenVersion>
 								<requireJavaVersion>
 									<message>Project must be compiled with Java 8 or higher</message>
@@ -103,7 +96,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<!-- Maven IntelliJ IDEA Plugin -->
@@ -121,7 +113,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
+				<version>2.10</version>
 				<configuration>
 					<downloadSources>true</downloadSources>
 				</configuration>
@@ -133,49 +125,19 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.6.1</version>
+					<version>3.0.0</version>
 				</plugin>
 				<!-- Maven Resources Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.7</version>
+					<version>3.0.2</version>
 				</plugin>
 				<!-- Maven Compiler Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
-				</plugin>
-				<!-- Apache Felix SCR Plugin -->
-				<plugin>
-					<groupId>org.apache.felix</groupId>
-					<artifactId>maven-scr-plugin</artifactId>
-					<version>1.20.0</version>
-					<executions>
-						<execution>
-							<id>generate-scr-scrdescriptor</id>
-							<goals>
-								<goal>scr</goal>
-							</goals>
-							<configuration>
-								<!-- Private service properties for all services. -->
-								<properties>
-									<service.vendor>Adobe</service.vendor>
-								</properties>
-							</configuration>
-						</execution>
-					</executions>
-					<configuration>
-						<outputDirectory>${project.build.directory}/classes</outputDirectory>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.slf4j</groupId>
-							<artifactId>slf4j-simple</artifactId>
-							<version>1.5.11</version>
-						</dependency>
-					</dependencies>
+					<version>3.6.1</version>
 				</plugin>
 				<!-- Maven Installer Plugin -->
 				<plugin>
@@ -187,13 +149,13 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.18.1</version>
+					<version>2.20</version>
 				</plugin>
 				<!-- Maven Failsafe Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.18.1</version>
+					<version>2.20</version>
 				</plugin>
 				<!-- Maven Deploy Plugin -->
 				<plugin>
@@ -205,56 +167,65 @@
 				<plugin>
 					<groupId>org.apache.sling</groupId>
 					<artifactId>maven-sling-plugin</artifactId>
-					<version>2.1.0</version>
+					<version>2.2.0</version>
+					<configuration>
+						<slingUrl>http://${aem.host}:${aem.port}/system/console</slingUrl>
+						<deploymentMethod>WebConsole</deploymentMethod>
+					</configuration>
+				</plugin>
+				<!-- HTL Maven Plugin -->
+				<plugin>
+					<groupId>org.apache.sling</groupId>
+					<artifactId>htl-maven-plugin</artifactId>
+					<version>1.0.6</version>
+					<configuration>
+						<failOnWarnings>true</failOnWarnings>
+					</configuration>
 					<executions>
 						<execution>
 							<goals>
-								<goal>install</goal>
+								<goal>validate</goal>
 							</goals>
 						</execution>
 					</executions>
-					<configuration>
-						<slingUrl>http://${aem.host}:${aem.port}/crx/repository/crx.default</slingUrl>
-						<usePut>true</usePut>
-						<failOnError>true</failOnError>
-					</configuration>
 				</plugin>
 				<!-- Content Package Plugin -->
 				<plugin>
 					<groupId>com.day.jcr.vault</groupId>
 					<artifactId>content-package-maven-plugin</artifactId>
-					<version>0.0.24</version>
+					<version>0.5.1</version>
 					<configuration>
 						<targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
 						<failOnError>true</failOnError>
 						<failOnMissingEmbed>true</failOnMissingEmbed>
+						<userId>${vault.user}</userId>
+						<password>${vault.password}</password>
 					</configuration>
 				</plugin>
 				<!-- Apache Felix Bundle Plugin -->
 				<plugin>
 					<groupId>org.apache.felix</groupId>
 					<artifactId>maven-bundle-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.3.0</version>
 					<inherited>true</inherited>
-					<!-- use 3.2.0 to use the new annotations -->
 				</plugin>
 				<!-- Maven Enforcer Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>1.4</version>
+					<version>1.4.1</version>
 				</plugin>
 				<!-- Maven Dependency Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.10</version>
+					<version>3.0.0</version>
 				</plugin>
 				<!-- Build Helper Maven Plugin -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>1.9.1</version>
+					<version>3.0.0</version>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
@@ -374,6 +345,92 @@
 				</pluginRepository>
 			</pluginRepositories>
 		</profile>
+
+		<!-- Development profile: install only the bundle -->
+		<profile>
+			<id>autoInstallBundle</id>
+			<!-- To enable this feature for a bundle, the maven-sling-plugin (without 
+				configuration) needs to be included: <plugin> <groupId>org.apache.sling</groupId> 
+				<artifactId>maven-sling-plugin</artifactId> </plugin> -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.sling</groupId>
+							<artifactId>maven-sling-plugin</artifactId>
+							<executions>
+								<execution>
+									<id>install-bundle</id>
+									<goals>
+										<goal>install</goal>
+									</goals>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
+		<profile>
+			<id>autoInstallPackage</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>com.day.jcr.vault</groupId>
+							<artifactId>content-package-maven-plugin</artifactId>
+							<executions>
+								<execution>
+									<id>install-package</id>
+									<goals>
+										<goal>install</goal>
+									</goals>
+									<configuration>
+										<targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
+		<profile>
+			<id>autoInstallPackagePublish</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>com.day.jcr.vault</groupId>
+							<artifactId>content-package-maven-plugin</artifactId>
+							<executions>
+								<execution>
+									<id>install-package-publish</id>
+									<goals>
+										<goal>install</goal>
+									</goals>
+									<configuration>
+										<targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
 	</profiles>
 
 
@@ -384,33 +441,21 @@
 		<dependencies>
 			<!-- OSGi Dependencies -->
 			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.scr</artifactId>
-				<version>1.6.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.scr.annotations</artifactId>
-				<version>1.9.6</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>biz.aQute</groupId>
-				<artifactId>bndlib</artifactId>
-				<version>1.50.0</version>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.core</artifactId>
+				<version>6.0.0</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.core</artifactId>
-				<version>4.2.0</version>
+				<artifactId>osgi.cmpn</artifactId>
+				<version>6.0.0</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.compendium</artifactId>
-				<version>4.2.0</version>
+				<artifactId>osgi.annotation</artifactId>
+				<version>6.0.1</version>
 				<scope>provided</scope>
 			</dependency>
 			<!-- Logging Dependencies -->
@@ -420,47 +465,32 @@
 				<version>1.5.11</version>
 				<scope>provided</scope>
 			</dependency>
-
-			<!-- dependency for AEM6.3 SP1 -->
+			<!-- Adobe AEM Dependencies -->
 			<dependency>
 				<groupId>com.adobe.aem</groupId>
 				<artifactId>uber-jar</artifactId>
-				<version>6.3.1</version>
+				<version>6.3.0</version>
 				<classifier>apis</classifier>
-			<!-- 	<scope>provided</scope>  -->
+				<!-- <scope>provided</scope> -->
 			</dependency>
-
-			<!-- needed for javax.Inject -->
 			<dependency>
-				<groupId>javax.inject</groupId>
-				<artifactId>javax.inject</artifactId>
-				<version>1</version>
+				<groupId>com.adobe.cq</groupId>
+				<artifactId>core.wcm.components.all</artifactId>
+				<type>zip</type>
+				<version>1.0.6</version>
+			</dependency>
+			<!-- Apache Sling Dependencies -->
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.models.api</artifactId>
+				<version>1.0.0</version>
 				<scope>provided</scope>
 			</dependency>
-
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.service.component.annotations</artifactId>
-				<version>1.3.0</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.annotation</artifactId>
-				<version>6.0.0</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.service.metatype.annotations</artifactId>
-				<version>1.3.0</version>
-			</dependency>
-
 			<!-- Servlet API -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
-				<version>2.4</version>
+				<version>2.5</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
@@ -483,30 +513,12 @@
 				<version>5.7.4</version>
 				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.eventadmin</artifactId>
-				<version>1.4.8</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.day.commons</groupId>
-				<artifactId>day.commons.datasource.poolservice</artifactId>
-				<version>1.0.10</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- Core Components -->
-			<dependency>
-				<groupId>com.adobe.cq</groupId>
-				<artifactId>core.wcm.components.core</artifactId>
-				<version>1.1.0</version>
-				<scope>provided</scope>
-			</dependency>
+
 			<!-- Testing -->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.8.2</version>
+				<version>4.12</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -517,8 +529,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.mockito</groupId>
-				<artifactId>mockito-all</artifactId>
-				<version>1.9.5</version>
+				<artifactId>mockito-core</artifactId>
+				<version>2.7.22</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -527,29 +539,66 @@
 				<version>1.4</version>
 				<scope>test</scope>
 			</dependency>
-			<!-- sling api -->
 			<dependency>
-				<groupId>org.apache.sling</groupId>
-				<artifactId>org.apache.sling.api</artifactId>
-				<version>2.16.2</version>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.scr.annotations</artifactId>
+				<version>1.12.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.day.commons.osgi.wrapper</groupId>
+				<artifactId>com.day.commons.osgi.wrapper.commons-email</artifactId>
+				<version>1.2.0-0002</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.servicemix.bundles</groupId>
-				<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
-				<version>5.4.1_1</version>
+				<groupId>com.adobe.cq</groupId>
+				<artifactId>core.wcm.components.core</artifactId>
+				<version>1.0.4</version>
+				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>com.adobe.cq</groupId>
+				<artifactId>core.wcm.components.all</artifactId>
+				<type>zip</type>
+				<version>1.0.4</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.commons</groupId>
+				<artifactId>day.commons.datasource.poolservice</artifactId>
+				<version>1.0.10</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.fragment.xml</artifactId>
+				<version>1.0.2</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<dependency>
 				<groupId>com.day.commons.osgi.wrapper</groupId>
 				<artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>
 				<version>2.5-0001</version>
 				<scope>provided</scope>
 			</dependency>
-		<dependency>
+			<dependency>
 			<groupId>com.day.jcr.vault</groupId>
 			<artifactId>com.day.jcr.vault</artifactId>
 			<version>2.4.32</version>			
 		</dependency>
+		<dependency>
+	<groupId>org.apache.commons</groupId>
+	<artifactId>commons-lang3</artifactId>
+	<version>3.5</version>
+	<scope>provided</scope>
+</dependency>
+<dependency>
+	<groupId>com.adobe.cq.sightly</groupId>
+	<artifactId>cq-wcm-sightly-extension</artifactId>
+	<version>1.4.28</version>
+	<scope>provided</scope>
+</dependency>
 		</dependencies>
 	</dependencyManagement>
 

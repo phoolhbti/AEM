@@ -1,0 +1,69 @@
+package com.citraining.core.mail.impl;
+
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.SimpleEmail;
+//import org.apache.felix.scr.annotations.Activate;
+//import org.apache.felix.scr.annotations.Component;
+/*import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.Service;*/
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.osgi.service.component.ComponentContext;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.citraining.core.mail.MailService;
+import com.day.cq.mailer.MessageGateway;
+import com.day.cq.mailer.MessageGatewayService;
+
+@Component (service=MailService.class,configurationPolicy=ConfigurationPolicy.REQUIRE)
+@Designate(ocd = EmailConfiguration.class)
+public class MailServiceImpl implements MailService {
+	
+	private EmailConfiguration config;
+	@Reference
+	private MessageGatewayService messageGatewayService;
+
+	@Reference
+	private ResourceResolverFactory resolverFactory;
+
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	
+
+	@Activate
+	protected void activate(ComponentContext ctx) {
+		address = PropertiesUtil.toString(ctx.getProperties().get(ADDRESS), DEFAULT_ADDRESS);
+		fromaddress = PropertiesUtil.toString(ctx.getProperties().get(FROMADDRESS), DEFAULT_FROMADDRESS);
+
+		logger.info("THE from address is {}", fromaddress);
+
+	}
+
+	public void sendMail(String message) {
+
+		try{
+
+			MessageGateway<Email> messageGateway;
+
+			Email email = new SimpleEmail();
+
+			email.addTo(address);
+			email.setSubject("AEM Service");
+			email.setFrom(fromaddress);
+			email.setMsg(message);
+
+			messageGateway = messageGatewayService.getGateway(Email.class);
+
+			messageGateway.send(email);
+
+		} catch (Exception exception){
+
+			logger.info(exception.getMessage());
+		}
+	}
+}

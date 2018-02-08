@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1516598597335_0" label="citraining" name="citraining">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.core" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.ui.apps" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.it.launcher" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.jax-rs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.taglibs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.media" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.ui.content" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/citraining.it.tests" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1517753368453_1" label="Window Working Set" name="Aggregate for window 1517753368453"/>
+</workingSetManager>

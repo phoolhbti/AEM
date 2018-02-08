@@ -1,0 +1,6 @@
+
+psquid:S1948":Make "solrConfigurationService" transient or serializable.(Ξ«όÿÿÿÿHή™RCRITICALZ
+CODE_SMELL
+€squid:S00117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(εξήςHέ™RMINORZ
+CODE_SMELL
+usquid:S2095'"LUse try-with-resources or close this "HttpSolrClient" in a "finally" clause.(σέ±…HΫ™RBLOCKERZBUG

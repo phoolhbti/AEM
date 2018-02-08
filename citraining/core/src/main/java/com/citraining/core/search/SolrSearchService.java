@@ -17,15 +17,12 @@ public interface SolrSearchService {
 
 	JSONArray crawlContent(String resourcePath, String resourceType);
 
-	JSONArray createPageMetadataArray(SearchResult results)
-			throws RepositoryException;
+	JSONArray createPageMetadataArray(SearchResult results) throws RepositoryException;
 
 	JSONObject createPageMetadataObject(Resource pageContent);
 
-	boolean indexPageToSolr(JSONObject indexPageData, HttpSolrClient server)
-			throws JSONException, SolrServerException, IOException;
+	boolean indexPageToSolr(JSONObject indexPageData, HttpSolrClient server) throws JSONException, SolrServerException, IOException;
 
-	boolean indexPagesToSolr(JSONArray indexPageData, HttpSolrClient server)
-			throws JSONException, SolrServerException, IOException;
+	boolean indexPagesToSolr(JSONArray indexPageData, HttpSolrClient server) throws JSONException, SolrServerException, IOException;
 
 }

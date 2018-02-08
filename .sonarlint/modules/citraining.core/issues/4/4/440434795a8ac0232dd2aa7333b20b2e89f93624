@@ -1,0 +1,9 @@
+
+ssquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(ÑöóŽøÿÿÿÿH•¯RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(¤âÀ‰ÿÿÿÿÿH–¯RMINORZ
+CODE_SMELL
+usquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(ì¾ÔîûÿÿÿÿH”¯RMINORZ
+CODE_SMELL
+lsquid:S22596"EA "NullPointerException" could be thrown; "session" is nullable here.(¶‚ï¾H˜¯RMAJORZBUG
+lsquid:S22593"EA "NullPointerException" could be thrown; "session" is nullable here.(‰—¾…H™¯RMAJORZBUG

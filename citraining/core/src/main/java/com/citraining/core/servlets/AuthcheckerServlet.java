@@ -1,48 +1,38 @@
 package com.citraining.core.servlets;
 
 import javax.jcr.Session;
+import javax.servlet.Servlet;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component(metatype = false)
-@Service
+@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Authentication Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_HEAD, "sling.servlet.paths={/bin/permissioncheck}" })
 public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 	private static final long serialVersionUID = 7979979958671281729L;
 
-	@Property(value = "/bin/permissioncheck")
-	static final String SERVLET_PATH = "sling.servlet.paths";
+	private transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	public void doHead(SlingHttpServletRequest request,
-			SlingHttpServletResponse response) {
-		try {
-
+	@Override
+	public void doHead(SlingHttpServletRequest request, SlingHttpServletResponse response) {
+		try{
 			String uri = request.getParameter("uri");
-
-			Session session = request.getResourceResolver().adaptTo(
-					javax.jcr.Session.class);
-
-			try {
+			Session session = request.getResourceResolver().adaptTo(Session.class);
+			if (null != session){
 				session.checkPermission(uri, Session.ACTION_READ);
 				logger.info("authchecker says OK");
 				response.setStatus(SlingHttpServletResponse.SC_OK);
-			} catch (Exception e) {
-				logger.info("authchecker says READ access DENIED!");
-				response.setStatus(SlingHttpServletResponse.SC_FORBIDDEN);
-				// throw new
-				// CITrainingException("SystemException in doGet method ", e);
 			}
-		} catch (Exception e) {
-			logger.error("authchecker servlet exception: " + e.getMessage());
+		} catch (Exception e){
+			logger.info("authchecker says READ access DENIED!");
+			response.setStatus(SlingHttpServletResponse.SC_FORBIDDEN);
 		}
+
 	}
 }

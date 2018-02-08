@@ -1,0 +1,15 @@
+
+ásquid:CallToDeprecatedMethodQ"ARemove this use of "InjectAnnotationProcessor"; it is deprecated.(«îç¸8ñûË†ó,H¢ßRMINORZ
+CODE_SMELL
+Ösquid:CommentedOutCodeLineH"<This block of commented-out lines of code should be removed.(πñı‰˘ˇˇˇˇ8ñûË†ó,HùßRMAJORZ
+CODE_SMELL
+ésquid:CallToDeprecatedMethod"HRemove this use of "InjectAnnotationProcessorFactory"; it is deprecated.(ìÁ˚’8ñûË†ó,H°ßRMINORZ
+CODE_SMELL
+wsquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(∫Äà–8ñûË†ó,HûßRMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(“ˆï•8ñûË†ó,H†ßRMINORZ
+CODE_SMELL
+îsquid:CallToDeprecatedMethod["IRemove this use of "AbstractInjectAnnotationProcessor"; it is deprecated.(‹¬Ì”¯ˇˇˇˇ8ñûË†ó,H£ßRMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(—ˆÛé¯ˇˇˇˇ8ñûË†ó,HüßRMINORZ
+CODE_SMELL

@@ -2,24 +2,26 @@ package com.citraining.core.mail.impl;
 
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.citraining.core.config.EmailConfiguration;
 import com.citraining.core.mail.MailService;
 import com.day.cq.mailer.MessageGateway;
 import com.day.cq.mailer.MessageGatewayService;
 
-@Component(metatype = true, label = "simple mailservice", description = "simple mailservice", configurationFactory = true)
-@Service
+@Component (service = MailService.class, configurationPolicy = ConfigurationPolicy.REQUIRE)
+@Designate (ocd = EmailConfiguration.class)
 public class MailServiceImpl implements MailService {
+
+	private EmailConfiguration config;
 
 	@Reference
 	private MessageGatewayService messageGatewayService;
@@ -29,50 +31,24 @@ public class MailServiceImpl implements MailService {
 
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private static final String DEFAULT_ADDRESS = "XXX@gmail.com";
-	private String address;
-	private String fromaddress;
-
-	@Property(description = "adress to whom email is sent", value = DEFAULT_ADDRESS)
-	private static final String ADDRESS = "mailservice.address";
-
-	private static final String DEFAULT_FROMADDRESS = "test@hotmail.com";
-	@Property(description = "address uses to represent from address", value = DEFAULT_FROMADDRESS)
-	private static final String FROMADDRESS = "mailservice.username";
-
-	@Property(description = "Label for this SMTP service")
-	private static final String NAME = "mailservice.label";
-
 	@Activate
 	protected void activate(ComponentContext ctx) {
-		address = PropertiesUtil.toString(ctx.getProperties().get(ADDRESS),
-				DEFAULT_ADDRESS);
-		fromaddress = PropertiesUtil.toString(
-				ctx.getProperties().get(FROMADDRESS), DEFAULT_FROMADDRESS);
-
-		logger.info("THE from address is " + fromaddress);
-
+		/**
+		 * used to initalize variable when component getting started
+		 */
 	}
 
 	public void sendMail(String message) {
-
-		try {
-
+		try{
 			MessageGateway<Email> messageGateway;
-
 			Email email = new SimpleEmail();
-
-			email.addTo(address);
-			email.setSubject("AEM Service");
-			email.setFrom(fromaddress);
+			email.addTo(config.getAddress());
+			email.setSubject("Hello Email service");
+			email.setFrom(config.getFromEmailAdd());
 			email.setMsg(message);
-
 			messageGateway = messageGatewayService.getGateway(Email.class);
-
 			messageGateway.send(email);
-
-		} catch (Exception exception) {
-
+		} catch (Exception exception){
 			logger.info(exception.getMessage());
 		}
 	}

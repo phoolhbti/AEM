@@ -7,19 +7,19 @@ import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 
+import com.drew.lang.annotations.NotNull;
+
+
+
 public class CommonUtil {
-	public static ResourceResolver getResourceResolver(
-			ResourceResolverFactory resourceResolverFactory)
-			throws LoginException {
-		Map<String, Object> param = new HashMap<String, Object>();
+	private CommonUtil() {
+		throw new IllegalStateException("CommonUtil class");
+	}
+
+	public static ResourceResolver getResourceResolver(@NotNull ResourceResolverFactory resourceResolverFactory) throws LoginException {
+		Map<String, Object> param = new HashMap<>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "writeService");
-		ResourceResolver resourceResolver = resourceResolverFactory
-				.getServiceResourceResolver(param);
-
-		if (null == resourceResolver)
-			throw new LoginException(
-					"Could not obtain a CRX User for the Service:'writeService'");
-
+		ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
 		return resourceResolver;
 	}
 

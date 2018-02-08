@@ -1,0 +1,32 @@
+
+ssquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(å”îüÿÿÿÿH®¯RMINORZ
+CODE_SMELL
+dsquid:S1135;"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿH¬¯RINFOZ
+CODE_SMELL
+ksquid:S2259E"DA "NullPointerException" could be thrown; "parent" is nullable here.(Ñü›©H²¯RMAJORZBUG
+osquid:S2259J"HA "NullPointerException" could be thrown; "contentRes" is nullable here.(ßá¤ŒH±¯RMAJORZBUG
+psquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(º€ˆĞH­¯RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(™ä—şÿÿÿÿH¯¯RMINORZ
+CODE_SMELL
+lsquid:S2259H"@A "NullPointerException" could be thrown; "pm" is nullable here.(İ½Š¢şÿÿÿÿH³¯RMAJORZBUG
+Ysquid:S1148S"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¶¯RMINORZVULNERABILITY
+€squid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(¤üŠì8ëõÈ¡—,H¾¯RMAJORZ
+CODE_SMELL
+esquid:S2629L"7Use the built-in formatting to construct this argument.(ĞÔßŞH¨¯RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(¨şèšıÿÿÿÿHª¯RMAJORZ
+CODE_SMELL
+½%squid:RedundantThrowsDeclarationCheck%"vRemove the declaration of thrown exception 'com.day.cq.polling.importer.ImportException' which is a runtime exception.(ï£ûSH£¯RMINORZ
+CODE_SMELL
+…squid:S00116 "QRename this field "LOGGER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¤›èÿÿÿÿÿH´¯RMINORZ
+CODE_SMELL
+zsquid:S2095)"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(»ÅøêúÿÿÿÿH©¯RBLOCKERZBUG
+¾%squid:RedundantThrowsDeclarationCheck:"vRemove the declaration of thrown exception 'com.day.cq.polling.importer.ImportException' which is a runtime exception.(àä‰“H¤¯RMINORZ
+CODE_SMELL
+esquid:S2629F"7Use the built-in formatting to construct this argument.(¥Š×ÁH§¯RMAJORZ
+CODE_SMELL
+Tsquid:S1170""!Make this final field static too.( ¬ÛƒûÿÿÿÿH°¯RMINORZ
+CODE_SMELL
+‰squid:S00116""URename this field "SOURCE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¬ÛƒûÿÿÿÿHµ¯RMINORZ
+CODE_SMELL

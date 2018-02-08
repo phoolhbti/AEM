@@ -1,0 +1,13 @@
+
+{squid:CallToDeprecatedMethod"0Remove this use of "Activate"; it is deprecated.(žÕÖ‹þÿÿÿÿ8û çý–,Hð–RMINORZ
+CODE_SMELL
+wsquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(¥Ã²Ó8û çý–,Hî–RMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(ÑöóŽøÿÿÿÿ8û çý–,Hí–RMINORZ
+CODE_SMELL
+wsquid:S2147-"DCombine this catch with the one at line 43, which has the same body.(ûÀ¹ßúÿÿÿÿHê–RMINORZ
+CODE_SMELL
+msquid:S2259#"FA "NullPointerException" could be thrown; "resource" is nullable here.(Ÿ™„ÔHì–RMAJORZBUG
+vsquid:CallToDeprecatedMethod"1Remove this use of "Reference"; it is deprecated.(“¿‹W8û çý–,Hï–RMINORZ
+CODE_SMELL
+Ysquid:S11480"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHë–RMINORZVULNERABILITY

@@ -1,0 +1,14 @@
+package com.citraining.core.services;
+
+import org.osgi.service.component.annotations.Component;
+
+@Component
+public class PageServiceImp implements PageService {
+
+	@Override
+	public String createPage(String pageName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

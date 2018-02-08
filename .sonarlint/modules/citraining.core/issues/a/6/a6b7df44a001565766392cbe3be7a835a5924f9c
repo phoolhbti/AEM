@@ -1,0 +1,21 @@
+
+xsquid:S22598"EA "NullPointerException" could be thrown; "session" is nullable here.(Ò—œŸşÿÿÿÿ8ŒÔë¡—,H£°RMAJORZBUG
+vsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(öÜâ¾8¬àç¡—,H€°RMINORZ
+CODE_SMELL
+ssquid:S22596"EA "NullPointerException" could be thrown; "newNode" is nullable here.(Æè…½8ŒÔë¡—,H¤°RMAJORZBUG
+squid:CallToDeprecatedMethod)"IRemove this use of "getAdministrativeResourceResolver"; it is deprecated.(ğµß8ŒÔë¡—,H¡°RMINORZ
+CODE_SMELL
+ˆsquid:S1450"SRemove the "user" field and declare it as a local variable in the relevant methods.(†Şÿ8¬àç¡—,Hƒ°RMINORZ
+CODE_SMELL
+|squid:S22591"IA "NullPointerException" could be thrown; "pageManager" is nullable here.(¼ØÇôùÿÿÿÿ8ŒÔë¡—,H¢°RMAJORZBUG
+]squid:S1068"(Remove this unused "user" private field.(†Şÿ8¬àç¡—,H‚°RMAJORZ
+CODE_SMELL
+msquid:S18549"8Remove this useless assignment to local variable "path".(ë¦Š˜8¬àç¡—,H‰°RMAJORZ
+CODE_SMELL
+_squid:S1068"*Remove this unused "LOGGER" private field.(Ì¨ø…8ş²š¢—,H´°RMAJORZ
+CODE_SMELL
+^squid:S14819")Remove this unused "path" local variable.(ë¦Š˜8¬àç¡—,H†°RMINORZ
+CODE_SMELL
+`squid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬àç¡—,HŠ°RMINORZVULNERABILITY
+{squid:S1075"ARefactor your code to get this URI from a customizable parameter.(äûûÿÿÿÿ8¬àç¡—,H°RMINORZ
+CODE_SMELL

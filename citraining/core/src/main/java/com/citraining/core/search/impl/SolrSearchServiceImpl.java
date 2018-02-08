@@ -37,8 +37,7 @@ import com.day.cq.search.result.SearchResult;
 @Service
 public class SolrSearchServiceImpl implements SolrSearchService {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(SolrSearchServiceImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SolrSearchServiceImpl.class);
 
 	@Reference
 	private QueryBuilder queryBuilder;
@@ -67,21 +66,20 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 
 		Session session = null;
 
-		try {
+		try{
 			session = repository.loginAdministrative(null);
-			Query query = queryBuilder.createQuery(
-					PredicateGroup.create(params), session);
+			Query query = queryBuilder.createQuery(PredicateGroup.create(params), session);
 			SearchResult searchResults = query.getResult();
-			LOG.info("Found '{}' matches for query",
-					searchResults.getTotalMatches());
-			if (resourceType.equalsIgnoreCase("cq:PageContent")) {
+			LOG.info("Found '{}' matches for query", searchResults.getTotalMatches());
+			if (resourceType.equalsIgnoreCase("cq:PageContent")){
 				return createPageMetadataArray(searchResults);
 			}
 
-		} catch (RepositoryException e) {
+		} catch (RepositoryException e){
 			LOG.error("Exception due to", e);
-		} finally {
-			if (session.isLive() || session != null) {
+		}
+		finally{
+			if ( session != null && session.isLive()){
 				session.logout();
 			}
 		}
@@ -90,24 +88,20 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	}
 
 	/**
-	 * This method takes search result of content pages and creates a JSON array
-	 * object with properties
+	 * This method takes search result of content pages and creates a JSON array object with properties
 	 * 
 	 * @param results
 	 * @return
 	 * @throws RepositoryException
 	 */
 	@Override
-	public JSONArray createPageMetadataArray(SearchResult results)
-			throws RepositoryException {
+	public JSONArray createPageMetadataArray(SearchResult results) throws RepositoryException {
 		JSONArray solrDocs = new JSONArray();
-		for (Hit hit : results.getHits()) {
+		for (Hit hit : results.getHits()){
 			Resource pageContent = hit.getResource();
 			ValueMap properties = pageContent.adaptTo(ValueMap.class);
-			String isPageIndexable = properties.get("notsolrindexable",
-					String.class);
-			if (null != isPageIndexable && isPageIndexable.equals("true"))
-				continue;
+			String isPageIndexable = properties.get("notsolrindexable", String.class);
+			if (null != isPageIndexable && isPageIndexable.equals("true")) continue;
 			JSONObject propertiesMap = createPageMetadataObject(pageContent);
 			solrDocs.put(propertiesMap);
 		}
@@ -117,12 +111,9 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	}
 
 	/**
-	 * This method creates JSONObject which has all the page metadata which is
-	 * used to index in Solr server
+	 * This method creates JSONObject which has all the page metadata which is used to index in Solr server
 	 * 
-	 * @param It
-	 *            takes resource of type cq:PageContent to extract the page
-	 *            metadata
+	 * @param It takes resource of type cq:PageContent to extract the page metadata
 	 * @return Json object with page's metadata
 	 */
 	@Override
@@ -132,38 +123,30 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		propertiesMap.put("url", pageContent.getParent().getPath() + ".html");
 		ValueMap properties = pageContent.adaptTo(ValueMap.class);
 		String pageTitle = properties.get("jcr:title", String.class);
-		if (StringUtils.isEmpty(pageTitle)) {
+		if (StringUtils.isEmpty(pageTitle)){
 			pageTitle = pageContent.getParent().getName();
 		}
 		propertiesMap.put("title", pageTitle);
-		propertiesMap.put("description", SolrUtils.checkNull(properties.get(
-				"jcr:description", String.class)));
-		propertiesMap.put("publishDate", SolrUtils.checkNull(properties.get(
-				"publishdate", String.class)));
+		propertiesMap.put("description", SolrUtils.checkNull(properties.get("jcr:description", String.class)));
+		propertiesMap.put("publishDate", SolrUtils.checkNull(properties.get("publishdate", String.class)));
 		propertiesMap.put("body", "");
-		propertiesMap.put("lastModified", SolrUtils.solrDate(properties.get(
-				"cq:lastModified", Calendar.class)));
+		propertiesMap.put("lastModified", SolrUtils.solrDate(properties.get("cq:lastModified", Calendar.class)));
 		propertiesMap.put("contentType", "page");
 		propertiesMap.put("tags", SolrUtils.getPageTags(pageContent));
 		return new JSONObject(propertiesMap);
 	}
 
 	/**
-	 * This method connects to the Solr server and indexes page content using
-	 * Solrj api. This is used by bulk update handler (servlet)
+	 * This method connects to the Solr server and indexes page content using Solrj api. This is used by bulk update handler (servlet)
 	 * 
-	 * @param Takes
-	 *            Json array and iterates over each object and index to solr
-	 * @return boolean true if it indexes successfully to solr server, else
-	 *         false.
+	 * @param Takes Json array and iterates over each object and index to solr
+	 * @return boolean true if it indexes successfully to solr server, else false.
 	 */
 	@Override
-	public boolean indexPagesToSolr(JSONArray indexPageData,
-			HttpSolrClient server) throws JSONException, SolrServerException,
-			IOException {
-		if (null != indexPageData) {
+	public boolean indexPagesToSolr(JSONArray indexPageData, HttpSolrClient server) throws JSONException, SolrServerException, IOException {
+		if (null != indexPageData){
 
-			for (int i = 0; i < indexPageData.length(); i++) {
+			for (int i = 0; i < indexPageData.length(); i++){
 				JSONObject pageJsonObject = indexPageData.getJSONObject(i);
 				SolrInputDocument doc = createPageSolrDoc(pageJsonObject);
 				server.add(doc);
@@ -176,19 +159,14 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	}
 
 	/**
-	 * This method connects to the Solr server and indexes page content using
-	 * Solrj api. This is used by transport handler
+	 * This method connects to the Solr server and indexes page content using Solrj api. This is used by transport handler
 	 * 
-	 * @param Takes
-	 *            Json object and index to solr
-	 * @return boolean true if it indexes successfully to solr server, else
-	 *         false.
+	 * @param Takes Json object and index to solr
+	 * @return boolean true if it indexes successfully to solr server, else false.
 	 */
 	@Override
-	public boolean indexPageToSolr(JSONObject indexPageData,
-			HttpSolrClient server) throws JSONException, SolrServerException,
-			IOException {
-		if (null != indexPageData) {
+	public boolean indexPageToSolr(JSONObject indexPageData, HttpSolrClient server) throws JSONException, SolrServerException, IOException {
+		if (null != indexPageData){
 			SolrInputDocument doc = createPageSolrDoc(indexPageData);
 			server.add(doc);
 			server.commit();
@@ -198,8 +176,7 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		return false;
 	}
 
-	private SolrInputDocument createPageSolrDoc(JSONObject pageJsonObject)
-			throws JSONException {
+	private SolrInputDocument createPageSolrDoc(JSONObject pageJsonObject) throws JSONException {
 		SolrInputDocument doc = new SolrInputDocument();
 		doc.addField("id", pageJsonObject.get("id"));
 		doc.addField("title", pageJsonObject.get("title"));

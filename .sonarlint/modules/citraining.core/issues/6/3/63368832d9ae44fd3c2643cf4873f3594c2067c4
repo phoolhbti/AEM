@@ -1,0 +1,58 @@
+
+nsquid:S2259z"GA "NullPointerException" could be thrown; "getParent" is nullable here.(¤ÍóH˜RMAJORZBUG
+xsquid:S1192"FDefine a constant instead of duplicating this literal "title" 3 times.(İËÛàHš˜RCRITICALZ
+CODE_SMELL
+ƒsquid:S1192†"LDefine a constant instead of duplicating this literal "contentType" 3 times.(¸ñÚãúÿÿÿÿH—˜RCRITICALZ
+CODE_SMELL
+wsquid:CallToDeprecatedMethod$"1Remove this use of "Component"; it is deprecated.(º€ˆĞ8ÏšÊÿ–,H¥˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod*"1Remove this use of "Reference"; it is deprecated.(“¿‹W8ÏšÊÿ–,H§˜RMINORZ
+CODE_SMELL
+tsquid:S2259}"HA "NullPointerException" could be thrown; "properties" is nullable here.(ñìğ„úÿÿÿÿH ˜RMAJORZBUG
+|squid:CallToDeprecatedMethodb"1Remove this use of "JSONArray"; it is deprecated.(ØÇÆœşÿÿÿÿ8ÏšÊÿ–,H«˜RMINORZ
+CODE_SMELL
+nsquid:S2259{"GA "NullPointerException" could be thrown; "getParent" is nullable here.(ûÔèH›˜RMAJORZBUG
+|squid:CallToDeprecatedMethod’"5Remove this use of "JSONException"; it is deprecated.(‘‚é8ÏšÊÿ–,H²˜RMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethodF";Remove this use of "loginAdministrative"; it is deprecated.(Ú¥÷êH˜˜RMINORZ
+CODE_SMELL
+ysquid:CallToDeprecatedMethodˆ"2Remove this use of "JSONObject"; it is deprecated.(‰ŞÈè8ÏšÊÿ–,H°˜RMINORZ
+CODE_SMELL
+~squid:CallToDeprecatedMethod¨"2Remove this use of "JSONObject"; it is deprecated.(€¿Ù®şÿÿÿÿ8ÏšÊÿ–,H´˜RMINORZ
+CODE_SMELL
+‡squid:S2293y"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰ã‘÷HŸ˜RMINORZ
+CODE_SMELL
+}squid:S1192‚"LDefine a constant instead of duplicating this literal "description" 3 times.(Š“ñH™˜RCRITICALZ
+CODE_SMELL
+squid:S1192…"MDefine a constant instead of duplicating this literal "lastModified" 3 times.(Ü„¹ïHœ˜RCRITICALZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodx"2Remove this use of "JSONObject"; it is deprecated.(Óô×½8ÏšÊÿ–,H¯˜RMINORZ
+CODE_SMELL
+~squid:CallToDeprecatedMethod³"2Remove this use of "JSONObject"; it is deprecated.(ùÂíûÿÿÿÿ8ÏšÊÿ–,H¶˜RMINORZ
+CODE_SMELL
+|squid:CallToDeprecatedMethod;"1Remove this use of "JSONArray"; it is deprecated.(‹é›øşÿÿÿÿ8ÏšÊÿ–,Hª˜RMINORZ
+CODE_SMELL
+squid:CallToDeprecatedMethod¨"5Remove this use of "JSONException"; it is deprecated.(€¿Ù®şÿÿÿÿ8ÏšÊÿ–,Hµ˜RMINORZ
+CODE_SMELL
+Œsquid:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›ÓíüÿÿÿÿH˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethod’"1Remove this use of "JSONArray"; it is deprecated.(‘‚é8ÏšÊÿ–,H±˜RMINORZ
+CODE_SMELL
+ysquid:CallToDeprecatedMethod–"2Remove this use of "JSONObject"; it is deprecated.(óİˆà8ÏšÊÿ–,H³˜RMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethod%"/Remove this use of "Service"; it is deprecated.(Ñöóøÿÿÿÿ8ÏšÊÿ–,H¦˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod-"1Remove this use of "Reference"; it is deprecated.(“¿‹W8ÏšÊÿ–,H¨˜RMINORZ
+CODE_SMELL
+squid:CallToDeprecatedMethod³"5Remove this use of "JSONException"; it is deprecated.(ùÂíûÿÿÿÿ8ÏšÊÿ–,H·˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod0"1Remove this use of "Reference"; it is deprecated.(“¿‹W8ÏšÊÿ–,H©˜RMINORZ
+CODE_SMELL
+|squid:CallToDeprecatedMethodc"1Remove this use of "JSONArray"; it is deprecated.(¤‡‡Åşÿÿÿÿ8ÏšÊÿ–,H­˜RMINORZ
+CODE_SMELL
+|squid:CallToDeprecatedMethodc"1Remove this use of "JSONArray"; it is deprecated.(¤‡‡Åşÿÿÿÿ8ÏšÊÿ–,H¬˜RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethodi"2Remove this use of "JSONObject"; it is deprecated.(†²á‹úÿÿÿÿ8ÏšÊÿ–,H®˜RMINORZ
+CODE_SMELL
+ssquid:S2259"GA "NullPointerException" could be thrown; "getParent" is nullable here.(î£„™úÿÿÿÿH¤˜RMAJORZBUG
+osquid:S2259g"HA "NullPointerException" could be thrown; "properties" is nullable here.(ÖˆøÈH¢˜RMAJORZBUG

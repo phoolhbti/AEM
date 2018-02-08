@@ -1,0 +1,7 @@
+
+wsquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(º€ˆÐ8û¹Ìÿ–,HÎ˜RMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(ÑöóŽøÿÿÿÿ8û¹Ìÿ–,HÏ˜RMINORZ
+CODE_SMELL
+jsquid:S2629"7Use the built-in formatting to construct this argument.(Ì³ÈýÿÿÿÿÿHÍ˜RMAJORZ
+CODE_SMELL

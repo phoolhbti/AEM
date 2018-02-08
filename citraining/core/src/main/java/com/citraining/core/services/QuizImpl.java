@@ -21,54 +21,49 @@ import org.slf4j.LoggerFactory;
 
 import com.citraining.core.utils.CommonUtil;
 
-@Component(immediate = true)
+@Component (immediate = true)
 @Service
 public class QuizImpl implements Quiz {
 
 	@Reference
 	private ResourceResolverFactory resolverFactory;
+
 	String resourcePath = null;
+
 	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public String getOptions(String url) {
-		try {
+		try{
 			this.resourcePath = url;
-			
+
 			ResourceResolver resourceResolver = CommonUtil.getResourceResolver(resolverFactory);
 			Resource res = resourceResolver.getResource(this.resourcePath);
 			ValueMap readMap = res.getValueMap();
 			HashMap<String, Boolean> markFalse = new HashMap<String, Boolean>();
 
-			String[] JSONDataValues = { "checkAnswerText",
-					"preventUnansweredText", "questionCountText",
-					"nextQuestionText", "numberOfQuestions",
-					"randomSortQuestions", "randomSortAnswers",
-					"preventUnanswered", "perQuestionResponseMessaging",
-					"completionResponseMessaging", "displayQuestionCount" };
+			String[] JSONDataValues = { "checkAnswerText", "preventUnansweredText", "questionCountText", "nextQuestionText", "numberOfQuestions", "randomSortQuestions", "randomSortAnswers", "preventUnanswered", "perQuestionResponseMessaging", "completionResponseMessaging", "displayQuestionCount" };
 
 			markFalse.put("randomSortQuestions", Boolean.valueOf(false));
 			markFalse.put("randomSortAnswers", Boolean.valueOf(false));
 			markFalse.put("preventUnanswered", Boolean.valueOf(false));
-			markFalse
-					.put("perQuestionResponseMessaging", Boolean.valueOf(true));
-			markFalse
-					.put("completionResponseMessaging", Boolean.valueOf(false));
+			markFalse.put("perQuestionResponseMessaging", Boolean.valueOf(true));
+			markFalse.put("completionResponseMessaging", Boolean.valueOf(false));
 			markFalse.put("displayQuestionCount", Boolean.valueOf(true));
 
 			JSONObject options = new JSONObject();
 			ArrayList<String> tempData = new ArrayList<String>();
 			LOGGER.info("Inside Option{}", JSONDataValues);
 			String value;
-			for (int i = 0; i < JSONDataValues.length; i++) {
-				if (readMap.containsKey(JSONDataValues[i])) {
+			for (int i = 0; i < JSONDataValues.length; i++){
+				if (readMap.containsKey(JSONDataValues[i])){
 					tempData.add(JSONDataValues[i]);
 					value = readMap.get(JSONDataValues[i]).toString();
 					LOGGER.info("Value:" + value);
-					if (!value.equals(null)) {
-						if (value.equals("true")) {
+					if (!value.equals(null)){
+						if (value.equals("true")){
 							options.put(JSONDataValues[i], true);
-						} else {
+						} else{
 							options.put(JSONDataValues[i], value);
 						}
 					}
@@ -76,14 +71,13 @@ public class QuizImpl implements Quiz {
 			}
 			LOGGER.info("Map:" + markFalse);
 			LOGGER.info("ArrayList:" + tempData);
-			for (java.util.Map.Entry<String, Boolean> entry : markFalse
-					.entrySet()) {
+			for (java.util.Map.Entry<String, Boolean> entry : markFalse.entrySet()){
 				LOGGER.info("Checking:+" + (String) entry.getKey());
-				if (!tempData.contains(entry.getKey())) {
+				if (!tempData.contains(entry.getKey())){
 					LOGGER.info("Putting Key :" + (String) entry.getKey());
-					if (!((Boolean) entry.getValue()).booleanValue()) {
+					if (!((Boolean) entry.getValue()).booleanValue()){
 						options.put((String) entry.getKey(), entry.getValue());
-					} else {
+					} else{
 						options.put((String) entry.getKey(), false);
 					}
 				}
@@ -91,7 +85,7 @@ public class QuizImpl implements Quiz {
 			LOGGER.info("Final Data Options" + options.toString());
 
 			return options.toString();
-		} catch (Exception e) {
+		} catch (Exception e){
 			LOGGER.info("Exception " + e);
 		}
 		return null;
@@ -100,7 +94,7 @@ public class QuizImpl implements Quiz {
 	@Override
 	public String getData(String url) {
 		LOGGER.info("Getting started");
-		try {
+		try{
 			this.resourcePath = url;
 			ResourceResolver resourceResolver = CommonUtil.getResourceResolver(resolverFactory);
 			Resource res = resourceResolver.getResource(this.resourcePath);
@@ -129,15 +123,15 @@ public class QuizImpl implements Quiz {
 			Node node = (Node) res.adaptTo(Node.class);
 			ArrayList<String> list = new ArrayList<String>();
 			Property prop = node.getProperty("questionData");
-			if (prop.isMultiple()) {
+			if (prop.isMultiple()){
 				Value[] values = prop.getValues();
-				for (Value value : values) {
+				for (Value value : values){
 					list.add(value.getString());
 				}
-			} else {
+			} else{
 				list.add(prop.getString());
 			}
-			for (int i = 0; i < list.size(); i++) {
+			for (int i = 0; i < list.size(); i++){
 				ques = new JSONObject();
 				quesoptions = new JSONArray();
 				String text = (String) list.get(i);
@@ -147,23 +141,21 @@ public class QuizImpl implements Quiz {
 				ques.put("q", splitText[0]);
 				LOGGER.info("q:" + splitText[0]);
 				String[] allOptions = splitText[1].split("\\,");
-				for (int j = 0; j < allOptions.length; j++) {
+				for (int j = 0; j < allOptions.length; j++){
 					quesop1 = new JSONObject();
 					String[] optionValue = allOptions[j].split("\\~");
 					quesop1.put("option", optionValue[0]);
-					if (optionValue[1].equals("true")) {
+					if (optionValue[1].equals("true")){
 						quesop1.put("correct", true);
-					} else {
+					} else{
 						quesop1.put("correct", false);
 					}
 					quesoptions.put(quesop1);
 				}
 				LOGGER.info("Options: " + quesoptions);
 				ques.put("a", quesoptions);
-				String correct = "<p><span>" + splitText[2] + "</span>"
-						+ splitText[3] + "</p>";
-				String incorrect = "<p><span>" + splitText[4] + "</span>"
-						+ splitText[5] + "</p>";
+				String correct = "<p><span>" + splitText[2] + "</span>" + splitText[3] + "</p>";
+				String incorrect = "<p><span>" + splitText[4] + "</span>" + splitText[5] + "</p>";
 				ques.put("correct", correct);
 				ques.put("incorrect", incorrect);
 
@@ -176,20 +168,18 @@ public class QuizImpl implements Quiz {
 			LOGGER.info("Final JSON: " + finalJson);
 
 			return finalJson.toString();
-		} catch (Exception e) {
+		} catch (Exception e){
 			LOGGER.info("Exception :" + e.getMessage());
 		}
 		return null;
 	}
 
-	protected void bindResolverFactory(
-			ResourceResolverFactory paramResourceResolverFactory) {
+	protected void bindResolverFactory(ResourceResolverFactory paramResourceResolverFactory) {
 		this.resolverFactory = paramResourceResolverFactory;
 	}
 
-	protected void unbindResolverFactory(
-			ResourceResolverFactory paramResourceResolverFactory) {
-		if (this.resolverFactory == paramResourceResolverFactory) {
+	protected void unbindResolverFactory(ResourceResolverFactory paramResourceResolverFactory) {
+		if (this.resolverFactory == paramResourceResolverFactory){
 			this.resolverFactory = null;
 		}
 	}

@@ -10,42 +10,38 @@ import com.citraining.core.beans.HeroBean;
 
 public class HeroTextComponent extends WCMUsePojo {
 
-	private HeroBean HeroBean = null;
+	private HeroBean heroBean = null;
 
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public void activate() throws Exception {
-
 		Node currentNode = getResource().adaptTo(Node.class);
+		heroBean = new HeroBean();
+		if (null != currentNode){
+			if (currentNode.hasProperty("jcr:Heading")){
+				heroBean.setHeading(currentNode.getProperty("./jcr:Heading").getString());
+			}
+			if (currentNode.hasProperty("jcr:description")){
+				heroBean.setDescription(currentNode.getProperty("./jcr:description").getString());
+			}
+			if (currentNode.hasProperty("./jcr:drop")){
 
-		HeroBean = new HeroBean();
-
-		if (currentNode.hasProperty("jcr:Heading")) {
-			HeroBean.setHeading(currentNode.getProperty("./jcr:Heading")
-					.getString());
+				String myDrop = currentNode.getProperty("./jcr:drop").getString();
+				heroBean.setDrop(myDrop);
+			}
+			if (currentNode.hasProperty("./kitten")){
+				String myCheck = currentNode.getProperty("./kitten").getString();
+				heroBean.setCheck(myCheck);
+			}
+			if (currentNode.hasProperty("./color")){
+				String color = currentNode.getProperty("./color").getString();
+				heroBean.setColor(color);
+			}
 		}
-		if (currentNode.hasProperty("jcr:description")) {
-			HeroBean.setDescription(currentNode
-					.getProperty("./jcr:description").getString());
-		}
-		if (currentNode.hasProperty("./jcr:drop")) {
-
-			String myDrop = currentNode.getProperty("./jcr:drop").getString();
-			HeroBean.setDrop(myDrop);
-		}
-		if (currentNode.hasProperty("./kitten")) {
-			String myCheck = currentNode.getProperty("./kitten").getString();
-			HeroBean.setCheck(myCheck);
-		}
-		if (currentNode.hasProperty("./color")) {
-			String color = currentNode.getProperty("./color").getString();
-			HeroBean.setColor(color);
-		}
-
 	}
 
 	public HeroBean getHeroBean() {
-		return this.HeroBean;
+		return this.heroBean;
 	}
 }

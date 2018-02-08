@@ -1,0 +1,12 @@
+
+hsquid:S2259%"AA "NullPointerException" could be thrown; "res" is nullable here.(ÚÄÎŽHˆ™RMAJORZBUG
+wsquid:S2147/"DCombine this catch with the one at line 45, which has the same body.(ûÀ¹ßúÿÿÿÿH‰™RMINORZ
+CODE_SMELL
+psquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(¥Ã²ÓH…™RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod"1Remove this use of "Reference"; it is deprecated.(“¿‹WH†™RMINORZ
+CODE_SMELL
+ssquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(ÑöóŽøÿÿÿÿH„™RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Activate"; it is deprecated.(žÕÖ‹þÿÿÿÿH‡™RMINORZ
+CODE_SMELL

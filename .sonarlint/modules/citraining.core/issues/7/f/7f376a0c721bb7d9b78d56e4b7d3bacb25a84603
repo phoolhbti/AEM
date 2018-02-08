@@ -1,0 +1,19 @@
+
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(Õ•„…ÿÿÿÿÿH¼˜RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod""0Remove this use of "Property"; it is deprecated.(è‡¶öH½˜RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod'"0Remove this use of "Property"; it is deprecated.(é«•ÿH¾˜RMINORZ
+CODE_SMELL
+ssquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(ÑöóŽøÿÿÿÿHº˜RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(ç‡úòÿÿÿÿÿH»˜RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod/"0Remove this use of "Activate"; it is deprecated.(žÕÖ‹þÿÿÿÿHÀ˜RMINORZ
+CODE_SMELL
+Ä%squid:RedundantThrowsDeclarationCheck0"wRemove the declaration of thrown exception 'java.net.MalformedURLException', as it cannot be thrown from method's body.(¯¯½¦ÿÿÿÿÿH¸˜RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(‡ä©UH¹˜RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod,"0Remove this use of "Property"; it is deprecated.(•œ…ÙH¿˜RMINORZ
+CODE_SMELL

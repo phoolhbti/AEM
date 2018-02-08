@@ -1,0 +1,25 @@
+package com.citraining.core.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+
+public class CommonUtil {
+	private CommonUtil() {
+		throw new IllegalStateException("CommonUtil class");
+	}
+
+	public static ResourceResolver getResourceResolver(ResourceResolverFactory resourceResolverFactory) throws LoginException {
+		Map<String, Object> param = new HashMap<>();
+		param.put(ResourceResolverFactory.SUBSERVICE, "writeService");
+		ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
+
+		//if (null == resourceResolver) throw new LoginException("Could not obtain a CRX User for the Service:'writeService'");
+
+		return resourceResolver;
+	}
+
+}

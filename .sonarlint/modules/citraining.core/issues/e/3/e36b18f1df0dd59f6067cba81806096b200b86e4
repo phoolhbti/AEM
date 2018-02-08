@@ -1,0 +1,11 @@
+
+ˆsquid:S37769"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(äîÆ«øÿÿÿÿH¬™RCRITICALZ
+CODE_SMELL
+‚squid:S1192V"LDefine a constant instead of duplicating this literal "jcr:content" 3 times.(›İ¼ùÿÿÿÿH©™RCRITICALZ
+CODE_SMELL
+„squid:S1192R"SDefine a constant instead of duplicating this literal "sling:resourceType" 5 times.(„¿ËÂHª™RCRITICALZ
+CODE_SMELL
+rsquid:S1197B"8Move the array designator from the variable to the type.(Ù–¥½øÿÿÿÿ8‡î¦—,H»RMINORZ
+CODE_SMELL
+  squid:ForLoopCounterChangedChecko"XRefactor the code in order to not assign to this loop counter from within the loop body.(£ŸÅõüÿÿÿÿH¨™RMAJORZ
+CODE_SMELL

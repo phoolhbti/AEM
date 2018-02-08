@@ -12,11 +12,21 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+    http://localhost:4502/editor.html/content/en.html?stringParam=param1
 */-->
+
 <p data-sly-test="${properties.text}">Text property: ${properties.text}</p>
 
 <pre data-sly-use.hello="com.citraining.core.models.HelloWorldModel">
 HelloWorldModel says:
 ${hello.message}
 ${currentPage.language}
+</pre>
+
+<pre data-sly-use.model="com.citraining.core.models.RequestParamsInjected">
+    Your parameter brought next content:
+    string: ${model.stringContent}
+    integer: ${model.integerContent}
+    regexp: ${model.regexpContent}
 </pre>

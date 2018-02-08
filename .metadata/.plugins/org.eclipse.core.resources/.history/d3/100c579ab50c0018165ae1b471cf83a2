@@ -1,0 +1,21 @@
+package com.citraining.core.config;
+
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.AttributeType;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+
+@ObjectClassDefinition(name = "Component Mapping Service Configuration", description = "Component Mapping Service Configuration")
+public @interface ComponentMapping {
+	@AttributeDefinition(name = "Src path", description = "Default Email Address")
+	String getSourcePath();
+	
+	@AttributeDefinition(name = "Dest template", description = "Email From Address")
+	String getDistinationTemplate();
+	
+	
+	@AttributeDefinition(name = "Component Manpping from to", description = "Subject Multi Configuration values")
+	String[] getComponentMappings();
+	
+	
+
+}

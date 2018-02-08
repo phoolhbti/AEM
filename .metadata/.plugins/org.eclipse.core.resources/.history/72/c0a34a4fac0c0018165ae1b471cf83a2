@@ -1,0 +1,42 @@
+package com.citraining.core.servlets;
+
+import javax.jcr.Session;
+
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.Service;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component (metatype = false)
+@Service
+public class AuthcheckerServlet extends SlingSafeMethodsServlet {
+
+	private static final long serialVersionUID = 7979979958671281729L;
+
+	@Property (value = "/bin/permissioncheck")
+	static final String SERVLET_PATH = "sling.servlet.paths";
+
+	private transient Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Override
+	public void doHead(SlingHttpServletRequest request, SlingHttpServletResponse response) {
+		try{
+
+			String uri = request.getParameter("uri");
+
+			Session session = request.getResourceResolver().adaptTo(Session.class);
+
+			session.checkPermission(uri, Session.ACTION_READ);
+			logger.info("authchecker says OK");
+			response.setStatus(SlingHttpServletResponse.SC_OK);
+		} catch (Exception e){
+			logger.info("authchecker says READ access DENIED!");
+			response.setStatus(SlingHttpServletResponse.SC_FORBIDDEN);
+		}
+
+	}
+}

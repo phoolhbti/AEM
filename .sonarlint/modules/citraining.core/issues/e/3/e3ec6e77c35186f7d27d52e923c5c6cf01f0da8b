@@ -1,0 +1,7 @@
+
+[squid:S1948"%Make "log" transient or serializable.(İ¾‘´şÿÿÿÿH»šRCRITICALZ
+CODE_SMELL
+º%squid:RedundantThrowsDeclarationCheck"sRemove the declaration of thrown exception 'java.rmi.ServerException' which is a subclass of 'java.io.IOException'.(ˆYH²šRMINORZ
+CODE_SMELL
+Vsquid:S1125("(Remove the literal "true" boolean value.(‹×ö›H´šRMINORZ
+CODE_SMELL

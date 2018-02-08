@@ -14,46 +14,45 @@ import org.slf4j.LoggerFactory;
 
 import com.citraining.core.search.SolrServerConfiguration;
 
-@Component(label = "AEM Solr Search - Solr Configuration Service", description = "A service for configuring AEM to connect Solr server", immediate = true, metatype = true)
+@Component (label = "AEM Solr Search - Solr Configuration Service", description = "A service for configuring AEM to connect Solr server", immediate = true, metatype = true)
 @Service
 public class SolrServerConfigurationImpl implements SolrServerConfiguration {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(SolrServerConfigurationImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SolrServerConfigurationImpl.class);
 
 	private String solrProtocol;
-	@Property(label = "Protocol", value = "http", description = "Either 'http' or 'https'")
+
+	@Property (label = "Protocol", value = "http", description = "Either 'http' or 'https'")
 	public static final String SOLR_PROTOCOL = "solr.protocol";
 
 	private String solrServerName;
-	@Property(label = "Solr Server Name", value = "localhost", description = "Server name or IP address ")
+
+	@Property (label = "Solr Server Name", value = "localhost", description = "Server name or IP address ")
 	public static final String SOLR_SERVER_URL = "solr.server.name";
 
 	private String solrServerPort;
-	@Property(label = "Solr Server Port", value = "8983", description = "Server port ")
+
+	@Property (label = "Solr Server Port", value = "8983", description = "Server port ")
 	public static final String SOLR_SERVER_PORT = "solr.server.port";
 
 	private String solrCoreName;
-	@Property(label = "Solr Core Name", value = "collection1", description = "Core name in solr server")
+
+	@Property (label = "Solr Core Name", value = "collection1", description = "Core name in solr server")
 	public static final String SOLR_CORE_NAME = "solr.core.name";
 
 	private String contentPagePath;
-	@Property(label = "Content page path", value = "/content/geometrixx", description = "Content page path from where solr has to index the pages")
+
+	@Property (label = "Content page path", value = "/content/geometrixx", description = "Content page path from where solr has to index the pages")
 	public static final String SOLR_PAGE_PATH = "solr.core.pagepath";
 
 	@Activate
 	protected void activate(ComponentContext ctx) throws MalformedURLException {
 		LOG.info("inside activate method in solr configuration service ");
 		final Dictionary<?, ?> config = ctx.getProperties();
-		solrProtocol = PropertiesUtil.toString(config.get(SOLR_PROTOCOL),
-				"http");
-		solrServerName = PropertiesUtil.toString(config.get(SOLR_SERVER_URL),
-				"localhost");
-		solrServerPort = PropertiesUtil.toString(config.get(SOLR_SERVER_PORT),
-				"8983");
-		solrCoreName = PropertiesUtil.toString(config.get(SOLR_CORE_NAME),
-				"collection");
-		contentPagePath = PropertiesUtil.toString(config.get(SOLR_PAGE_PATH),
-				"/content/geometrixx");
+		solrProtocol = PropertiesUtil.toString(config.get(SOLR_PROTOCOL), "http");
+		solrServerName = PropertiesUtil.toString(config.get(SOLR_SERVER_URL), "localhost");
+		solrServerPort = PropertiesUtil.toString(config.get(SOLR_SERVER_PORT), "8983");
+		solrCoreName = PropertiesUtil.toString(config.get(SOLR_CORE_NAME), "collection");
+		contentPagePath = PropertiesUtil.toString(config.get(SOLR_PAGE_PATH), "/content/geometrixx");
 	}
 
 	public String getSolrProtocol() {

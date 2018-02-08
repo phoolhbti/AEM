@@ -10,14 +10,11 @@
 
 <sling:defineObjects />
 <%
+	String firstName = request.getParameter("firstName");
+	String lastName = request.getParameter("lastName");
+	String city = request.getParameter("city");
+	String address = request.getParameter("address");
 
-    String firstName = request.getParameter("firstName");
-    String lastName = request.getParameter("lastName");
-    String city = request.getParameter("city");
-    String address = request.getParameter("address");
-
-    com.citraining.core.services.HandleForm formHandler = sling.getService(com.citraining.core.services.HandleForm.class);
-    formHandler.injestFormData(firstName,lastName,city, address);
-
-
+	com.citraining.core.services.HandleForm formHandler = sling.getService(com.citraining.core.services.HandleForm.class);
+	formHandler.injestFormData(firstName, lastName, city, address);
 %>

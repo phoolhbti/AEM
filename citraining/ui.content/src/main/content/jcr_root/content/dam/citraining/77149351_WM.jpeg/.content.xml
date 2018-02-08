@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="4b78b289-793d-4d01-8c4f-0e2197b594dc">
+    <jcr:content
+        dam:assetState="processed"
+        dam:relativePath="summit-toys/77149351_WM.jpeg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2017-05-26T14:21:19.762-04:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2017-05-26T14:21:17.930-04:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}70"
+            dam:Physicalheightininches="{Decimal}9.528571128845215"
+            dam:Physicalwidthindpi="{Long}70"
+            dam:Physicalwidthininches="{Decimal}14.285714149475098"
+            dam:Progressive="no"
+            dam:sha1="1511410011bbf7730cb72d63d2fa9be67e75818f"
+            dam:size="{Long}507523"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2017-02-13T15:26:58.086-05:00"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}667"
+            tiff:ImageWidth="{Long}1000"
+            tiff:ResolutionUnit="{Long}2"
+            tiff:XResolution="6250/89"
+            tiff:YCbCrPositioning="{Long}1"
+            tiff:YResolution="6250/89"
+            xmp:CreateDate="{Date}2015-01-30T00:00:00.000-05:00"
+            xmp:CreatorTool="Adobe Stock Platform"
+            xmp:MetadataDate="{Date}2017-02-03T20:19:25.000-05:00"
+            xmp:ModifyDate="{Date}2015-01-30T00:00:00.000-05:00"
+            xmpMM:DocumentID="77149351"
+            xmpMM:InstanceID="Adobe Stock 77149351"
+            xmpRights:Marked="{Boolean}true"
+            imageMap=""/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

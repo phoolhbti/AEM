@@ -1,0 +1,94 @@
+
+Œsquid:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼”’ÆøÿÿÿÿHÔ˜RMINORZ
+CODE_SMELL
+esquid:S2629M"7Use the built-in formatting to construct this argument.(è°°ÙHÕ˜RMAJORZ
+CODE_SMELL
+Wsquid:S1905M")Remove this unnecessary cast to "String".(è°°ÙHÖ˜RMINORZ
+CODE_SMELL
+squid:S2629U"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ÈƒµçøÿÿÿÿH×˜RMAJORZ
+CODE_SMELL
+Tsquid:S1905{"'Remove this unnecessary cast to "Node".(ó‘ŞgHØ˜RMINORZ
+CODE_SMELL
+€squid:S00116!"QRename this field "LOGGER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌîªúHÙ˜RMINORZ
+CODE_SMELL
+squid:S1192•"HDefine a constant instead of duplicating this literal "correct" 3 times.(é¤ÀœşÿÿÿÿHÚ˜RCRITICALZ
+CODE_SMELL
+Wsquid:S1905K")Remove this unnecessary cast to "String".(”èµãHÛ˜RMINORZ
+CODE_SMELL
+]squid:S1905N"*Remove this unnecessary cast to "Boolean".( æğ½úÿÿÿÿHÜ˜RMINORZ
+CODE_SMELL
+‡squid:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ò¾šHİ˜RMINORZ
+CODE_SMELL
+Xsquid:S1905‰")Remove this unnecessary cast to "String".(¢·ÀíHŞ˜RMINORZ
+CODE_SMELL
+…squid:S00117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰¾¿šüÿÿÿÿHß˜RMINORZ
+CODE_SMELL
+‡squid:S2293|"YReplace the type specification in this constructor call with the diamond operator ("<>").(œœÕ¼Hà˜RMINORZ
+CODE_SMELL
+msquid:S1854j"?Remove this useless assignment to local variable "quesoptions".(å«ŒÙHá˜RMAJORZ
+CODE_SMELL
+ksquid:S1854l"8Remove this useless assignment to local variable "ques".(„¤ÙÌÿÿÿÿÿHâ˜RMAJORZ
+CODE_SMELL
+isquid:S1854m";Remove this useless assignment to local variable "quesop1".(” ª•Hã˜RMAJORZ
+CODE_SMELL
+jsquid:S2629>"7Use the built-in formatting to construct this argument.(†»£¦úÿÿÿÿHä˜RMAJORZ
+CODE_SMELL
+jsquid:S2629I"7Use the built-in formatting to construct this argument.(ÚÛ¥ĞÿÿÿÿÿHå˜RMAJORZ
+CODE_SMELL
+ksquid:S2629¨"7Use the built-in formatting to construct this argument.(»äØÍşÿÿÿÿHæ˜RMAJORZ
+CODE_SMELL
+ksquid:S2629›"7Use the built-in formatting to construct this argument.(ÌòûüÿÿÿÿHç˜RMAJORZ
+CODE_SMELL
+esquid:S2629K"7Use the built-in formatting to construct this argument.(”èµãHè˜RMAJORZ
+CODE_SMELL
+ksquid:S2629Š"7Use the built-in formatting to construct this argument.(µÓØÁüÿÿÿÿHé˜RMAJORZ
+CODE_SMELL
+esquid:S2629H"7Use the built-in formatting to construct this argument.(Ùğ°çHê˜RMAJORZ
+CODE_SMELL
+ˆsquid:S3776$"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(öôÚÒúÿÿÿÿHë˜RCRITICALZ
+CODE_SMELL
+jsquid:S2629w"7Use the built-in formatting to construct this argument.(äÉÒĞşÿÿÿÿHì˜RMAJORZ
+CODE_SMELL
+ksquid:S2629"7Use the built-in formatting to construct this argument.(Ü†‡ÿÿÿÿÿHí˜RMAJORZ
+CODE_SMELL
+¡squid:S2159?"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(³„¡ˆHî˜RMAJORZBUG
+wsquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(¥Ã²Ó8ëşÍÿ–,Hï˜RMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(Ñöóøÿÿÿÿ8ëşÍÿ–,Hğ˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod"1Remove this use of "Reference"; it is deprecated.(“¿‹W8ëşÍÿ–,Hñ˜RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethod6"2Remove this use of "JSONObject"; it is deprecated.(ñÚ¤Çúÿÿÿÿ8ëşÍÿ–,Hò˜RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethod6"2Remove this use of "JSONObject"; it is deprecated.(ñÚ¤Çúÿÿÿÿ8ëşÍÿ–,Hó˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodg"2Remove this use of "JSONObject"; it is deprecated.(õ¡††8ëşÍÿ–,Hô˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodg"2Remove this use of "JSONObject"; it is deprecated.(õ¡††8ëşÍÿ–,Hõ˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethodi"1Remove this use of "JSONArray"; it is deprecated.(®—ï68ëşÍÿ–,Hö˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethodi"1Remove this use of "JSONArray"; it is deprecated.(®—ï68ëşÍÿ–,H÷˜RMINORZ
+CODE_SMELL
+wsquid:CallToDeprecatedMethodj"1Remove this use of "JSONArray"; it is deprecated.(å«ŒÙ8ëşÍÿ–,Hø˜RMINORZ
+CODE_SMELL
+wsquid:CallToDeprecatedMethodj"1Remove this use of "JSONArray"; it is deprecated.(å«ŒÙ8ëşÍÿ–,Hù˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodk"2Remove this use of "JSONObject"; it is deprecated.(… äÙ8ëşÍÿ–,Hú˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodk"2Remove this use of "JSONObject"; it is deprecated.(… äÙ8ëşÍÿ–,Hû˜RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethodl"2Remove this use of "JSONObject"; it is deprecated.(„¤ÙÌÿÿÿÿÿ8ëşÍÿ–,Hü˜RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethodl"2Remove this use of "JSONObject"; it is deprecated.(„¤ÙÌÿÿÿÿÿ8ëşÍÿ–,Hı˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodm"2Remove this use of "JSONObject"; it is deprecated.(” ª•8ëşÍÿ–,Hş˜RMINORZ
+CODE_SMELL
+xsquid:CallToDeprecatedMethodm"2Remove this use of "JSONObject"; it is deprecated.(” ª•8ëşÍÿ–,Hÿ˜RMINORZ
+CODE_SMELL
+~squid:CallToDeprecatedMethod‡"2Remove this use of "JSONObject"; it is deprecated.(™ß’Ñûÿÿÿÿ8ëşÍÿ–,H€™RMINORZ
+CODE_SMELL
+}squid:CallToDeprecatedMethodˆ"1Remove this use of "JSONArray"; it is deprecated.(ÿ¡Æ¬úÿÿÿÿ8ëşÍÿ–,H™RMINORZ
+CODE_SMELL
+~squid:CallToDeprecatedMethod‘"2Remove this use of "JSONObject"; it is deprecated.(¸²¸øÿÿÿÿ8ëşÍÿ–,H‚™RMINORZ
+CODE_SMELL

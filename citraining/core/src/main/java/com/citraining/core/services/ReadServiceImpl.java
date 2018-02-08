@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.citraining.core.utils.CommonUtil;
 
 @Service
-@Component(immediate = true)
+@Component (immediate = true)
 public class ReadServiceImpl implements ReadService {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
@@ -30,28 +30,28 @@ public class ReadServiceImpl implements ReadService {
 	public void doAReadOperation(ComponentContext ctx) {
 
 		ResourceResolver resolver = null;
-		try {
+		try{
 			resolver = CommonUtil.getResourceResolver(resolverFactory);
 			log.info(resolver.getUserID());
-			Resource res = resolver
-					.getResource("/content/citraining/jcr:content");
+			Resource res = resolver.getResource("/content/citraining/jcr:content");
 			ValueMap readMap = res.getValueMap();
 			log.info(readMap.get("jcr:primaryType", ""));
 			ModifiableValueMap modMap = res.adaptTo(ModifiableValueMap.class);
-			if (modMap != null) {
+			if (modMap != null){
 				modMap.put("myKey", "myValue");
 				resolver.commit();
 				log.info("Successfully saved");
 			}
-		} catch (LoginException e) {
+		} catch (LoginException e){
 			log.error("LoginException", e);
-		} catch (PersistenceException e) {
+		} catch (PersistenceException e){
 			log.error("LoginException", e);
-		} finally {
-			if (resolver != null && resolver.isLive()) {
+		}
+		finally{
+			if (resolver != null && resolver.isLive()){
 				resolver.close();
 			}
-			
+
 		}
 	}
 }

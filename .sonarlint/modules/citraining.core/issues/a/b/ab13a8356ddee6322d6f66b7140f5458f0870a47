@@ -1,0 +1,15 @@
+
+psquid:CallToDeprecatedMethod"1Remove this use of "JSONArray"; it is deprecated.(‹ìôÜH‡˜RMINORZ
+CODE_SMELL
+ysquid:CallToDeprecatedMethod"5Remove this use of "JSONException"; it is deprecated.(ê‡×şÿÿÿÿHŒ˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod"2Remove this use of "JSONObject"; it is deprecated.(ê‡×şÿÿÿÿH‰˜RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod"1Remove this use of "JSONArray"; it is deprecated.(‰ï©pH‹˜RMINORZ
+CODE_SMELL
+ssquid:CallToDeprecatedMethod"5Remove this use of "JSONException"; it is deprecated.(‰ï©pHŠ˜RMINORZ
+CODE_SMELL
+psquid:CallToDeprecatedMethod"1Remove this use of "JSONArray"; it is deprecated.(¦öÛâH†˜RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod"2Remove this use of "JSONObject"; it is deprecated.(Ï•êİüÿÿÿÿHˆ˜RMINORZ
+CODE_SMELL

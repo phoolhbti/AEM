@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <summit-toys-structure
+                        jcr:description="Policy for templates to allow structure components"
+                        jcr:lastModified="{Date}2017-01-31T16:05:46.568-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Summit Toys Structure"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/wcm/foundation/components/responsivegrid]"
+                        policyResourceType="wcm/foundation/components/responsivegrid">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
+                        </cq:authoring>
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </summit-toys-structure>
+                    <summit-toys-content
+                        jcr:lastModified="{Date}2017-04-18T09:55:17.550-04:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Summit Toys Content"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/core/wcm/components/image,/apps/core/wcm/components/text,/apps/core/wcm/components/title&#xa;,/apps/training-hub/components/displayStores,/apps/summit_toys/components/content/hero,/apps/summit_toys/components/content/banner]">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </summit-toys-content>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+    <core
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="nt:unstructured">
+        <wcm
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="nt:unstructured">
+            <components
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nt:unstructured">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nt:unstructured">
+                    <policy_1475741491582
+                        jcr:description=""
+                        jcr:lastModified="{Date}2016-10-06T10:11:49.934+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="title"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        defaultType="h2">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </policy_1475741491582>
+                </title>
+            </components>
+        </wcm>
+    </core>
+</jcr:root>

@@ -1,0 +1,8 @@
+package com.citraining.core.mail.impl;
+
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+
+@ObjectClassDefinition(name = "Email Service Configuration", description = "Email Service Configuration")
+public class EmailConfiguration {
+
+}

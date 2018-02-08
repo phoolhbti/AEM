@@ -36,14 +36,9 @@
 	<!-- B U I L D D E F I N I T I O N -->
 	<!-- ====================================================================== -->
 	<build>
+		<sourceDirectory>src/main/content/jcr_root</sourceDirectory>
 		<resources>
 			<!-- define the resources that will go into the package -->
-			<resource>
-				<!-- we want to keep some of the META-INF files and not configure everything 
-					in the plugin. -->
-				<directory>${basedir}/src/main/content/META-INF</directory>
-				<targetPath>../vault-work/META-INF</targetPath>
-			</resource>
 			<resource>
 				<directory>${basedir}/src/main/content/jcr_root</directory>
 				<excludes>
@@ -71,25 +66,6 @@
 				<configuration>
 					<includeEmptyDirs>true</includeEmptyDirs>
 				</configuration>
-
-				<executions>
-					<execution>
-						<id>copy-metainf-vault-resources</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/vault-work/META-INF</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/META-INF</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<!-- ====================================================================== -->
@@ -100,7 +76,7 @@
 				<artifactId>content-package-maven-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
+					<filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
 					<verbose>true</verbose>
 					<failOnError>true</failOnError>
 					<group>citraining</group>
@@ -110,193 +86,41 @@
 							<artifactId>citraining.core</artifactId>
 							<target>/apps/citraining/install</target>
 						</embedded>
-						<embedded>
-							<groupId>com.citraining</groupId>
-							<artifactId>citraining.taglibs</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.citraining</groupId>
-							<artifactId>citraining.jax-rs</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<!-- jersey dep -->
-						<embedded>
-							<groupId>com.eclipsesource.jaxrs</groupId>
-							<artifactId>jersey-all</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.eclipsesource.jaxrs</groupId>
-							<artifactId>publisher</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.eclipsesource.jaxrs</groupId>
-							<!-- <artifactId>multipart</artifactId> -->
-							<artifactId>provider-multipart</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.jaxrs</groupId>
-							<artifactId>jackson-jaxrs-base</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.core</groupId>
-							<artifactId>jackson-core</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.core</groupId>
-							<artifactId>jackson-databind</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.core</groupId>
-							<artifactId>jackson-annotations</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.module</groupId>
-							<artifactId>jackson-module-jaxb-annotations</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml.jackson.jaxrs</groupId>
-							<artifactId>jackson-jaxrs-json-provider</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.eclipsesource.jaxrs</groupId>
-							<artifactId>provider-security</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>com.fasterxml</groupId>
-							<artifactId>classmate</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<embedded>
-							<groupId>org.jboss.logging</groupId>
-							<artifactId>jboss-logging</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-						<!-- <embedded> <groupId>net.bican</groupId> <artifactId>jwordpress</artifactId> 
-							<target>/apps/citraining/install</target> </embedded> -->
-						<embedded>
-							<groupId>com.citraining</groupId>
-							<artifactId>com.citraining.reports</artifactId>
-							<target>/apps/citraining/install</target>
-						</embedded>
-
+						<!-- solor dependencies -->
 						<embedded>
 							<groupId>org.apache.servicemix.bundles</groupId>
 							<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
 							<target>/apps/citraining/install</target>
 						</embedded>
+						<embedded>
+							<groupId>org.noggit</groupId>
+							<artifactId>noggit</artifactId>
+							<target>/apps/citraining/install</target>
+						</embedded>
+						<embedded>
+							<groupId>org.apache.zookeeper</groupId>
+							<artifactId>zookeeper</artifactId>
+							<target>/apps/citraining/install</target>
+						</embedded>
 					</embeddeds>
+
+					<subPackages>
+						<subPackage>
+							<groupId>com.adobe.cq</groupId>
+							<artifactId>core.wcm.components.all</artifactId>
+							<filter>true</filter>
+						</subPackage>
+					</subPackages>
+					<targetURL>http://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>
 				</configuration>
 			</plugin>
-			<!--This plugin's configuration is used to store Eclipse m2e settings 
-				only. It has no influence on the Maven build itself. -->
+
 			<plugin>
-				<groupId>org.eclipse.m2e</groupId>
-				<artifactId>lifecycle-mapping</artifactId>
-				<version>1.0.0</version>
-				<configuration>
-					<lifecycleMappingMetadata>
-						<pluginExecutions>
-							<pluginExecution>
-								<pluginExecutionFilter>
-									<groupId>org.apache.sling</groupId>
-									<artifactId>maven-jspc-plugin</artifactId>
-									<versionRange>[2.0.6,)</versionRange>
-									<goals>
-										<goal>jspc</goal>
-									</goals>
-								</pluginExecutionFilter>
-								<action>
-									<ignore />
-								</action>
-							</pluginExecution>
-							<pluginExecution>
-								<pluginExecutionFilter>
-									<groupId>org.apache.maven.plugins</groupId>
-									<artifactId>maven-clean-plugin</artifactId>
-									<versionRange>[2.4.1,)</versionRange>
-									<goals>
-										<goal>clean</goal>
-									</goals>
-								</pluginExecutionFilter>
-								<action>
-									<ignore />
-								</action>
-							</pluginExecution>
-						</pluginExecutions>
-					</lifecycleMappingMetadata>
-				</configuration>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>htl-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- ====================================================================== -->
-	<!-- P R O F I L E S -->
-	<!-- ====================================================================== -->
-	<profiles>
-		<profile>
-			<id>autoInstallPackage</id>
-			<activation>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.day.jcr.vault</groupId>
-						<artifactId>content-package-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>install-package</id>
-								<goals>
-									<goal>install</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
-							<failOnError>true</failOnError>
-							<failOnMissingEmbed>true</failOnMissingEmbed>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>autoInstallPackagePublish</id>
-			<activation>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.day.jcr.vault</groupId>
-						<artifactId>content-package-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>install-package</id>
-								<goals>
-									<goal>install</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
-							<failOnError>true</failOnError>
-							<failOnMissingEmbed>true</failOnMissingEmbed>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<!-- ====================================================================== -->
 	<!-- D E P E N D E N C I E S -->
@@ -307,21 +131,19 @@
 			<artifactId>citraining.core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
-			<groupId>com.citraining</groupId>
-			<artifactId>citraining.taglibs</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.citraining</groupId>
-			<artifactId>citraining.jax-rs</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<!-- <dependency>
 			<groupId>com.adobe.aem</groupId>
-			<artifactId>aem-api</artifactId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>apis</classifier>
 		</dependency>
- -->
+
+		<dependency>
+			<groupId>com.adobe.cq</groupId>
+			<artifactId>core.wcm.components.all</artifactId>
+			<type>zip</type>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.jcr</groupId>
 			<artifactId>jcr</artifactId>
@@ -337,15 +159,25 @@
 			<artifactId>cq-wcm-taglib</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.citraining</groupId>
-			<artifactId>com.citraining.reports</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- <dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
+			<version>5.4.1_1</version>
 		</dependency>
-		 -->
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.noggit</groupId>
+			<artifactId>noggit</artifactId>
+			<version>0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.5</version>
+		</dependency>
 	</dependencies>
 </project>

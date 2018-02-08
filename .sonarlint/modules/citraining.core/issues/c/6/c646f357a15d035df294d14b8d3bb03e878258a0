@@ -1,0 +1,64 @@
+
+usquid:CallToDeprecatedMethod"0Remove this use of "Activate"; it is deprecated.(ÕÖ‹şÿÿÿÿH—šRMINORZ
+CODE_SMELL
+psquid:S1854a"=Remove this useless assignment to local variable "nodePaths".(Ş–¾¨øÿÿÿÿH˜šRMAJORZ
+CODE_SMELL
+Œsquid:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(”§äàúÿÿÿÿH€šRMINORZ
+CODE_SMELL
+hsquid:S1141V"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿHŠšRMAJORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(¤÷™ÜHˆšRMAJORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod6"1Remove this use of "Reference"; it is deprecated.(“¿‹WH’šRMINORZ
+CODE_SMELL
+isquid:S1854©";Remove this useless assignment to local variable "subNode".(úı”qH™šRMAJORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod-"0Remove this use of "Property"; it is deprecated.(¦òÿ„HšRMINORZ
+CODE_SMELL
+ˆsquid:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(«üÎŒH‚šRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine­"<This block of commented-out lines of code should be removed.(©™¯š8ÌˆÛÿ–,H±šRMAJORZ
+CODE_SMELL
+usquid:CallToDeprecatedMethod+"1Remove this use of "Component"; it is deprecated.(İäÆîûÿÿÿÿHšRMINORZ
+CODE_SMELL
+Zsquid:S1948<")Make "session" transient or serializable.(æ¨ÍéHšRCRITICALZ
+CODE_SMELL
+ysquid:CommentedOutCodeLinee"<This block of commented-out lines of code should be removed.(ñ¥½ïHƒšRMAJORZ
+CODE_SMELL
+Œsquid:S2293a"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ş–¾¨øÿÿÿÿHšRMINORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ÿ—À›H…šRMAJORZ
+CODE_SMELL
+Zsquid:S1148„"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHššRMINORZVULNERABILITY
+{squid:HiddenFieldChecka"=Rename "nodePaths" which hides the field declared at line 64.(Ş–¾¨øÿÿÿÿH‰šRMAJORZ
+CODE_SMELL
+[squid:S1948:"*Make "qbuilder" transient or serializable.(¬şÜ˜HšRCRITICALZ
+CODE_SMELL
+bsquid:S1905W"4Remove this unnecessary cast to "JcrPackageManager".(¶†¨ H‹šRMINORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLine˜"<This block of commented-out lines of code should be removed.(¤÷™ÜH†šRMAJORZ
+CODE_SMELL
+qsquid:CallToDeprecatedMethod-"2Remove this use of "Properties"; it is deprecated.(¦òÿ„HšRMINORZ
+CODE_SMELL
+Zsquid:S1481©",Remove this unused "subNode" local variable.(úı”qHŒšRMINORZ
+CODE_SMELL
+bsquid:S19487",Make "repository" transient or serializable.(ÀÌ‡¬ÿÿÿÿÿHœšRCRITICALZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod9"1Remove this use of "Reference"; it is deprecated.(“¿‹WH“šRMINORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine~"<This block of commented-out lines of code should be removed.(Ÿ—À›H„šRMAJORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethodB"0Remove this use of "Property"; it is deprecated.(¡ñÔ»úÿÿÿÿH”šRMINORZ
+CODE_SMELL
+zsquid:CallToDeprecatedMethodS";Remove this use of "loginAdministrative"; it is deprecated.(Ú¥÷êH–šRMINORZ
+CODE_SMELL
+gsquid:S1197™"8Move the array designator from the variable to the type.(µ†‚ Hÿ™RMINORZ
+CODE_SMELL
+nsquid:CallToDeprecatedMethod,"/Remove this use of "Service"; it is deprecated.(ó“¶ÔHšRMINORZ
+CODE_SMELL
+[squid:S19484"%Make "log" transient or serializable.(İ¾‘´şÿÿÿÿH›šRCRITICALZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod-"0Remove this use of "Property"; it is deprecated.(¦òÿ„H‘šRMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethodG"0Remove this use of "Property"; it is deprecated.(×½£øúÿÿÿÿH•šRMINORZ
+CODE_SMELL

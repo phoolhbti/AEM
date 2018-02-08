@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2017-05-25T09:09:32.235-04:00"
+        cq:lastModifiedBy="admin"
+        cq:lastTranslationUpdate="{Date}2017-05-25T09:09:19.455-04:00"
+        cq:template="/apps/citraining/templates/staticsectionpage"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProviderName="microsoft"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Recém-chegados"
+        sling:resourceType="citraining/components/structure/staticsectionpage">
+        <navigation
+            jcr:lastModified="{Date}2017-04-18T09:56:50.670-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="citraining/components/content/banner"
+            bannerTitle="New Arrivals"
+            pathOne="/content/dam/citraining/thumbnails/marble.png"
+            pathTwo="/content/dam/citraining/thumbnails/wood.png"/>
+        <responsivegrid
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,20 @@
+package com.citraining.core.mail.impl;
+
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+
+@ObjectClassDefinition(name = "Email Service Configuration", description = "Email Service Configuration")
+public @interface EmailConfiguration {
+	@AttributeDefinition(name = "Default Email Address", description = "Default Email Address")
+	String getDefaultEmailAdd();
+	
+	@AttributeDefinition(name = "Email Address", description = "Email Address")
+	String getEmailAdd();
+	
+	@AttributeDefinition(name = "MultipleValues", description = "Multi Configuration values")
+	String[] getStringValues();
+	
+	@AttributeDefinition(name = "NumberValue", description = "Number values", type=AttributeType.INTEGER)
+int getNumberValue();
+
+}

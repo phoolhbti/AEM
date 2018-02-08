@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/citraining/settings/wcm/templates/.*,/apps/citraining/templates/.*]"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2017-05-25T09:09:32.175-04:00"
+        cq:lastModifiedBy="admin"
+        cq:lastTranslationUpdate="{Date}2017-05-25T09:09:19.424-04:00"
+        cq:template="/apps/citraining/templates/homepage"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProject="[/content/projects/english-to-portuguese]"
+        cq:translationProviderName="microsoft"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Português"
+        sling:resourceType="citraining/components/structure/homepage">
+        <hero
+            jcr:lastModified="{Date}2017-02-26T18:10:34.620-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Página inicial"
+            sling:resourceType="wcm/foundation/components/image"
+            fileReference="/content/dam/citraining/pt/101387006_WM.jpeg"
+            height="0"
+            width="0"/>
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+    <new-arrivals/>
+    <best-sellers/>
+    <games-toys/>
+    <gifts/>
+    <contact-us/>
+    <test-context-hubstuff/>
+</jcr:root>

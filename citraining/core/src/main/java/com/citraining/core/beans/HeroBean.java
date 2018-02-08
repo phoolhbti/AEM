@@ -1,12 +1,15 @@
 package com.citraining.core.beans;
 
-
 public class HeroBean {
 
 	private String heading;
+
 	private String description;
+
 	private String drop;
+
 	private String check;
+
 	private String color;
 
 	public String getColor() {
@@ -42,8 +45,7 @@ public class HeroBean {
 	}
 
 	/**
-	 * @param heading
-	 *            the heading to set
+	 * @param heading the heading to set
 	 */
 	public void setHeading(String heading) {
 		this.heading = heading;
@@ -57,8 +59,7 @@ public class HeroBean {
 	}
 
 	/**
-	 * @param description
-	 *            the description to set
+	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;

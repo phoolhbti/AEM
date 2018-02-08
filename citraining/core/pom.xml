@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- | Copyright 2015 Adobe Systems Incorporated | | Licensed under the Apache 
+<!-- | Copyright 2017 Adobe Systems Incorporated | | Licensed under the Apache 
 	License, Version 2.0 (the "License"); | you may not use this file except 
 	in compliance with the License. | You may obtain a copy of the License at 
 	| | http://www.apache.org/licenses/LICENSE-2.0 | | Unless required by applicable 
@@ -23,8 +23,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-scr-plugin</artifactId>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -32,151 +32,105 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Import-Package>
-							!com.ibm.*,
-							!com.sun.*,
-							!javax.jmdns.*,
-							!javax.jms.*,
-							!jline.*,
-							!org.krysalis.barcode4j.*,
-							!org.jboss.netty.*,
-							!org.relaxng.datatype.*,
-							*
-						</Import-Package>
-						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
-						<Embed-Directory>OSGI-INF/lib</Embed-Directory>
-						<Embed-Transitive>false</Embed-Transitive>
-						<Sling-Model-Packages>com.citraining.core.models</Sling-Model-Packages>
+						<!-- Import any version of javax.inject, to allow running on multiple 
+							versions of AEM -->
+						<Import-Package>javax.inject;version=0.0.0,*</Import-Package>
+						<Sling-Model-Packages>
+							com.citraining.core
+						</Sling-Model-Packages>
 					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
+				<configuration>
+					<slingUrl>http://${crx.host}:${crx.port}/apps/citraining/install</slingUrl>
+					<usePut>true</usePut>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<!-- Development profile: install only the bundle -->
-		<profile>
-			<id>autoInstallBundle</id>
-			<activation>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.sling</groupId>
-						<artifactId>maven-sling-plugin</artifactId>
-						<configuration>
-							<!-- Note that this requires /apps/citraining/install to exist!! -->
-							<!-- This is typically the case when ui.apps is deployed first -->
-							<!-- Otherwise, create /apps/citraining/install manually (CRXDE|Lite) -->
-							<slingUrlSuffix>/apps/citraining/install/</slingUrlSuffix>
-							<failOnError>true</failOnError>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+
 	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-		<dependency>
-				<groupId>javax.jcr</groupId>
-				<artifactId>jcr</artifactId>
-		</dependency>
-		<dependency>
-				<groupId>com.day.commons</groupId>
-				<artifactId>day.commons.datasource.poolservice</artifactId>				
-			</dependency>
-		<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.eventadmin</artifactId>				
-			</dependency>		
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.service.component.annotations</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.service.metatype.annotations</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.annotation</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-			<version>2.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-
 		<!-- OSGi Dependencies -->
 		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.scr</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.scr.annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>biz.aQute</groupId>
-			<artifactId>bndlib</artifactId>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.core</artifactId>
+			<artifactId>osgi.cmpn</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.annotation</artifactId>
 		</dependency>
 		<!-- Other Dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-
-
-		<!-- AEM6.3 uber-jar -->
 		<dependency>
-			<groupId>com.adobe.aem</groupId>
-			<artifactId>uber-jar</artifactId>
-			<classifier>apis</classifier>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
 		</dependency>
 
-		<!-- Core Components -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.models.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit-addons</groupId>
+			<artifactId>junit-addons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.day.commons.osgi.wrapper</groupId>
+			<artifactId>com.day.commons.osgi.wrapper.commons-email</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.adobe.cq</groupId>
 			<artifactId>core.wcm.components.core</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>com.adobe.acs</groupId>
-			<artifactId>acs-aem-commons-bundle</artifactId>
-			<version>3.8.4</version>
+			<groupId>com.day.commons</groupId>
+			<artifactId>day.commons.datasource.poolservice</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.fragment.xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.day.commons.osgi.wrapper</groupId>
+			<artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.day.jcr.vault</groupId>
+			<artifactId>com.day.jcr.vault</artifactId>
+		</dependency>
 		<!-- Solr Dependencies -->
-		 <dependency>
+		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
+			<version>5.4.1_1</version>
 		</dependency>
-			
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -194,26 +148,13 @@
 		</dependency>
 		<!-- Solr Dependencies -->
 		<dependency>
-			<groupId>com.day.commons.osgi.wrapper</groupId>
-			<artifactId>com.day.commons.osgi.wrapper.commons-email</artifactId>
-			<version>1.2.0-0002</version>
-			<scope>provided</scope>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.day.commons.osgi.wrapper</groupId>
-			<artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>			
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>apis</classifier>
 		</dependency>
-		<dependency>
-			<groupId>com.day.jcr.vault</groupId>
-			<artifactId>com.day.jcr.vault</artifactId>					
-		</dependency>
-		<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-all</artifactId>				
-			</dependency>
-			<dependency>
-				<groupId>junit-addons</groupId>
-				<artifactId>junit-addons</artifactId>				
-			</dependency>
 	</dependencies>
 </project>

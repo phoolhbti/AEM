@@ -1,0 +1,5 @@
+package com.citraining.core.mail.impl;
+
+public class EmailConfiguration {
+
+}

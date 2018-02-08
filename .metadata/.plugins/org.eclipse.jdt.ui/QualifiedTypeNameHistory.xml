@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.citraining.core.mail.MailService"/>
+<fullyQualifiedTypeName name="org.osgi.service.component.annotations.ConfigurationPolicy"/>
+<fullyQualifiedTypeName name="com.citraining.core.mail.impl.EmailConfiguration"/>
+<fullyQualifiedTypeName name="com.citraining.core.utils.CommonUtil"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="javax.jcr.query.Query"/>
+<fullyQualifiedTypeName name="javax.jcr.NodeIterator"/>
+<fullyQualifiedTypeName name="org.apache.sling.models.annotations.Source"/>
+<fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
+<fullyQualifiedTypeName name="javax.jcr.Session"/>
+<fullyQualifiedTypeName name="com.day.cq.wcm.api.Page"/>
+<fullyQualifiedTypeName name="com.day.cq.commons.jcr.JcrConstants"/>
+<fullyQualifiedTypeName name="javax.jcr.Node"/>
+<fullyQualifiedTypeName name="org.apache.log4j.spi.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.apache.sling.caconfig.annotation.Property"/>
+<fullyQualifiedTypeName name="org.osgi.service.component.annotations.Component"/>
+<fullyQualifiedTypeName name="org.osgi.service.component.annotations.Activate"/>
+<fullyQualifiedTypeName name="org.osgi.service.component.annotations.Reference"/>
+</qualifiedTypeNameHistroy>

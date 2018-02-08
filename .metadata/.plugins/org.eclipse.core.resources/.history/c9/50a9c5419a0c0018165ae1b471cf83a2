@@ -1,0 +1,5 @@
+package com.citraining.core.models;
+
+public class RequestParamsInjected {
+
+}

@@ -1,0 +1,14 @@
+<div data-sly-use.topnav="topnav.js">
+	<div class="wrapper row1">
+  		<div id="topbar" class="hoc clear"> 
+    		<nav id="mainav" class="fl_left">
+      			<ul class="clear">
+        			<li><a href="${topnav.root.path}.html">Home</a></li>
+        			<li data-sly-repeat="${topnav.items}">
+               		<a href="${item.path}.html">${item.title}</a>
+            		</li>
+      			</ul>
+    		</nav>
+		</div>
+	</div>
+ </div>

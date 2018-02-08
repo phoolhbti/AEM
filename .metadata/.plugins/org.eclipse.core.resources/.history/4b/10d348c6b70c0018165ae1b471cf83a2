@@ -1,0 +1,165 @@
+package com.citraining.core.servlets;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.servlets.HttpConstants;
+import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.apache.sling.jcr.api.SlingRepository;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.citraining.core.config.ComponentMappingConfig;
+import com.citraining.core.utils.CommonUtil;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.SearchResult;
+
+@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + " = Component Mapping Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths={/bin/componentMapping}" })
+@Designate (ocd = ComponentMappingConfig.class)
+public class ComponentMapping extends SlingAllMethodsServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	protected final transient Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Reference
+	private transient SlingRepository slingRepository;
+
+	@Reference
+	private transient QueryBuilder queryBuilder;
+
+	@Reference
+	private transient ResourceResolverFactory resourceResolverFactory;
+
+	private transient ComponentMappingConfig config;
+
+	Session session = null;
+
+	@Override
+	protected void doGet(SlingHttpServletRequest slingRequest, SlingHttpServletResponse slingResponse) throws ServletException, IOException {
+		Resource resource = slingRequest.getResource();
+		write(slingResponse, resource.toString(), "Hello world...");
+		ResourceResolver resourceResolver = null;
+		try{
+			resourceResolver = CommonUtil.getResourceResolver(resourceResolverFactory);
+
+			session = resourceResolver.adaptTo(Session.class);
+			String sourcePath = config.getSourcePath();
+			String distinationTemplate = config.getDistinationTemplate();
+			String componentMappings[] = config.getComponentMappings();
+			if (sourcePath != null && !"".equals(sourcePath)){
+
+				write(slingResponse, "Path Whose Convert:", sourcePath);
+
+				write(slingResponse, "<br>New Template of Sales CQ:", distinationTemplate);
+
+				Node rootNode = session.getNode(sourcePath);
+				String nodePath = "";
+				if (hasJCRContent(rootNode)){
+					Node templateNode = session.getNode(distinationTemplate);
+					Node jcrNode = getJCRContent(rootNode);
+					boolean template = jcrNode.hasProperty("cq:template");
+					if (template){
+						nodePath = jcrNode.getPath();
+						write(slingResponse, "<br>Changes Page Template Path:", nodePath);
+						jcrNode.setProperty("cq:template", distinationTemplate);
+
+					}
+					boolean reType = jcrNode.hasProperty("sling:resourceType");
+					if (reType){
+						nodePath = jcrNode.getPath();
+						write(slingResponse, "<br>Changes Page Component Path:", nodePath);
+
+						jcrNode.setProperty("sling:resourceType", templateNode.getNode("jcr:content").getProperty("sling:resourceType").getString());
+
+					}
+					jcrNode.getSession().save();
+				}
+				Map<String, String> map = new HashMap<String, String>();
+				Query query = null;
+				Node childrensubchild = null;
+				for (int srcCopm = 0; srcCopm < componentMappings.length;){
+					write(slingResponse, "<br>Component Name From src to destination:", componentMappings[srcCopm]);
+
+					map.put("path", sourcePath);
+					map.put("type", "nt:unstructured");
+					map.put("property", "sling:resourceType");
+					map.put("property.value", componentMappings[srcCopm]);
+					query = queryBuilder.createQuery(PredicateGroup.create(map), session);
+					query.setStart(0);
+					query.setHitsPerPage(10000);
+					SearchResult result = query.getResult();
+					Iterator<Node> childrensub = result.getNodes();
+					while (childrensub.hasNext()){
+						childrensubchild = childrensub.next();
+
+						write(slingResponse, "<br>Changes Component From shop to Sales:", childrensubchild.getPath(), "saved path New is::", componentMappings[srcCopm + 1]);
+						logger.debug("Path of the node:::{}", childrensubchild.getPath());
+						childrensubchild.setProperty("sling:resourceType", componentMappings[srcCopm + 1]);
+
+					}
+					srcCopm = srcCopm + 2;
+				}
+				if (null != childrensubchild){
+					childrensubchild.getSession().save();
+				}
+
+			}
+		} catch (LoginException e){
+			logger.error("LoginException", e);
+		} catch (RepositoryException e){
+			slingResponse.getOutputStream().println("error is" + e);
+			logger.error("RepositoryException", e);
+		}
+	}
+
+	private void write(SlingHttpServletResponse slingResponse, String ... messages) {
+		try{
+			for (String message : messages){
+				slingResponse.getOutputStream().print(message);
+			}
+		} catch (IOException e){
+			logger.error("IOException{}", e);
+		}
+	}
+
+	boolean hasJCRContent(Node node) {
+		boolean jcrConent = false;
+		try{
+			jcrConent = node.hasNode("jcr:content");
+		} catch (RepositoryException e){
+			logger.error("RepositoryException{}", e);
+		}
+		return jcrConent;
+	}
+
+	Node getJCRContent(Node node) {
+		Node jcrConentNode = null;
+		try{
+			jcrConentNode = node.getNode("jcr:content");
+		} catch (RepositoryException e){
+			logger.error("RepositoryException", e);
+		}
+		return jcrConentNode;
+	}
+}

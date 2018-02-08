@@ -1,0 +1,5 @@
+
+nsquid:S2259."@A "NullPointerException" could be thrown; "qm" is nullable here.(Ôşğ8´Ù¸—,H“RMAJORZBUG
+Tsquid:S1168'"&Return an empty array instead of null.(¥¹ïH’RMAJORZ
+CODE_SMELL
+gsquid:S2259#"@A "NullPointerException" could be thrown; "qm" is nullable here.(Æ×ä¯HÂœRMAJORZBUG

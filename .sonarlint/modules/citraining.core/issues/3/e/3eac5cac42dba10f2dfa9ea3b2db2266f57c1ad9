@@ -1,0 +1,28 @@
+
+usquid:S2095<"LUse try-with-resources or close this "HttpSolrClient" in a "finally" clause.(óİ±…Há™RBLOCKERZBUG
+psquid:CallToDeprecatedMethod?"1Remove this use of "JSONArray"; it is deprecated.(¿•ÃHê™RMINORZ
+CODE_SMELL
+ysquid:CallToDeprecatedMethodF"5Remove this use of "JSONException"; it is deprecated.(†–ª°ıÿÿÿÿHë™RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod&"1Remove this use of "Reference"; it is deprecated.(“¿‹WHè™RMINORZ
+CODE_SMELL
+psquid:CallToDeprecatedMethod"1Remove this use of "Component"; it is deprecated.(»êÿ±Hã™RMINORZ
+CODE_SMELL
+€squid:S00117;"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åîŞòHì™RMINORZ
+CODE_SMELL
+[squid:S1125A"(Remove the literal "true" boolean value.(«‘•§ÿÿÿÿÿHâ™RMINORZ
+CODE_SMELL
+vsquid:CallToDeprecatedMethod"2Remove this use of "Properties"; it is deprecated.(ş¸Ò÷şÿÿÿÿHå™RMINORZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(ş¸Ò÷şÿÿÿÿHç™RMINORZ
+CODE_SMELL
+osquid:CallToDeprecatedMethod)"1Remove this use of "Reference"; it is deprecated.(“¿‹WHé™RMINORZ
+CODE_SMELL
+psquid:S1948'":Make "solrConfigurationService" transient or serializable.(ÎŠ«üÿÿÿÿHí™RCRITICALZ
+CODE_SMELL
+dsquid:S1948*"3Make "solrSearchService" transient or serializable.(µã³Hî™RCRITICALZ
+CODE_SMELL
+tsquid:CallToDeprecatedMethod"0Remove this use of "Property"; it is deprecated.(ş¸Ò÷şÿÿÿÿHæ™RMINORZ
+CODE_SMELL
+nsquid:CallToDeprecatedMethod"/Remove this use of "Service"; it is deprecated.(×Ş¸€Hä™RMINORZ
+CODE_SMELL
