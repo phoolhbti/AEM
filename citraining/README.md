@@ -59,5 +59,11 @@ http://stackoverflow.com/questions/31350548/resourceresolverfactory-getservicere
 mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/dynamic-report-core_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
 -------------------------------------------------------------------
 mvn -PautoInstallPackage clean install -Dcrx.host=production.hostname -Dcrx.password=productionpasswd
+---------------how to use osgi declerative service
+@Service(service={MyService.class},immediate=true)
+
+https://blog.osoco.de/2015/08/osgi-components-simply-simple-part-ii/
+----------------
+https://stackoverflow.com/questions/9819090/how-to-convert-jar-to-osgi-bundle-using-eclipse-and-bndtools
 
 

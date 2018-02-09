@@ -9,13 +9,7 @@
       <ul class="nospace inline">
         <li><strong>Search Products</strong><br></li>
       </ul>
-      <form id="newsletter" method="post" action="#">
-          <fieldset>
-            <legend>Newsletter:</legend>
-            <input class="btmspace-15" type="text" value="" placeholder="Product, Description">
-            <button type="submit" value="submit">Submit</button>
-          </fieldset>
-    </form>
+      <div data-sly-resource="${'search' @ resourceType='citraining/components/content/solrsearch'}"></div>
     </div>
     <!-- ################################################################################################ -->
 	</header>

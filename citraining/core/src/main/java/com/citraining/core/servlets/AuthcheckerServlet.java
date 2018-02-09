@@ -12,7 +12,7 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Authentication Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_HEAD, "sling.servlet.paths={/bin/permissioncheck}" })
+@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Authentication Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_HEAD, "sling.servlet.paths="+"/bin/permissioncheck"})
 public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 	private static final long serialVersionUID = 7979979958671281729L;

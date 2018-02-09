@@ -34,7 +34,7 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
 
-@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + " = Component Mapping Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths={/bin/componentMapping}" })
+@Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + " = Component Mapping Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=/bin/componentMapping" })
 @Designate (ocd = ComponentMappingConfig.class)
 public class ComponentMapping extends SlingAllMethodsServlet {
 

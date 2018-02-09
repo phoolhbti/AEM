@@ -5,41 +5,41 @@ import java.io.IOException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.citraining.core.config.SolrConfiguration;
 import com.citraining.core.search.SolrSearchService;
-import com.citraining.core.search.SolrServerConfiguration;
 
 /**
  * This servlet acts as a bulk update to index content pages and assets to the configured Solr server
  */
-@Component (immediate = true, metatype = true)
-@Service (Servlet.class)
-@Properties ({ @Property (name = "sling.servlet.methods", value = "GET"), @Property (name = "sling.servlet.paths", value = "/bin/solr/push/pages") })
+@Component (service = Servlet.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = { Constants.SERVICE_DESCRIPTION + "=IndexContentToSolr Service", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=/bin/solr/push/pages" })
+@Designate (ocd = SolrConfiguration.class)
 public class IndexContentToSolr extends SlingAllMethodsServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOG = LoggerFactory.getLogger(IndexContentToSolr.class);
 
-	@Reference
-	SolrServerConfiguration solrConfigurationService;
+	private SolrConfiguration solrConfiguration;
 
 	@Reference
-	SolrSearchService solrSearchService;
+	private transient SolrSearchService solrSearchService;
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -51,11 +51,11 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		String indexType = request.getParameter("indexType");
-		final String protocol = solrConfigurationService.getSolrProtocol();
-		final String serverName = solrConfigurationService.getSolrServerName();
-		final String serverPort = solrConfigurationService.getSolrServerPort();
-		final String coreName = solrConfigurationService.getSolrCoreName();
-		final String pagesResourcePath = solrConfigurationService.getContentPagePath();
+		final String protocol = solrConfiguration.getSolrProtocol();
+		final String serverName = solrConfiguration.getSolrServerName();
+		final String serverPort = solrConfiguration.getSolrServerPort();
+		final String coreName = solrConfiguration.getSolrCoreName();
+		final String pagesResourcePath = solrConfiguration.getSolrCorePagepath();
 		String URL = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
 		HttpSolrClient server = new HttpSolrClient(URL);
 		if (indexType.equalsIgnoreCase("indexpages")){
@@ -77,5 +77,9 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 		}
 
 	}
+	 @Activate
+	    protected void activate( SolrConfiguration config ) {
+		 solrConfiguration=config;
+	 }
 
 }

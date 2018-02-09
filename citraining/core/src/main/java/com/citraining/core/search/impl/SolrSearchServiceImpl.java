@@ -9,9 +9,6 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONArray;
@@ -21,11 +18,12 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrInputDocument;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.search.SolrSearchService;
-import com.citraining.core.search.SolrServerConfiguration;
 import com.citraining.core.utils.SolrUtils;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -33,8 +31,7 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 
-@Component
-@Service
+@Component(service=SolrSearchService.class)
 public class SolrSearchServiceImpl implements SolrSearchService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SolrSearchServiceImpl.class);
@@ -44,10 +41,7 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 
 	@Reference
 	private SlingRepository repository;
-
-	@Reference
-	SolrServerConfiguration solrConfigurationService;
-
+	
 	/**
 	 * This method takes path and type of resource to perform search in JCR
 	 * 
