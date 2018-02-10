@@ -34,14 +34,7 @@
         <h6 class="heading font-x3 btmspace-50">Mailing List</h6>
         <p>Sed eget convallis mauris vestibulum dictum velit imperdiet urna consectetur maecenas sed lectus tellus ut in vestibulum dolor.</p>
         <p class="btmspace-30">At sodales cursus nulla vitae sodales nisi ut iaculis neque maecenas placerat.</p>
-        <form id="newsletter" method="post" action="#">
-          <fieldset>
-            <legend>Newsletter:</legend>
-            <input class="btmspace-15" type="text" value="" placeholder="Name">
-            <input class="btmspace-15" type="text" value="" placeholder="Email">
-            <button type="submit" value="submit">Submit</button>
-          </fieldset>
-        </form>
+        <div data-sly-resource="${'sendmail' @ resourceType='citraining/components/content/sendmail'}"></div>
       </section>
     </div>
     <!-- ################################################################################################ -->

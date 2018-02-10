@@ -3,7 +3,7 @@ package com.citraining.core.config;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@ObjectClassDefinition (name = "Component Mapping Service Configuration", description = "Select a Page path, which you want to convert from src template to dest template")
+@ObjectClassDefinition (name = "Citraining Component Mapping Service Configuration", description = "Select a Page path, which you want to convert from src template to dest template")
 public @interface ComponentMappingConfig {
 	@AttributeDefinition (name = "Src path", description = "Select a Page path, which you want to convert from src template to dest template")
 	String getSourcePath();

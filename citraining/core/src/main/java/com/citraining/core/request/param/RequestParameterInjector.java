@@ -1,24 +1,22 @@
 package com.citraining.core.request.param;
 
+import java.lang.reflect.AnnotatedElement;
+import java.lang.reflect.Type;
+import java.util.Enumeration;
+
+import javax.servlet.ServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.models.spi.DisposalCallbackRegistry;
 import org.apache.sling.models.spi.Injector;
 import org.apache.sling.models.spi.injectorspecific.AbstractInjectAnnotationProcessor;
 import org.apache.sling.models.spi.injectorspecific.InjectAnnotationProcessor;
 import org.apache.sling.models.spi.injectorspecific.InjectAnnotationProcessorFactory;
 import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Component;
 
-import javax.servlet.ServletRequest;
-import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Type;
-import java.util.Enumeration;
+@Component(service=RequestParameterInjector.class, property={"name ="+ Constants.SERVICE_RANKING, "intValue ="+ Integer.MIN_VALUE})
 
-@Component
-@Service
-@Property (name = Constants.SERVICE_RANKING, intValue = Integer.MIN_VALUE)
 public class RequestParameterInjector implements Injector, InjectAnnotationProcessorFactory {
 	@Override
 	public String getName() {
@@ -46,9 +44,9 @@ public class RequestParameterInjector implements Injector, InjectAnnotationProce
 	}
 
 	private String findParameterName(final ServletRequest request, final String paramNameRegexp) {
-		final Enumeration parameterNames = request.getParameterNames();
+		final Enumeration<String> parameterNames = request.getParameterNames();
 		while (parameterNames.hasMoreElements()){
-			final String parameterName = (String) parameterNames.nextElement();
+			final String parameterName = parameterNames.nextElement();
 
 			if (parameterName.matches(paramNameRegexp)){
 				return parameterName;
@@ -69,7 +67,9 @@ public class RequestParameterInjector implements Injector, InjectAnnotationProce
 				return Integer.parseInt(parameterValue);
 			} catch (NumberFormatException ex){
 
-				// got exception, so not an integer, return null;
+				/**
+				 *  got exception, so not an integer, return null;
+				 */
 				return null;
 			}
 		}
@@ -80,7 +80,9 @@ public class RequestParameterInjector implements Injector, InjectAnnotationProce
 	@Override
 	public InjectAnnotationProcessor createAnnotationProcessor(final Object adaptable, final AnnotatedElement element) {
 
-		// check if the element has the expected annotation
+		/**
+		 *  check if the element has the expected annotation
+		 */
 		RequestParameter annotation = element.getAnnotation(RequestParameter.class);
 		if (annotation != null){
 			return new RequestParameterAnnotationProcessor(annotation);

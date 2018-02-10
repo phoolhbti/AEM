@@ -7,18 +7,18 @@ import com.adobe.cq.sightly.WCMUsePojo;
 
 public class QuizService extends WCMUsePojo {
 
-	protected QuizImpl services;
+	protected Quiz services;
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public void activate() {
-		this.services = ((QuizImpl) getSlingScriptHelper().getService(QuizImpl.class));
-		this.logger.info("**** THE QUIZ Activate method was invoked");
+		this.services = getSlingScriptHelper().getService(Quiz.class);
+		logger.info("**** THE QUIZ Activate method was invoked");
 	}
 
 	public String getMessage() {
-		this.logger.info("The Data called");
-		return this.services.getData("ss");
+		logger.info("The Data called");
+		return services.getData("ss");
 	}
 
 }

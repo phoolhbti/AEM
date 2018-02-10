@@ -10,9 +10,7 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +24,7 @@ import com.adobe.granite.workflow.metadata.MetaDataMap;
 /**
  * @author Phool The component is activated immediately after the bundle is started through the immediate flag.
  */
-@Component (metatype = false)
-@Service
-@Property (name = "process.label", value = "Stock Threshold Checker")
+@Component (service = StockAlertProcess.class, property = { "process.label=Stock Threshold Checker" })
 public class StockAlertProcess implements WorkflowProcess {
 	private static final String PROPERTY_LAST_TRADE = "lastTrade";
 
@@ -44,30 +40,32 @@ public class StockAlertProcess implements WorkflowProcess {
 		try{
 			WorkflowData workflowData = workItem.getWorkflowData();
 			Session session = workflowSession.adaptTo(Session.class);
-			Node node = null;
-			if (workflowData.getPayloadType().equals(TYPE_JCR_PATH)){
-				String path = workflowData.getPayload().toString() + "/jcr:content";
-				LOGGER.info("path{}", path);
-				node = (Node) session.getItem(path);
+			if (null != session){
+				Node node = null;
+				if (workflowData.getPayloadType().equals(TYPE_JCR_PATH)){
+					String path = workflowData.getPayload().toString() + "/jcr:content";
+					LOGGER.info("path{}", path);
+					node = (Node) session.getItem(path);
 
-			} else if (workflowData.getPayloadType().equals(TYPE_JCR_UUID)){
-				node = session.getNodeByIdentifier(workflowData.getPayload().toString());
+				} else if (workflowData.getPayloadType().equals(TYPE_JCR_UUID)){
+					node = session.getNodeByIdentifier(workflowData.getPayload().toString());
 
-			}
-			if (null != node){
-				LOGGER.info("running with node{}", node.getPath());
-				String symbol = node.getParent().getName();
-				LOGGER.info("found symbol {}", symbol);
-				if (node.hasProperty(PROPERTY_LAST_TRADE)){
-					Double lastTrade = node.getProperty(PROPERTY_LAST_TRADE).getDouble();
-					LOGGER.info("last trade was{}", lastTrade);
-					Iterator<String> arguIterator = Arrays.asList(Pattern.compile("\n").split(args.get("PROCESS_ARGS", ""))).iterator();
-					while (arguIterator.hasNext()){
-						List<String> currentArgmentLine = Arrays.asList(Pattern.compile("=").split(arguIterator.next()));
-						String currentSymbol = currentArgmentLine.get(0);
-						Double currentLimit = new Double(currentArgmentLine.get(1));
-						if (currentSymbol.equalsIgnoreCase(symbol) && currentLimit < lastTrade){
-							LOGGER.warn("stock alert!!!!!{} is over {}", symbol, currentLimit);
+				}
+				if (null != node){
+					LOGGER.info("running with node{}", node.getPath());
+					String symbol = node.getParent().getName();
+					LOGGER.info("found symbol {}", symbol);
+					if (node.hasProperty(PROPERTY_LAST_TRADE)){
+						Double lastTrade = node.getProperty(PROPERTY_LAST_TRADE).getDouble();
+						LOGGER.info("last trade was{}", lastTrade);
+						Iterator<String> arguIterator = Arrays.asList(Pattern.compile("\n").split(args.get("PROCESS_ARGS", ""))).iterator();
+						while (arguIterator.hasNext()){
+							List<String> currentArgmentLine = Arrays.asList(Pattern.compile("=").split(arguIterator.next()));
+							String currentSymbol = currentArgmentLine.get(0);
+							Double currentLimit = new Double(currentArgmentLine.get(1));
+							if (currentSymbol.equalsIgnoreCase(symbol) && currentLimit < lastTrade){
+								LOGGER.warn("stock alert!!!!!{} is over {}", symbol, currentLimit);
+							}
 						}
 					}
 				}

@@ -7,22 +7,20 @@ import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.Value;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONObject;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.utils.CommonUtil;
 
-@Component (immediate = true)
-@Service
+@Component (service = Quiz.class)
 public class QuizImpl implements Quiz {
 
 	@Reference

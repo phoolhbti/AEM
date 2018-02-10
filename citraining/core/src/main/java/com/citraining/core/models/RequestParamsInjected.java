@@ -11,7 +11,7 @@ import com.citraining.core.request.param.RequestParameter;
 @Model (adaptables = SlingHttpServletRequest.class)
 public class RequestParamsInjected {
 
-	private static final Map<Object, String> CONTENT = new HashMap<Object, String>();
+	private static final Map<Object, String> CONTENT = new HashMap<>();
 
 	static{
 		CONTENT.put("param1", "Content 1");

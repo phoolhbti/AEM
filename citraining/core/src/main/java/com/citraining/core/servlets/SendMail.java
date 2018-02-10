@@ -1,19 +1,24 @@
 package com.citraining.core.servlets;
 
 import java.io.IOException;
-import java.rmi.ServerException;
 
-import org.apache.felix.scr.annotations.sling.SlingServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.servlets.HttpConstants;
+import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.mail.MailService;
 
-@SlingServlet (paths = "/bin/htlMailServlet", methods = "POST", metatype = true)
-public class SendMail extends org.apache.sling.api.servlets.SlingAllMethodsServlet {
+@Component (service = Servlet.class,property = { Constants.SERVICE_DESCRIPTION + "=SendMail Servlet", "sling.servlet.paths=/bin/htlMailServlet", "sling.servlet.methods="+ HttpConstants.METHOD_POST })
+public class SendMail extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 2598426539166789515L;
 
 	@Reference (target = "(mailservice.label=InternetA)")
@@ -28,7 +33,7 @@ public class SendMail extends org.apache.sling.api.servlets.SlingAllMethodsServl
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Override
-	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServerException, IOException {
+	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 
 		try{
 			// Get the submitted data from the HTL front end
@@ -48,4 +53,10 @@ public class SendMail extends org.apache.sling.api.servlets.SlingAllMethodsServl
 			log.error("Exception{}", e);
 		}
 	}
+	@Override
+	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+
+	}
+
 }

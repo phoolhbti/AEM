@@ -3,7 +3,6 @@ package com.citraining.core.mail.impl;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -32,10 +31,8 @@ public class MailServiceImpl implements MailService {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Activate
-	protected void activate(ComponentContext ctx) {
-		/**
-		 * used to initalize variable when component getting started
-		 */
+	protected void activate(EmailConfiguration config) {
+		this.config = config;
 	}
 
 	public void sendMail(String message) {

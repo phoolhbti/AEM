@@ -9,8 +9,6 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 
 import com.drew.lang.annotations.NotNull;
 
-
-
 public class CommonUtil {
 	private CommonUtil() {
 		throw new IllegalStateException("CommonUtil class");
@@ -18,9 +16,8 @@ public class CommonUtil {
 
 	public static ResourceResolver getResourceResolver(@NotNull ResourceResolverFactory resourceResolverFactory) throws LoginException {
 		Map<String, Object> param = new HashMap<>();
-		param.put(ResourceResolverFactory.SUBSERVICE, "writeService");
-		ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
-		return resourceResolver;
+		param.put(ResourceResolverFactory.SUBSERVICE, "citrainingService");
+		return resourceResolverFactory.getServiceResourceResolver(param);
 	}
 
 }

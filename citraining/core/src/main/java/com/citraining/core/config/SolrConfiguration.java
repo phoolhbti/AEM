@@ -3,7 +3,7 @@ package com.citraining.core.config;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@ObjectClassDefinition(name = "Solr Service Configuration", description = "Solr Service Configuration")
+@ObjectClassDefinition(name = "Citraining Solr Service Configuration", description = "Solr Service Configuration")
 public @interface SolrConfiguration {
 	@AttributeDefinition(name = "Protocol",defaultValue="http", description = "Either 'http' or 'https")
 	String getSolrProtocol();

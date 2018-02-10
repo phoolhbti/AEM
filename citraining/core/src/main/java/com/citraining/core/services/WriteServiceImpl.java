@@ -1,9 +1,5 @@
 package com.citraining.core.services;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.PersistenceException;
@@ -12,13 +8,15 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ValueMap;
 import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.utils.CommonUtil;
 
-@Service
-@Component (immediate = true)
+@Component (service = WriteService.class)
 public class WriteServiceImpl implements WriteService {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
@@ -32,20 +30,18 @@ public class WriteServiceImpl implements WriteService {
 		try{
 			resourceResolver = CommonUtil.getResourceResolver(resolverFactory);
 			Resource resource = resourceResolver.getResource("/content/citraining/jcr:content");
-			ValueMap valueMap = resource.getValueMap();
-			log.info(valueMap.get("jcr:primaryType", ""));
-			ModifiableValueMap modifiableValueMap = resource.adaptTo(ModifiableValueMap.class);
-			if (null != modifiableValueMap){
-				modifiableValueMap.put("myKey", "myValue");
-				resourceResolver.commit();
-				log.info("Successfully saved");
+			if (null != resource){
+				ValueMap valueMap = resource.getValueMap();
+				log.info(valueMap.get("jcr:primaryType", ""));
+				ModifiableValueMap modifiableValueMap = resource.adaptTo(ModifiableValueMap.class);
+				if (null != modifiableValueMap){
+					modifiableValueMap.put("myKey", "myValue");
+					resourceResolver.commit();
+					log.info("Successfully saved");
+				}
 			}
-		} catch (LoginException e){
-			log.error("LoginException", e);
-		} catch (PersistenceException e){
-			log.error("LoginException", e);
-		} catch (Exception e){
-			e.printStackTrace();
+		} catch (LoginException | PersistenceException e){
+			log.error("LoginException{}", e);
 		}
 		finally{
 			if (resourceResolver != null && resourceResolver.isLive()){

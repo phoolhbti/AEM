@@ -4,7 +4,7 @@ import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@ObjectClassDefinition(name = "Email Service Configuration", description = "Email Service Configuration")
+@ObjectClassDefinition(name = "Citraining Email Service Configuration", description = "Email Service Configuration")
 public @interface EmailConfiguration {
 	@AttributeDefinition(name = "Default Email Address", description = "Default Email Address")
 	String getDefaultEmailAdd();

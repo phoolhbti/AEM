@@ -66,4 +66,28 @@ https://blog.osoco.de/2015/08/osgi-components-simply-simple-part-ii/
 ----------------
 https://stackoverflow.com/questions/9819090/how-to-convert-jar-to-osgi-bundle-using-eclipse-and-bndtools
 
+Why use sling model:
+1. Entirely annotation driven. "Pure" POJOs.
+2. Use standard annotations where possible.
+3. Pluggable OOTB, support resource properties (via ValueMap), SlingBindings, OSGi services, request attributes
+4. Adapt multiple objects - minimal required Resource and SlingHttpServletRequest
+5. Client doesn't know/care that these objects are different than any other adapter factory
+6. Support both classes and interfaces.
+7. Work with existing Sling infrastructure (i.e. not require changes to other bundles).
+-----------------------------------------
+http://www.nateyolles.com/blog/2017/05/osgi-declarative-services-annotations-in-aem
+--------------------properties for servelet-------------------
+@Component(
+    service = Servlet.class,
+    property = {
+        "sling.servlet.extensions=html",
+        "sling.servlet.selectors=foo",
+        "sling.servlet.paths=/bin/foo",
+        "sling.servlet.paths=/bin/bar",
+        "sling.servlet.methods=get",
+        "sling.servlet.resourceTypes=nt:file",
+        "sling.servlet.resourceTypes=project/components/component"
+    }
+)
+---------------------------
 

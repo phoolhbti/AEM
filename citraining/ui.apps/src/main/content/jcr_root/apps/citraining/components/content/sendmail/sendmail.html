@@ -1,84 +1,61 @@
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientLib.js @ categories='htlajax'}" data-sly-unwrap/>
-<p data-sly-test="${properties.text}">Text property: ${properties.text}</p>
-
-
-<h1>AEM HTL Email Template Example</h1>
-
-</div>
-
+<sly
+	data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+	data-sly-call="${clientLib.js @ categories='htlajax'}" data-sly-unwrap />
+<p data-sly-test="${properties.text}">Text property:
+	${properties.text}</p>
 <form method="#">
+	<table border="1" align="left">
+		<tr>
+			<td><label for="hostPrefix" id="hostPrefix">A.2. Host
+					Prefix</label></td>
+			<td><input id="hostPrefixF" name="A.2 Host Prefix" type="text"
+				value="MyHost"></td>
+		</tr>
 
-    <table border="1" align="left">
+		<tr>
+			<td><label for="forumUrl" id="forumUrl">B2. Forum Url</label></td>
+			<td><input id="forumUrlF" name="B1. Forum Url    " type="text"
+				value="www.myurl.com"></td>
+		</tr>
 
-        <tr>
-            <td>
-                <label for="hostPrefix" id="hostPrefix">A.2. Host Prefix</label>
-            </td>
-            <td>
-                <input id="hostPrefixF" name="A.2 Host Prefix" type="text" value="MyHost">
-            </td>
-        </tr>
+		<tr>
+			<td><label for="modifiedByFullname" id="modifiedByFullname"
+				name="modifiedByFullname">C1. Modified By Fullname </label></td>
+			<td><input id="modifiedByFullnameF"
+				name="C1. Modified By Fullname    " type="text" value="Tom Blue">
+			</td>
+		</tr>
 
-        <tr>
-            <td>
-                <label for="forumUrl" id="forumUrl">B2. Forum Url</label>
-            </td>
-            <td>
-                <input id="forumUrlF" name="B1. Forum Url    " type="text" value="www.myurl.com">
-            </td>
-        </tr>
+		<tr>
+			<td><label for="TopicSubject">D1. Topic Subject </label></td>
+			<td><select id="TopicSubjectF" name="Topic Subject ">
+					<option value="InternetA">InternetA</option>
+					<option value="InternetB">InternetB</option>
+			</select></td>
+		</tr>
 
-        <tr>
-            <td>
-                <label for="modifiedByFullname" id="modifiedByFullname" name="modifiedByFullname">C1. Modified By
-                    Fullname </label>
-            </td>
-            <td>
-                <input id="modifiedByFullnameF" name="C1. Modified By Fullname    " type="text" value="Tom Blue">
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <label for="TopicSubject">D1. Topic Subject </label>
-            </td>
-            <td>
-                <select id="TopicSubjectF" name="Topic Subject ">
-                    <option value="InternetA">InternetA</option>
-                    <option value="InternetB">InternetB</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <label for="topicUrl" id="topicUrl" name="topicUrl">E1. Topic URL </label>
-            </td>
-            <td>
-                <input id="topicUrlF" name="topicUrl   " type="text" value="My Topic">
-            </td>
-        </tr>
+		<tr>
+			<td><label for="topicUrl" id="topicUrl" name="topicUrl">E1.
+					Topic URL </label></td>
+			<td><input id="topicUrlF" name="topicUrl   " type="text"
+				value="My Topic"></td>
+		</tr>
 
 
-        <tr>
-            <td></td>
+		<tr>
+			<td></td>
 
-            <td>
-                <textarea id="message" rows="4" cols="50"></textarea>
-            </td>
+			<td><textarea id="message" rows="4" cols="50"></textarea></td>
 
-        </tr>
+		</tr>
 
-        <tr>
-            <td></td>
-            <td>
-                <input type="button" value="Submit" name="submit" id="submit" value="Submit">
+		<tr>
+			<td></td>
+			<td><input type="button" value="Submit" name="submit"
+				id="submit" value="Submit"></td>
 
-            </td>
+		</tr>
 
-        </tr>
-
-    </table>
+	</table>
 
 </form>

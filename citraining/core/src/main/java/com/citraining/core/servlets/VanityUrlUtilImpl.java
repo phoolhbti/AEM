@@ -20,22 +20,23 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector;
 import javax.jcr.query.qom.StaticOperand;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
-import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.commons.json.JSONException;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.day.cq.commons.TidyJSONWriter;
 import com.day.cq.wcm.api.Page;
 
-@SlingServlet (paths = { "/services/vanityurlcheck" }, methods = { "GET", "POST" })
+@Component (service = Servlet.class, property = { "sling.servlet.paths=/services/vanityurlcheck", "sling.servlet.methods=get", "sling.servlet.methods=post" })
 public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 
 	/**
@@ -43,14 +44,14 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
      */
 	private static final long serialVersionUID = 1L;
 
-	private final Logger log = LoggerFactory.getLogger(VanityUrlUtilImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(VanityUrlUtilImpl.class);
 
 	String rootPath = "/content/";
 
 	@Override
 	public void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
 
-		log.info("####### Inside VanityUrlUtilImpl ########");
+		logger.info("####### Inside VanityUrlUtilImpl ########");
 		String check = request.getParameter("validate");
 		if (check != null && check.equals("true")){
 			getVanityPath(request, response);
@@ -63,25 +64,25 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private void getAllVanityPaths(SlingHttpServletRequest request, SlingHttpServletResponse response) {
 
 		Session session = request.getResourceResolver().adaptTo(Session.class);
-		ResourceResolver rr = request.getResourceResolver();
+		ResourceResolver resourceResolver = request.getResourceResolver();
 
 		try{
 			NodeIterator nodes = getVanityPaths(session, rootPath, null);
-			HashMap<String, String> duplicateVanityList = getDuplicateVanity(session, rr);
+			HashMap<String, String> duplicateVanityList = getDuplicateVanity(session, resourceResolver);
 
 			TidyJSONWriter tidyJSONWriter = new TidyJSONWriter(response.getWriter());
 			tidyJSONWriter.object();
 
 			for (int i = 0; i < nodes.getSize(); i++){
 				Node node = nodes.nextNode();
-				Page page = getPageObject(rr, node);
+				Page page = getPageObject(resourceResolver, node);
 				String site = getSite(page);
 
 				tidyJSONWriter.key(page.getName());
 				tidyJSONWriter.object();
 
 				if (!duplicateVanityList.isEmpty()){
-					log.info("####### duplicate Key ######## : " + duplicateVanityList.get(site + page.getVanityUrl()));
+					logger.info("####### duplicate Key ######## :{}", duplicateVanityList.get(site + page.getVanityUrl()));
 					if (duplicateVanityList.containsKey(site + page.getVanityUrl())){
 						tidyJSONWriter.key("isVanityDup").value("true");
 					} else{
@@ -100,7 +101,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 				if (vanityPath.isMultiple()){
 					Value[] values = vanityPath.getValues();
 					for (int j = 0; j < values.length; j++){
-						log.info("####### vanityUrls ######## : " + values.length + j);
+						logger.info("####### vanityUrls ######## :{} ", values.length + j);
 						tidyJSONWriter.value(values[j]);
 						vanityUrls = vanityUrls + values[j] + ",";
 					}
@@ -114,10 +115,10 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 				String redirectType = null;
 				if (node.hasProperty("sling:redirect")){
 					String redirect = node.getProperty("sling:redirect").getString();
-					log.info("####### redirect ######## : " + redirect);
+					logger.info("####### redirect ######## :{} ", redirect);
 					if (node.hasProperty("sling:redirectStatus")){
 						String redirectStatus = node.getProperty("sling:redirectStatus").getString();
-						log.info("####### redirectStatus ######## : " + redirectStatus);
+						logger.info("####### redirectStatus ######## :{} ", redirectStatus);
 						redirectType = redirectStatus;
 					} else{
 						redirectType = "301";
@@ -136,14 +137,14 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 		} catch (Exception e){
-			log.error(e.getMessage());
+			logger.error("Exception{}", e.getMessage());
 		}
 		finally{
 			if (session.isLive()){
 				session.logout();
 			}
-			if (rr.isLive()){
-				rr.close();
+			if (resourceResolver.isLive()){
+				resourceResolver.close();
 			}
 		}
 	}
@@ -151,11 +152,11 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private void getVanityPath(SlingHttpServletRequest request, SlingHttpServletResponse response) {
 		Session session = request.getResourceResolver().adaptTo(Session.class);
 		try{
-			log.info("Session UserId : " + session.getUserID());
+			logger.info("Session UserId : " + session.getUserID());
 			final String vanityPath = request.getParameter("vanityPath");
 			final String pagePath = request.getParameter("pagePath");
-			log.info("vanity path parameter passed is {}", vanityPath);
-			log.info("page path parameter passed is {}", pagePath);
+			logger.info("vanity path parameter passed is {}", vanityPath);
+			logger.info("page path parameter passed is {}", pagePath);
 			try{
 
 				NodeIterator nodes = getVanityPaths(session, rootPath, vanityPath);
@@ -167,8 +168,8 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 				String nodeSite = null;
 				while (nodes.hasNext()){
 					Node node = nodes.nextNode();
-					log.info("Node path is {}", node.getPath());
-					log.info("Page path is {}", pagePath);
+					logger.info("Node path is {}", node.getPath());
+					logger.info("Page path is {}", pagePath);
 					if (node != null && node.getPath().contains("/content")){
 						// check whether the path of the page where the vanity
 						// path is defined matches the dialog's path
@@ -176,8 +177,8 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 						nodeSite = getSite(node.getPath());
 						if (node.getPath().equals(pagePath) || !(nodeSite.equals(pageSite))){
 							// do not add that to the list
-							log.info("Node path is {}", node.getPath());
-							log.info("Page path is {}", pagePath);
+							logger.info("Node path is {}", node.getPath());
+							logger.info("Page path is {}", pagePath);
 						} else{
 							tidyJSONWriter.value(node.getPath());
 						}
@@ -189,12 +190,12 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 			} catch (RepositoryException re){
-				log.error("Error in doGet", re);
+				logger.error("Error in doGet", re);
 			}
 		} catch (JSONException e){
-			log.error("Error in doGet", e);
+			logger.error("Error in doGet", e);
 		} catch (Exception e){
-			log.error(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		finally{
 			if (session.isLive()){
@@ -211,7 +212,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private String getSite(Page page) {
 		String[] sites = page.getPath().split("/");
 		String site = sites[2];
-		log.info("### site  : " + site);
+		logger.info("### site  : " + site);
 		return site;
 	}
 
@@ -222,7 +223,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private String getSite(String pagePath) {
 		String[] sites = pagePath.split("/");
 		String site = sites[2];
-		log.info("### site  : " + site);
+		logger.info("### site  : " + site);
 		return site;
 	}
 
@@ -233,7 +234,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	 * @throws RepositoryException
 	 */
 	private Page getPageObject(ResourceResolver rr, Node node) throws RepositoryException {
-		log.info("##### NOde Path ####### : " + node.getPath() + " : " + node.getPath().replace("/jcr:content", ""));
+		logger.info("##### NOde Path ####### : " + node.getPath() + " : " + node.getPath().replace("/jcr:content", ""));
 		Resource resource = rr.getResource(node.getPath().replace("/jcr:content", ""));
 		Page page = resource.adaptTo(Page.class);
 		return page;
@@ -265,7 +266,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	 * @throws InvalidQueryException
 	 */
 	private NodeIterator getVanityPaths(Session session, String path, String vanityPath) throws RepositoryException, PathNotFoundException, UnsupportedRepositoryOperationException, InvalidQueryException {
-		log.info("####### session ######### : " + session.getUserID());
+		logger.info("####### session ######### : " + session.getUserID());
 		Node root = session.getRootNode();
 		Node currentNode = root.getNode("content");
 		QueryObjectModelFactory qf = currentNode.getSession().getWorkspace().getQueryManager().getQOMFactory();
@@ -280,9 +281,9 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 			constriant = qf.and(constriant, qf.comparison(dynOperand, operator, statOperand));
 		}
 		QueryObjectModel qm = qf.createQuery(selector, constriant, null, null);
-		log.info("######### Query ######### : " + qm.getStatement());
+		logger.info("######### Query ######### : " + qm.getStatement());
 		NodeIterator nodes = qm.execute().getNodes();
-		log.info("### query result : " + nodes.getSize());
+		logger.info("### query result : " + nodes.getSize());
 		return nodes;
 	}
 
@@ -291,7 +292,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 		String operation = request.getParameter("op");
 		String path = request.getParameter("path");
 		String pageSite = getSite(path);
-		log.error("######## path ######## : " + path);
+		logger.error("######## path ######## : " + path);
 		Session session = null;
 		try{
 			TidyJSONWriter tidyJSONWriter = new TidyJSONWriter(response.getWriter());
@@ -303,7 +304,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 			if (operation.equals("update")){
 				String vanityurl = request.getParameter("vanityurl");
 				String redirectType = request.getParameter("redirectType");
-				log.error("######## vanityurl ########" + vanityurl + " : " + request.getParameter("vanityurl"));
+				logger.error("######## vanityurl ########" + vanityurl + " : " + request.getParameter("vanityurl"));
 				String site = rootPath + request.getParameter("site");
 				String[] vanitypaths = vanityurl.split(",");
 				Value[] values = new Value[vanitypaths.length];
@@ -316,10 +317,10 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 						while (nodes.hasNext()){
 							Node node = nodes.nextNode();
 							nodeSite = getSite(node.getPath());
-							log.error("######## node path ######## : " + node.getPath());
+							logger.error("######## node path ######## : " + node.getPath());
 							if (!(node.getPath().replace("/jcr:content", "").equals(path)) && (nodeSite.equals(pageSite))){
 								isDup = true;
-								log.error("######## Vanity Path Duplication ########");
+								logger.error("######## Vanity Path Duplication ########");
 								tidyJSONWriter.key("Error").value("This Vanity Path already exists in this Site");
 							}
 						}
@@ -340,7 +341,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 			response.setCharacterEncoding("UTF-8");
 
 		} catch (Exception e){
-			log.error(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		finally{
 			if (null != session && session.isLive()){
@@ -351,7 +352,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	}
 
 	private void updateVanityUrl(Session session, String path, Value[] vanityurl, String redirectType) throws PathNotFoundException, RepositoryException {
-		log.info("####### Inside updateVanityUrl ########");
+		logger.info("####### Inside updateVanityUrl ########");
 
 		Node currentNode = session.getNode(path);
 		currentNode.getNode("jcr:content").setProperty("sling:vanityPath", vanityurl);
@@ -363,7 +364,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	}
 
 	private void deleteVanityUrl(Session session, String path) throws PathNotFoundException, RepositoryException {
-		log.info("####### Inside deleteVanityUrl ########");
+		logger.info("####### Inside deleteVanityUrl ########");
 		String[] vanityUrls = null;
 		Node currentNode = session.getNode(path);
 		currentNode.getNode("jcr:content").setProperty("sling:vanityPath", vanityUrls);
