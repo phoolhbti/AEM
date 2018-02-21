@@ -19,6 +19,32 @@
                         sling:resourceType="granite/ui/components/foundation/form/textfield"
                         fieldLabel="Text"
                         name="./text"/>
+					<herotext
+						jcr:primaryType="nt:unstructured"
+						jcr:title="Hero Text Properties"
+						sling:resourceType="granite/ui/components/foundation/section">
+						<layout
+							jcr:primaryType="nt:unstructured"
+							sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+						<items jcr:primaryType="nt:unstructured">
+							<column
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<headingText
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/foundation/form/textfield"
+										fieldLabel="Country"
+										name="./countryName"/>
+									<description
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/foundation/form/textfield"
+										fieldLabel="Numbers of Cities"
+										name="./countyNum"/>
+								</items>
+							</column>
+						</items>
+            </herotext>	
                 </items>
             </column>
         </items>

@@ -15,9 +15,13 @@ import com.citraining.core.config.EmailConfiguration;
 import com.citraining.core.mail.MailService;
 import com.day.cq.mailer.MessageGateway;
 import com.day.cq.mailer.MessageGatewayService;
-
+/**
+ * 
+ * @author phochand
+ *	factory=true for configuration factory same service used for multiple configration such as AEM logging
+ */
 @Component (service = MailService.class, configurationPolicy = ConfigurationPolicy.REQUIRE)
-@Designate (ocd = EmailConfiguration.class)
+@Designate (ocd = EmailConfiguration.class,factory=true)
 public class MailServiceImpl implements MailService {
 
 	private EmailConfiguration config;

@@ -17,7 +17,9 @@
 	<description>citraining</description>
 
 	<modules>
+	<module>soap-weater</module>
 		<module>core</module>
+		
 		<module>ui.apps</module>
 		<module>ui.content</module>
 		<module>it.tests</module>
@@ -609,6 +611,11 @@
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
 			<version>5.4.1_1</version>
+		</dependency>
+		<dependency>
+			<artifactId>gson</artifactId>
+			<groupId>com.google.code.gson</groupId>
+			<version>2.6.2</version>
 		</dependency>
 		</dependencies>
 	</dependencyManagement>

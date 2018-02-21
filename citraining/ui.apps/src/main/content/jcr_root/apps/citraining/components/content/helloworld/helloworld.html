@@ -30,3 +30,12 @@ ${currentPage.language}
     integer: ${model.integerContent}
     regexp: ${model.regexpContent}
 </pre>
+<div data-sly-use.heroTextObject="com.citraining.core.models.HeroWSComponent" data-sly-test="${heroTextObject}">
+
+ <h3>Specified Country:</h3>
+ <h3>${heroTextObject.heroTextBean.county}</h2>
+<h4>Here are the Cities: </h4>
+    <ul data-sly-list="${heroTextObject.heroTextBean.list}"> 
+        <li>${item}</li>
+    </ul>   
+</div>

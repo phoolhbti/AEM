@@ -12,6 +12,8 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,11 +23,12 @@ import com.citraining.core.mail.MailService;
 public class SendMail extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 2598426539166789515L;
 
-	@Reference (target = "(mailservice.label=InternetA)")
-	private transient MailService mailServiceA;
+	//@Reference (target = "(mailservice.label=InternetA)")
+	@Reference(name = "configurationFactory", cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
+	private transient MailService mailService;
 
-	@Reference (target = "(mailservice.label=InternetB)")
-	private transient MailService mailServiceB;
+	//@Reference (target = "(mailservice.label=InternetB)")
+	//private transient MailService mailServiceB;
 
 	/**
 	 * Default log.

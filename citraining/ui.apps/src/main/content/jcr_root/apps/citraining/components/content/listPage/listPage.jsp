@@ -20,8 +20,7 @@
 	class="com.citraining.core.taglibs.PageHelper" />
 
 
-<c:forEach items="<%=currentPage.listChildren()%>" var="currentChild"
-	varStatus="status">
+<c:forEach items="<%=currentPage.listChildren()%>" var="currentChild"	varStatus="status">
 	<p>
 		<c:out value="${status.count}" />
 		:

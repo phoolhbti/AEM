@@ -90,4 +90,6 @@ http://www.nateyolles.com/blog/2017/05/osgi-declarative-services-annotations-in-
     }
 )
 ---------------------------
-
+mvn generate-sources -Pgenerate-client-ws
+-------------------------------------------------
+http://blog.vogella.com/2017/02/13/control-osgi-ds-component-instances/

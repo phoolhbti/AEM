@@ -1,7 +1,6 @@
 package com.citraining.core.config;
 
 import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 @ObjectClassDefinition(name = "Citraining Email Service Configuration", description = "Email Service Configuration")
@@ -15,16 +14,13 @@ public @interface EmailConfiguration {
 	@AttributeDefinition(name = "Email Address", description = "Email Address")
 	String getAddress();
 	
-	@AttributeDefinition(name = "Name", description = "Name")
-	String getName();
+	@AttributeDefinition(name = "Label for this SMTP service", description = "Label for this SMTP service")
+	String getMailServiceName();
 	
 	@AttributeDefinition(name = "SMTP Name", description = "SMTP Name")
 	String getSMTP();
 	
-	@AttributeDefinition(name = "Subject MultipleValues", description = "Subject Multi Configuration values")
-	String[] getSubjectValues();
-	
-	@AttributeDefinition(name = "NumberValue", description = "Number values", type=AttributeType.INTEGER)
-	int getNumberValue();
+	@AttributeDefinition(name = "Email Subject", description = "Email Subject")
+	String getSubjectValues();
 
 }
