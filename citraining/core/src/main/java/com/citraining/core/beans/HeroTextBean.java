@@ -1,20 +1,20 @@
 package com.citraining.core.beans;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class HeroTextBean {
 
 	/** Stores the cities returned by the web service */
-	private ArrayList cityList;
+	private List<String> cityList;
 
 	/** Stores the county name */
 	private String county;
 
-	public void setList(ArrayList list) {
+	public void setList(List<String> list) {
 		this.cityList = list;
 	}
 
-	public ArrayList getList() {
+	public List<String> getList() {
 		return this.cityList;
 	}
 

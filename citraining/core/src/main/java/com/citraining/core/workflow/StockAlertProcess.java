@@ -22,7 +22,9 @@ import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
 
 /**
- * @author Phool The component is activated immediately after the bundle is started through the immediate flag.
+ * @author Phool Chandra
+ * 
+ * The component is activated immediately after the bundle is started through the immediate flag.
  */
 @Component (service = StockAlertProcess.class, property = { "process.label=Stock Threshold Checker" })
 public class StockAlertProcess implements WorkflowProcess {

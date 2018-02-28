@@ -17,7 +17,7 @@ import com.day.cq.mailer.MessageGateway;
 import com.day.cq.mailer.MessageGatewayService;
 /**
  * 
- * @author phochand
+ * @author Phool Chandra
  *	factory=true for configuration factory same service used for multiple configration such as AEM logging
  */
 @Component (service = MailService.class, configurationPolicy = ConfigurationPolicy.REQUIRE)

@@ -93,3 +93,16 @@ http://www.nateyolles.com/blog/2017/05/osgi-declarative-services-annotations-in-
 mvn generate-sources -Pgenerate-client-ws
 -------------------------------------------------
 http://blog.vogella.com/2017/02/13/control-osgi-ds-component-instances/
+https://gist.github.com/nateyolles
+for configuratin factory 
+https://techrevel.blog/2017/04/12/felix-configuration-factory/
+https://github.com/osgi/osgi.enroute.examples
+-------------------
+default json exporter: http://localhost:4502/content/we-retail/ca/en/experience/jcr:content/root/hero_image.tidy.json
+http://sgaem.blogspot.in/2017/06/sling-model-exporter-in-aem-63.html
+http://localhost:4502/content/we-retail/ca/en/experience/jcr:content/root/hero_image.model.json
+@ExporterOption(name = "MapperFeature.SORT_PROPERTIES_ALPHABETICALLY", value = "true")
+
+http://sgaem.blogspot.in/2018/01/custom-sling-model-exporter-in-aem-63.html
+Configruation of admin session:
+https://helpx.adobe.com/experience-manager/using/jqom.html
