@@ -51,15 +51,20 @@ There are three levels of testing contained in the project:
 	added Gunt dependinces
 ---------------------------------------------------------------------------------------------------------------
 Replacement of repository.loginAdministrative value in OSGI service is:
+
 com.citraining.core.services.WriteService
+
 Reference:
 http://www.wemblog.com/2014/08/how-to-use-sessions-and-resource.html
 http://stackoverflow.com/questions/31350548/resourceresolverfactory-getserviceresourceresolver-throws-exception-in-aem-6-1
 ---------------------
+
+How to install a jar/osgi file in local maven repository 
 mvn install:install-file -Dfile=D:/AEM/AEMSample/AEM/customUrber/plugins/dynamic-report-core_1.0.0.jar -DgroupId=com.citraining -DartifactId=com.citraining.reports -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
 -------------------------------------------------------------------
 mvn -PautoInstallPackage clean install -Dcrx.host=production.hostname -Dcrx.password=productionpasswd
----------------how to use osgi declerative service
+How to use osgi declerative service in a java class
+
 @Service(service={MyService.class},immediate=true)
 
 https://blog.osoco.de/2015/08/osgi-components-simply-simple-part-ii/
@@ -89,7 +94,7 @@ http://www.nateyolles.com/blog/2017/05/osgi-declarative-services-annotations-in-
         "sling.servlet.resourceTypes=project/components/component"
     }
 )
----------------------------
+Maven command to generate source code from WSDL using maven plugin
 mvn generate-sources -Pgenerate-client-ws
 -------------------------------------------------
 http://blog.vogella.com/2017/02/13/control-osgi-ds-component-instances/
