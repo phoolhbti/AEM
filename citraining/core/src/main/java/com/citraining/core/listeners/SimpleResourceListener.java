@@ -25,8 +25,11 @@ import com.citraining.core.utils.CommonUtil;
  * A service to demonstrate how changes in the node tree can be listened for. It registers an event Listener service.
  * The component is activated immediately after the bundle is started through the immediate flag. 
  * Please note, that apart from EventListener services, the immediate flag should not be set on a service.
- * Event Listener - At the JCR level with observation *
+ * Event Listener work at JCR level with ObservationManager, means it will responds to events that occur at the JCR level
  *
+ * An EventListener can be registered via the ObservationManager object. 
+ * Event listeners are notified asynchronously, and see events after they occur and the transaction is committed. 
+ * An event listener only sees events for which the session that registered it has sufficient access rights.
  */
 @Component (immediate = true, service = EventListener.class)
 public class SimpleResourceListener implements EventListener {

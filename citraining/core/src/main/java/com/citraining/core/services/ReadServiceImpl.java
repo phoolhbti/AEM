@@ -30,7 +30,7 @@ public class ReadServiceImpl implements ReadService {
 		ResourceResolver resolver = null;
 		try{
 			resolver = CommonUtil.getResourceResolver(resolverFactory);
-			log.info(resolver.getUserID());
+			log.info("User ID{}",resolver.getUserID());
 			Resource resource = resolver.getResource("/content/citraining/jcr:content");
 			if (null != resource){
 				ValueMap readMap = resource.getValueMap();

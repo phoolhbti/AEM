@@ -6,21 +6,21 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 @ObjectClassDefinition(name = "Citraining Email Service Configuration", description = "Email Service Configuration")
 public @interface EmailConfiguration {
 	@AttributeDefinition(name = "Default Email Address", description = "Default Email Address")
-	String getDefaultEmailAdd();
+	String getDefaultEmailAdd() default "phool@gmail.com";
 	
 	@AttributeDefinition(name = "Email From Address", description = "Email From Address")
-	String getFromEmailAdd();
+	String getFromEmailAdd() default "pc@gmail.com";
 	
 	@AttributeDefinition(name = "Email Address", description = "Email Address")
-	String getAddress();
+	String getAddress() default "address@gmail.com";
 	
 	@AttributeDefinition(name = "Label for this SMTP service", description = "Label for this SMTP service")
-	String getMailServiceName();
+	String getMailServiceName() default "InternetA";
 	
 	@AttributeDefinition(name = "SMTP Name", description = "SMTP Name")
-	String getSMTP();
+	String getSMTP() default "localhost";
 	
 	@AttributeDefinition(name = "Email Subject", description = "Email Subject")
-	String getSubjectValues();
+	String getSubjectValues() default "Hello Wrold";
 
 }

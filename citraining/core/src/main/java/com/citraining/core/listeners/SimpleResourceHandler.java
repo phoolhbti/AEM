@@ -20,6 +20,12 @@ import org.slf4j.LoggerFactory;
  * The component is activated immediately after the bundle is started through the immediate flag. 
  * Please note, that apart from EventHandler services, the immediate flag should not be set on a service.
  * Event Handler - At the Sling level with event handlers and jobs
+ * 
+ * EventHandler objects are registered with the Framework service registry and are notified with an Event object 
+ * when an event is sent or posted.
+ * EventHandler objects can inspect the received Event object to determine its topic and properties.
+ * EventHandler objects must be registered with a service property EventConstants.EVENT_TOPIC 
+ * whose value is the list of topics in which the event handler is interested.
  */
 @Component (service = EventHandler.class, immediate = true, property = { Constants.SERVICE_DESCRIPTION + "=Demo to listen on changes in the resource tree", EventConstants.EVENT_TOPIC + "=org/apache/sling/api/resource/Resource/*" })
 public class SimpleResourceHandler implements EventHandler {

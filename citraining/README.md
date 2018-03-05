@@ -111,3 +111,5 @@ http://localhost:4502/content/we-retail/ca/en/experience/jcr:content/root/hero_i
 http://sgaem.blogspot.in/2018/01/custom-sling-model-exporter-in-aem-63.html
 Configruation of admin session:
 https://helpx.adobe.com/experience-manager/using/jqom.html
+How to access retriwe service in osgi 
+http://blog.vogella.com/2016/09/26/configuring-osgi-declarative-services/

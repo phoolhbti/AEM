@@ -36,7 +36,8 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 
 	private static final Logger LOG = LoggerFactory.getLogger(IndexContentToSolr.class);
 
-	private SolrConfiguration solrConfiguration;
+	private transient SolrConfiguration solrConfiguration;
+	HttpSolrClient server;
 
 	@Reference
 	private transient SolrSearchService solrSearchService;
@@ -56,8 +57,8 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 		final String serverPort = solrConfiguration.getSolrServerPort();
 		final String coreName = solrConfiguration.getSolrCoreName();
 		final String pagesResourcePath = solrConfiguration.getSolrCorePagepath();
-		String URL = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
-		HttpSolrClient server = new HttpSolrClient(URL);
+		String url = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
+		server = new HttpSolrClient(url);
 		if (indexType.equalsIgnoreCase("indexpages")){
 			try{
 				JSONArray indexPageData = solrSearchService.crawlContent(pagesResourcePath, "cq:PageContent");
@@ -70,6 +71,8 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 			} catch (JSONException | SolrServerException e){
 				LOG.error("Exception due to", e);
 				response.getWriter().write("<h3>Something went wrong. Please make sure Solr server is configured properly in Felix</h3>");
+			}finally{
+				server.close();
 			}
 
 		} else{

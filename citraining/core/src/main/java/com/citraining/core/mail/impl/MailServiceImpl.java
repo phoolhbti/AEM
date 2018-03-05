@@ -44,7 +44,7 @@ public class MailServiceImpl implements MailService {
 			MessageGateway<Email> messageGateway;
 			Email email = new SimpleEmail();
 			email.addTo(config.getAddress());
-			email.setSubject("Hello Email service");
+			email.setSubject(config.getSubjectValues());
 			email.setFrom(config.getFromEmailAdd());
 			email.setMsg(message);
 			messageGateway = messageGatewayService.getGateway(Email.class);

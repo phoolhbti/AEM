@@ -159,15 +159,15 @@ public class QuizImpl implements Quiz {
 
 				questionsArray.put(ques);
 			}
-			finalJson.put("info", info);
+			finalJson.put("info{}", info);
 
-			finalJson.put("questions", questionsArray);
+			finalJson.put("questions{}", questionsArray);
 
-			LOGGER.info("Final JSON: " + finalJson);
+			LOGGER.info("Final JSON:{} ", finalJson);
 
 			return finalJson.toString();
 		} catch (Exception e){
-			LOGGER.info("Exception :" + e.getMessage());
+			LOGGER.info("Exception :{}",e.getMessage());
 		}
 		return null;
 	}

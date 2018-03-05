@@ -1,12 +1,8 @@
 package com.citraining.core.sample.impl;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
@@ -46,14 +42,13 @@ public class ConfigurationFactoryConsumerImpl implements ConfigurationFactoryCon
 		LOGGER.info("unbindConfigurationFactory:{} ", config.getContentConsumerUrl());
 		configurationList.remove(config);
 	}
-	
-	/*private Stream<ConfigurationFactory> getConfigurations0(String filter)
-					throws IOException, InvalidSyntaxException {
 
-		ConfigurationFactory[] configurations = configurationList.listConfigurations(filter);
-				if (configurations == null)
-					configurations = EMPTY;
-
-				return Arrays.stream(configurations);
-			}*/
+	@Override
+	public ConfigurationFactory get(String filter) {
+		for (ConfigurationFactory confFact : configurationList) {
+			if (filter.equals(confFact.getContentConsumerUrl()))
+			 return confFact;
+	}
+	return null;
+	}
 }

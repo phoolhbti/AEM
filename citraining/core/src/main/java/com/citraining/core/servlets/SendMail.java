@@ -1,6 +1,9 @@
 package com.citraining.core.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -23,13 +26,10 @@ import com.citraining.core.mail.MailService;
 public class SendMail extends SlingAllMethodsServlet {
 	private static final long serialVersionUID = 2598426539166789515L;
 
-	// @Reference (target = "(mailservice.label=InternetA)")
-	@Reference (name = "configurationFactory", cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
-	private transient MailService mailService;
-
-	// @Reference (target = "(mailservice.label=InternetB)")
-	// private transient MailService mailServiceB;
-
+	private List<MailService> mailService = new ArrayList<>();
+	@Reference (name = "mailService",  cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC,target="(getMailServiceName=InternetA)")
+	//private transient MailService mailService;
+	
 	/**
 	 * Default log.
 	 */
@@ -45,10 +45,10 @@ public class SendMail extends SlingAllMethodsServlet {
 			log.info("*** SUBJECT: {}", topicSubject);
 			boolean subject = "InternetA".equals(topicSubject);
 
-			if (subject)
+			/*if (subject)
 				mailService.sendMail(message);
 			else 
-				mailService.sendMail(message);
+				mailService.sendMail(message);*/
 			response.getWriter().write("EMAIL GONE");
 
 		} catch (Exception e){
@@ -61,5 +61,24 @@ public class SendMail extends SlingAllMethodsServlet {
 		doPost(request, response);
 
 	}
+	void addMailService(MailService service, Map<String, Object> properties) {
+        this.mailService.add(service);
+        
+        System.out.println("Added " + service.getClass().getName());
+        properties.forEach((k, v) -> {
+            System.out.println(k+"="+v);
+        });
+        System.out.println();
+    }
 
+    void removeMailService(MailService service) {
+        this.mailService.remove(service);
+        System.out.println("Removed " + service.getClass().getName());
+    }
+
+    public void retrieve(String message) {
+        for (MailService service : this.mailService) {
+            System.out.println("Hello world...");
+        }
+    }
 }
