@@ -2,14 +2,13 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:template="/conf/summit_toys/settings/wcm/templates/summit-toys-section-page"
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:template="/conf/citraining/settings/wcm/templates/empty-experience-fragment"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="summit_toys/components/structure/page">
+        sling:resourceType="citraining/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"
-            editable="{Boolean}true"/>
+            sling:resourceType="wcm/foundation/components/responsivegrid"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone

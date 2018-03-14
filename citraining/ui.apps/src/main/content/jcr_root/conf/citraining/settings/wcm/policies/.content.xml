@@ -6,7 +6,7 @@
         <foundation jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
-                    <summit-toys-structure
+                    <citraining-structure
                         jcr:description="Policy for templates to allow structure components"
                         jcr:lastModified="{Date}2017-01-31T16:05:46.568-05:00"
                         jcr:lastModifiedBy="admin"
@@ -21,18 +21,18 @@
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
-                    </summit-toys-structure>
-                    <summit-toys-content
+                    </citraining-structure>
+                    <citraining-content
                         jcr:lastModified="{Date}2017-04-18T09:55:17.550-04:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Summit Toys Content"
+                        jcr:title="Citraining Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/core/wcm/components/image,/apps/core/wcm/components/text,/apps/core/wcm/components/title&#xa;,/apps/training-hub/components/displayStores,/apps/summit_toys/components/content/hero,/apps/summit_toys/components/content/banner]">
+                        components="[/apps/core/wcm/components/image,/apps/core/wcm/components/text,/apps/core/wcm/components/title&#xa;,/apps/citraining/components/displayStores,/apps/citraining/components/content/hero,/apps/citraining/components/content/banner]">
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
-                    </summit-toys-content>
+                    </citraining-content>
                 </responsivegrid>
             </components>
         </foundation>

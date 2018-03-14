@@ -4,9 +4,9 @@
     <jcr:content
         cq:lastModified="{Date}2017-02-26T18:36:22.263-05:00"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/summit_toys/settings/wcm/templates/summit-toys-section-page"
+        cq:template="/conf/citraining/settings/wcm/templates/citraining-section-page"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="summit_toys/components/structure/page">
+        sling:resourceType="citraining/components/structure/page">
         <root
             jcr:lastModified="{Date}2017-02-26T18:32:21.225-05:00"
             jcr:lastModifiedBy="admin"
@@ -18,31 +18,31 @@
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/header"/>
+                sling:resourceType="citraining/components/structure/header"/>
             <navigation
                 jcr:created="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/navigation"/>
+                sling:resourceType="citraining/components/structure/navigation"/>
             <banner
                 jcr:created="{Date}2017-02-26T18:34:01.187-05:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2017-02-26T18:36:22.261-05:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/content/banner"
+                sling:resourceType="citraining/components/content/banner"
                 bannerTitle="Default Value"
-                pathOne="/content/dam/summit-toys/thumbnails/lego2.png"
-                pathTwo="/content/dam/summit-toys/thumbnails/lego1.png"/>
+                pathOne="/content/dam/citraining/thumbnails/lego2.png"
+                pathTwo="/content/dam/citraining/thumbnails/lego1.png"/>
             <responsivegrid
                 jcr:created="{Date}2016-09-20T20:35:34.244+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:35:34.244+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="/apps/summit_toys/components/content/responsivegrid">
+                sling:resourceType="/apps/citraining/components/content/responsivegrid">
                 <cq:responsive jcr:primaryType="nt:unstructured"/>
             </responsivegrid>
             <footer
@@ -51,14 +51,14 @@
                 jcr:lastModified="{Date}2016-09-20T20:35:44.080+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/footer"/>
+                sling:resourceType="citraining/components/structure/footer"/>
             <copyright
                 jcr:created="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/copyright"/>
+                sling:resourceType="citraining/components/structure/copyright"/>
         </root>
     </jcr:content>
 </jcr:root>

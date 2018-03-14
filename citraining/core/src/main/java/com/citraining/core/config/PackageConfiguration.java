@@ -10,5 +10,10 @@ public @interface PackageConfiguration {
 
 	@AttributeDefinition (name = "Package Name", description = "Enter Package Name")
 	String getPackageName();
+	
+	@AttributeDefinition (name = "Node Path", description = "Plase specify which content  need to change e.g '/content/geometrixx/en_UK/products'")
+	String[] getNodePath();
+	@AttributeDefinition (name = "Included Related Content", description = "Included Related Content")
+	boolean isRealatedContent() default true;
 
 }

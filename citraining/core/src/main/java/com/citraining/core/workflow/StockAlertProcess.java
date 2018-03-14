@@ -22,9 +22,7 @@ import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
 
 /**
- * @author Phool Chandra
- * 
- * The component is activated immediately after the bundle is started through the immediate flag.
+ * @author Phool Chandra The component is activated immediately after the bundle is started through the immediate flag.
  */
 @Component (service = StockAlertProcess.class, property = { "process.label=Stock Threshold Checker" })
 public class StockAlertProcess implements WorkflowProcess {
@@ -53,29 +51,33 @@ public class StockAlertProcess implements WorkflowProcess {
 					node = session.getNodeByIdentifier(workflowData.getPayload().toString());
 
 				}
-				if (null != node){
-					LOGGER.info("running with node{}", node.getPath());
-					String symbol = node.getParent().getName();
-					LOGGER.info("found symbol {}", symbol);
-					if (node.hasProperty(PROPERTY_LAST_TRADE)){
-						Double lastTrade = node.getProperty(PROPERTY_LAST_TRADE).getDouble();
-						LOGGER.info("last trade was{}", lastTrade);
-						Iterator<String> arguIterator = Arrays.asList(Pattern.compile("\n").split(args.get("PROCESS_ARGS", ""))).iterator();
-						while (arguIterator.hasNext()){
-							List<String> currentArgmentLine = Arrays.asList(Pattern.compile("=").split(arguIterator.next()));
-							String currentSymbol = currentArgmentLine.get(0);
-							Double currentLimit = new Double(currentArgmentLine.get(1));
-							if (currentSymbol.equalsIgnoreCase(symbol) && currentLimit < lastTrade){
-								LOGGER.warn("stock alert!!!!!{} is over {}", symbol, currentLimit);
-							}
-						}
-					}
-				}
+				stockWarning(args, node);
 			}
 		} catch (ItemNotFoundException e){
 			LOGGER.error("ItemNotFoundException", e);
 		} catch (RepositoryException e){
 			LOGGER.error("RepositoryException", e);
+		}
+	}
+
+	private void stockWarning(MetaDataMap args, Node node) throws RepositoryException {
+		if (null != node){
+			LOGGER.info("running with node{}", node.getPath());
+			String symbol = node.getParent().getName();
+			LOGGER.info("found symbol {}", symbol);
+			if (node.hasProperty(PROPERTY_LAST_TRADE)){
+				Double lastTrade = node.getProperty(PROPERTY_LAST_TRADE).getDouble();
+				LOGGER.info("last trade was{}", lastTrade);
+				Iterator<String> arguIterator = Arrays.asList(Pattern.compile("\n").split(args.get("PROCESS_ARGS", ""))).iterator();
+				while (arguIterator.hasNext()){
+					List<String> currentArgmentLine = Arrays.asList(Pattern.compile("=").split(arguIterator.next()));
+					String currentSymbol = currentArgmentLine.get(0);
+					Double currentLimit = new Double(currentArgmentLine.get(1));
+					if (currentSymbol.equalsIgnoreCase(symbol) && currentLimit < lastTrade){
+						LOGGER.warn("stock alert!!!!!{} is over {}", symbol, currentLimit);
+					}
+				}
+			}
 		}
 	}
 

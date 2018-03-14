@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUsePojo;
 import com.citraining.core.beans.HeroBean;
+import com.drew.lang.annotations.NotNull;
 
 public class HeroTextComponent extends WCMUsePojo {
 
@@ -16,11 +17,12 @@ public class HeroTextComponent extends WCMUsePojo {
 
 	@Override
 	public void activate() throws Exception {
+		@NotNull
 		Node currentNode = getResource().adaptTo(Node.class);
 		heroBean = new HeroBean();
 		if (null != currentNode){
-			if (currentNode.hasProperty("jcr:Heading")){
-				heroBean.setHeading(currentNode.getProperty("./jcr:Heading").getString());
+			if (currentNode.hasProperty("jcr:heading")){
+				heroBean.setHeading(currentNode.getProperty("./jcr:heading").getString());
 			}
 			if (currentNode.hasProperty("jcr:description")){
 				heroBean.setDescription(currentNode.getProperty("./jcr:description").getString());

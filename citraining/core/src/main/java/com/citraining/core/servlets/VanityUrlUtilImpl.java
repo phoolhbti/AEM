@@ -212,7 +212,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private String getSite(Page page) {
 		String[] sites = page.getPath().split("/");
 		String site = sites[2];
-		logger.info("### site  : " + site);
+		logger.info("### site  :{} ",site);
 		return site;
 	}
 
@@ -223,7 +223,7 @@ public class VanityUrlUtilImpl extends SlingAllMethodsServlet {
 	private String getSite(String pagePath) {
 		String[] sites = pagePath.split("/");
 		String site = sites[2];
-		logger.info("### site  : " + site);
+		logger.info("### site  :{} ", site);
 		return site;
 	}
 

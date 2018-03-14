@@ -171,5 +171,11 @@
 			<groupId>com.citraining</groupId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+    <groupId>org.apache.sling</groupId>
+    <artifactId>org.apache.sling.fragment.ws</artifactId>   
+</dependency>
+		
+		
 	</dependencies>
 </project>

@@ -11,7 +11,7 @@ import org.osgi.service.component.annotations.Component;
 
 @Component (service = ModelExporter.class)
 public class JAXBExporter implements ModelExporter {
-
+@Override
 	public <T> T export(Object model, Class<T> clazz, Map<String, String> options) throws org.apache.sling.models.factory.ExportException {
 		StringWriter sw = new StringWriter();
 		try{
@@ -23,12 +23,12 @@ public class JAXBExporter implements ModelExporter {
 		}
 		return (T) sw.toString();
 	}
-
+@Override
 	public String getName() {
 		return "jaxb";
 	}
-
-	public boolean isSupported(Class Model1) {
+@Override
+	public boolean isSupported(Class<?> model) {
 		return true;
 	}
 }

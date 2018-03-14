@@ -62,7 +62,7 @@ public class QueryServlet extends SlingAllMethodsServlet {
 				Constraint constriant = qf.descendantNode("s", "/content/we-retail/language-masters/en");
 				constriant = qf.and(constriant, qf.propertyExistence("s", JcrConstants.JCR_TITLE));
 				QueryObjectModel qm = qf.createQuery(selector, constriant, null, null);
-				log.info("######### Query ######### : " + qm.getStatement());
+				log.info("######### Query ######### :{} " , qm.getStatement());
 				NodeIterator nodeItr = qm.execute().getNodes();
 				PrintWriter pw = response.getWriter();
 				while (nodeItr.hasNext()){

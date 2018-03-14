@@ -92,7 +92,38 @@
 									<keep>true</keep>
 									<sourceDestDir>src/main/java</sourceDestDir>
 								</configuration>
-							</execution>
+							</execution>							
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>generate-client-finance</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>jaxws-maven-plugin</artifactId>
+						<version>1.11</version>
+						<executions>							
+							 <execution>
+								<goals>
+									<goal>wsimport</goal>
+								</goals>
+								<configuration>
+									<verbose>false</verbose>
+									<wsdlUrls>
+										<wsdlUrl>http://www.restfulwebservices.net/rest/StockQuoteService.svc?wsdl</wsdlUrl>										
+									</wsdlUrls>
+									<packageName>${client.weather.package}.finance</packageName>
+									<keep>true</keep>
+									<sourceDestDir>src/main/java</sourceDestDir>
+								</configuration>
+							</execution>							
 						</executions>
 					</plugin>
 				</plugins>

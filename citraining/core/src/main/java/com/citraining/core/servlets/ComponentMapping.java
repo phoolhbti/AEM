@@ -29,10 +29,12 @@ import org.slf4j.LoggerFactory;
 
 import com.citraining.core.config.ComponentMappingConfig;
 import com.citraining.core.utils.CommonUtil;
+import com.citraining.core.utils.JcrUtils;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
+import com.drew.lang.annotations.NotNull;
 
 @Component (service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + " = Component Mapping Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=/bin/componentMapping" })
 @Designate (ocd = ComponentMappingConfig.class)
@@ -61,17 +63,17 @@ public class ComponentMapping extends SlingAllMethodsServlet {
 		try{
 			resourceResolver = CommonUtil.getResourceResolver(resourceResolverFactory);
 			Session session = resourceResolver.adaptTo(Session.class);
+			@NotNull
 			String sourcePath = config.getSourcePath();
 			String distinationTemplate = config.getDistinationTemplate();
-			String componentMappings[] = config.getComponentMappings();
-			if (sourcePath != null && !"".equals(sourcePath)){
+			String[] componentMappings = config.getComponentMappings();
 				write(slingResponse, "Path Whose Convert:", sourcePath);
 				write(slingResponse, "<br>New Template of Sales CQ:", distinationTemplate);
 				Node rootNode = session.getNode(sourcePath);
 				String nodePath = "";
-				if (hasJCRContent(rootNode)){
+				if (JcrUtils.hasJCRContent(rootNode)){
 					Node templateNode = session.getNode(distinationTemplate);
-					Node jcrNode = getJCRContent(rootNode);
+					Node jcrNode = JcrUtils.getJCRContent(rootNode);
 					boolean template = jcrNode.hasProperty("cq:template");
 					if (template){
 						nodePath = jcrNode.getPath();
@@ -113,8 +115,7 @@ public class ComponentMapping extends SlingAllMethodsServlet {
 				if (null != childrensubchild){
 					childrensubchild.getSession().save();
 				}
-
-			}
+		
 		} catch (LoginException e){
 			logger.error("LoginException", e);
 		} catch (RepositoryException e){
@@ -123,25 +124,7 @@ public class ComponentMapping extends SlingAllMethodsServlet {
 		}
 	}
 
-	Node getJCRContent(Node node) {
-		Node jcrConentNode = null;
-		try{
-			jcrConentNode = node.getNode("jcr:content");
-		} catch (RepositoryException e){
-			logger.error("RepositoryException", e);
-		}
-		return jcrConentNode;
-	}
-
-	boolean hasJCRContent(Node node) {
-		boolean jcrConent = false;
-		try{
-			jcrConent = node.hasNode("jcr:content");
-		} catch (RepositoryException e){
-			logger.error("RepositoryException{}", e);
-		}
-		return jcrConent;
-	}
+	
 
 	private void write(SlingHttpServletResponse slingResponse, String ... messages) {
 		try{

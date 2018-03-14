@@ -2,6 +2,7 @@ package com.citraining.core.models;
 
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ import com.citraining.ws.GlobalWeatherSoap;
 
 @Model (adaptables = Resource.class)
 public class HeroWSComponent {
-	private final Logger LOG = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Inject
 	@Optional
@@ -37,11 +38,9 @@ public class HeroWSComponent {
 
 	private int size;
 
-	private ArrayList<String> citiesList;
-
 	@PostConstruct
 	protected void init() {
-		LOG.info("Web Service Component  **** INIT ***");
+		logger.info("Web Service Component  **** INIT ***");
 		heroTextBean = new HeroTextBean();
 		// Set variables - we need city and country to make a successful web service call
 		String number = countyNum;
@@ -50,9 +49,9 @@ public class HeroWSComponent {
 		// populate data member size
 		size = Integer.parseInt(number);
 		// Convert the String XML to WC3 Document
-		Document cityXML = FromXmlString(myXML);
+		Document cityXML = fromXmlString(myXML);
 		// Populate the List - this list contents will be displayed in the Client part of the HTL component
-		ArrayList cityList = getAllCities(cityXML);
+		List<String> cityList = getAllCities(cityXML);
 		heroTextBean.setList(cityList);
 		heroTextBean.setCounty(country);
 	}
@@ -63,14 +62,14 @@ public class HeroWSComponent {
 	}
 
 	// Place the specified number of cities into a List
-	public ArrayList getAllCities(Document doc) {
-		citiesList = new ArrayList(size);
-		NodeList LineItemAttributeChildrenList = doc.getElementsByTagName("City");
-		if (LineItemAttributeChildrenList != null && LineItemAttributeChildrenList.getLength() > 0){
-			System.out.println("Inside if and checking length" + LineItemAttributeChildrenList.getLength());
+	public List<String> getAllCities(Document doc) {
+		List<String> citiesList = new ArrayList<>(size);
+		NodeList lineItemAttributeChildrenList = doc.getElementsByTagName("City");
+		if (lineItemAttributeChildrenList != null && lineItemAttributeChildrenList.getLength() > 0){
+			logger.debug("Inside if and checking length{}", lineItemAttributeChildrenList.getLength());
 			for (int i = 0; i < size; i++){
 				// Add the city to the list!
-				citiesList.add(LineItemAttributeChildrenList.item(i).getTextContent());
+				citiesList.add(lineItemAttributeChildrenList.item(i).getTextContent());
 			}
 		}
 		return citiesList;
@@ -81,22 +80,21 @@ public class HeroWSComponent {
 		try{
 			GlobalWeather global = new GlobalWeather();
 			GlobalWeatherSoap weatherService = global.getGlobalWeatherSoap();
-			String allCities = weatherService.getCitiesByCountry(country);
-			return allCities;
+			return weatherService.getCitiesByCountry(country);
 		} catch (Exception e){
-			e.printStackTrace();
+			logger.error("Exception{}", e);
 		}
 		return "";
 	}
 
 	// Convert String to WC3 Document
-	public Document FromXmlString(String xmlString) {
+	public Document fromXmlString(String xmlString) {
 		try{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			return builder.parse(new InputSource(new StringReader(xmlString)));
 		} catch (Exception e){
-			e.printStackTrace();
+			logger.error("Exception{}", e);
 		}
 		return null;
 	}

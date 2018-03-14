@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 public class SimpleResourceHandler implements EventHandler {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-
+	@Override
 	public void handleEvent(final Event event) {
 		logger.debug("Resource event: {} at: {}", event.getTopic(), event.getProperty(SlingConstants.PROPERTY_PATH));
 	}

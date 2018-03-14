@@ -9,6 +9,6 @@ public interface ModelExporter {
 
 	public String getName();
 
-	public boolean isSupported(Class model1);
+	public boolean isSupported(Class<?> model1);
 
 }

@@ -5,6 +5,7 @@
 	</filter>
 	<filter root="/apps/sling" />
 	<filter root="/apps/cq" />
+	<filter root="/conf/citraining" />
 	<filter root="/etc/vanity-url" />
 	<filter root="/etc/designs/citraining" />
 	<filter root="/etc/clientlibs/citraining" />

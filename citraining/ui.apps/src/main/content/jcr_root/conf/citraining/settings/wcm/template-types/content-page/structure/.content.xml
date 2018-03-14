@@ -4,7 +4,7 @@
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="summit_toys/components/structure/page">
+        sling:resourceType="citraining/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
@@ -14,21 +14,21 @@
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/header"/>
+                sling:resourceType="citraining/components/structure/header"/>
             <navigation
                 jcr:created="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/navigation"/>
+                sling:resourceType="citraining/components/structure/navigation"/>
             <responsivegrid
                 jcr:created="{Date}2016-09-20T20:35:34.244+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:35:34.244+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="/apps/summit_toys/components/content/responsivegrid"
+                sling:resourceType="/apps/citraining/components/content/responsivegrid"
                 editable="{Boolean}true">
                 <cq:responsive jcr:primaryType="nt:unstructured"/>
             </responsivegrid>
@@ -38,14 +38,14 @@
                 jcr:lastModified="{Date}2016-09-20T20:35:44.080+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/footer"/>
+                sling:resourceType="citraining/components/structure/footer"/>
             <copyright
                 jcr:created="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2016-09-20T20:34:48.790+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="summit_toys/components/structure/copyright"/>
+                sling:resourceType="citraining/components/structure/copyright"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

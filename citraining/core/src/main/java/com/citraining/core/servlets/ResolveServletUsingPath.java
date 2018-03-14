@@ -32,10 +32,8 @@ public class ResolveServletUsingPath extends SlingSafeMethodsServlet {
 		Resource resource = request.getResourceResolver().getResource("/content/we-retail/ca/en/experience/jcr:content");
 		try{
 			response.getWriter().print(modelFactory.exportModelForResource(resource, "jaxb", ModelJAXB.class, new HashMap<>()));
-		} catch (ExportException e){
-			logger.error("ExportException{}", e);
-		} catch (MissingExporterException e){
-			logger.error("MissingExporterException{}", e);
-		}
+		} catch (ExportException | MissingExporterException e){
+			logger.error("ExportException/MissingExporterException{}", e);
+		} 
 	}
 }

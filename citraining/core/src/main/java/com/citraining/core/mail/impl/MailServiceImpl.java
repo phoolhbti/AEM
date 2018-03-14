@@ -38,7 +38,7 @@ public class MailServiceImpl implements MailService {
 	protected void activate(EmailConfiguration config) {
 		this.config = config;
 	}
-
+@Override
 	public void sendMail(String message) {
 		try{
 			MessageGateway<Email> messageGateway;
@@ -50,7 +50,7 @@ public class MailServiceImpl implements MailService {
 			messageGateway = messageGatewayService.getGateway(Email.class);
 			messageGateway.send(email);
 		} catch (Exception exception){
-			logger.info(exception.getMessage());
+			logger.error("Exception{}",exception);
 		}
 	}
 }
