@@ -24,11 +24,11 @@ import com.day.cq.dam.api.AssetManager;
 
 @Component (service = WorkflowProcess.class, property = { "process.label=Citraining AssetsArchieve Workflow Process" })
 public class AssetsArchieve implements WorkflowProcess {
-	/** Default log. */
+
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	@Reference
 	private ResourceResolverFactory resolverFactory;
-	
+	@Override
 	public void execute(WorkItem item, WorkflowSession wfsession, MetaDataMap args) throws WorkflowException {
 
 		try{
@@ -84,8 +84,8 @@ public class AssetsArchieve implements WorkflowProcess {
 			assetMgr.createAsset(newFile, content, "image/jpeg", true);
 			return fileName;
 		} catch (Exception e){		
-			log.info("**** Error: " + e.getMessage());
+			log.error("**** Error: {}",e);
 		}
-		return null;
+		return "";
 	}
 }

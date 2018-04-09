@@ -10,7 +10,7 @@ public class QuizService extends WCMUsePojo {
 	protected Quiz services;
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
+@Override
 	public void activate() {
 		this.services = getSlingScriptHelper().getService(Quiz.class);
 		logger.info("**** THE QUIZ Activate method was invoked");

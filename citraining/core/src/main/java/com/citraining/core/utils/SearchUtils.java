@@ -12,6 +12,8 @@ import javax.jcr.query.QueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.drew.lang.annotations.NotNull;
+
 public class SearchUtils {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchUtils.class);
@@ -36,9 +38,10 @@ public class SearchUtils {
 		} catch (RepositoryException e){
 			LOGGER.error("error is {}", e);
 		}
-		return null;
+		return new String[0];
 	}
 
+	@NotNull
 	public static String getLastMoidifedPage(final Session session, String path, String template) {
 		String sqlStatement = "SELECT parent.* FROM [cq:Page] AS parent INNER JOIN [nt:base] AS child ON ISCHILDNODE(child,parent) WHERE ISDESCENDANTNODE(parent, '" + path + "')" + " AND child.[cq:template] = '" + template + "' " + "ORDER BY child.[cq:lastModified] desc";
 		QueryManager qm = getQueryManger(session);
@@ -57,7 +60,7 @@ public class SearchUtils {
 			LOGGER.error("Repository Exception", e);
 		}
 
-		return null;
+		return "";
 	}
 
 }

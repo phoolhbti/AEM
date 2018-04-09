@@ -25,6 +25,7 @@ public class WriteServiceImpl implements WriteService {
 	private ResourceResolverFactory resolverFactory;
 
 	@Activate
+	@Override
 	public void doAWriteOperation(ComponentContext ctx) {
 		ResourceResolver resourceResolver = null;
 		try{

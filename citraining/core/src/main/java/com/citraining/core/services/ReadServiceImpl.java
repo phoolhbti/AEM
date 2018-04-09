@@ -25,6 +25,7 @@ public class ReadServiceImpl implements ReadService {
 	private ResourceResolverFactory resolverFactory;
 
 	@Activate
+	@Override
 	public void doAReadOperation(ComponentContext ctx) {
 
 		ResourceResolver resolver = null;

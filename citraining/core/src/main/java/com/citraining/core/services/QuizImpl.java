@@ -67,12 +67,12 @@ public class QuizImpl implements Quiz {
 					}
 				}
 			}
-			LOGGER.info("Map:" + markFalse);
-			LOGGER.info("ArrayList:" + tempData);
+			LOGGER.info("Map:{}", markFalse);
+			LOGGER.info("ArrayList:{}", tempData);
 			for (java.util.Map.Entry<String, Boolean> entry : markFalse.entrySet()){
-				LOGGER.info("Checking:+" + (String) entry.getKey());
+				LOGGER.info("Checking:+{}", (String) entry.getKey());
 				if (!tempData.contains(entry.getKey())){
-					LOGGER.info("Putting Key :" + (String) entry.getKey());
+					LOGGER.info("Putting Key :{}",(String) entry.getKey());
 					if (!((Boolean) entry.getValue()).booleanValue()){
 						options.put((String) entry.getKey(), entry.getValue());
 					} else{
@@ -80,7 +80,7 @@ public class QuizImpl implements Quiz {
 					}
 				}
 			}
-			LOGGER.info("Final Data Options" + options.toString());
+			LOGGER.info("Final Data Options{}", options.toString());
 
 			return options.toString();
 		} catch (Exception e){
@@ -116,10 +116,10 @@ public class QuizImpl implements Quiz {
 			info.put("level5", readMap.get("level5"));
 			LOGGER.info("Info Data: " + info);
 
-			LOGGER.info("Q Data: " + readMap.get("questionData"));
+			LOGGER.info("Q Data:{} ", readMap.get("questionData"));
 
-			Node node = (Node) res.adaptTo(Node.class);
-			ArrayList<String> list = new ArrayList<String>();
+			Node node =  res.adaptTo(Node.class);
+			ArrayList<String> list = new ArrayList<>();
 			Property prop = node.getProperty("questionData");
 			if (prop.isMultiple()){
 				Value[] values = prop.getValues();

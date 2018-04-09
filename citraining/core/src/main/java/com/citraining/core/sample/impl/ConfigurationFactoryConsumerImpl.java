@@ -24,6 +24,7 @@ public class ConfigurationFactoryConsumerImpl implements ConfigurationFactoryCon
 	 * 
 	 * @param config New configuration for factory
 	 */
+	@Override
 	@Reference (name = "configurationFactory", cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
 	public synchronized void bindConfigurationFactory(final ConfigurationFactory config) {
 		LOGGER.info("bindConfigurationFactory:{} ", config.getContentConsumerUrl());
@@ -38,6 +39,7 @@ public class ConfigurationFactoryConsumerImpl implements ConfigurationFactoryCon
 	 * 
 	 * @param config New configuration for factory
 	 */
+	@Override
 	public synchronized void unbindConfigurationFactory(final ConfigurationFactory config) {
 		LOGGER.info("unbindConfigurationFactory:{} ", config.getContentConsumerUrl());
 		configurationList.remove(config);

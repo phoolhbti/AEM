@@ -36,7 +36,7 @@ public class PageServiceImp implements PageService {
 	private ResourceResolverFactory resolverFactory;
 
 	Session session;
-
+@Override
 	public String createPage(String pageName) {
 		String pagePath = "/content/citraining/en";
 		String templatePath = "/apps/citraining/templates/page-home";

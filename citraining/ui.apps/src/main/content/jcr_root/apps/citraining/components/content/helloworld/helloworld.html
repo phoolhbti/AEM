@@ -21,7 +21,8 @@
 <pre data-sly-use.hello="com.citraining.core.models.HelloWorldModel">
 HelloWorldModel says:
 ${hello.message}
-${currentPage.language}
+Language of Page:${currentPage.language}
+Language: ${pageProperties['jcr:language']}
 </pre>
 
 <pre data-sly-use.model="com.citraining.core.models.RequestParamsInjected">

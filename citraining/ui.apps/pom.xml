@@ -55,6 +55,10 @@
 					<exclude>**/pom.xml</exclude>
 				</excludes>
 			</resource>
+			<resource>
+                <directory>src/main/content/META-INF/vault/definition</directory>
+                <targetPath>../vault-work/META-INF/vault/definition</targetPath>
+            </resource>
 		</resources>
 		<plugins>
 			<!-- we want to keep some of the META-INF files and not configure everything 
@@ -76,10 +80,11 @@
 				<artifactId>content-package-maven-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
-					<verbose>true</verbose>
-					<failOnError>true</failOnError>
+					<filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>					
 					<group>citraining</group>
+					<properties>
+						<acHandling>merge_preserve</acHandling>
+					</properties>
 					<embeddeds>
 						<embedded>
 							<groupId>com.citraining</groupId>
@@ -145,7 +150,7 @@
 
 		<dependency>
 			<groupId>com.adobe.cq</groupId>
-			<artifactId>core.wcm.components.all</artifactId>
+			<artifactId>core.wcm.components.all</artifactId>			
 			<type>zip</type>
 		</dependency>
 
@@ -166,8 +171,7 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
-			</dependency>
-
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
