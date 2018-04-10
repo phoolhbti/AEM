@@ -2,67 +2,107 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-02-07T14:45:52.723-05:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="wcm/core/components/policies/mappings">
+        <root
+            cq:policy="wcm/foundation/components/responsivegrid/policy_655805132090905"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <responsivegrid
+                cq:policy="wcm/foundation/components/responsivegrid/policy_655881192879443"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <citraining jcr:primaryType="nt:unstructured">
+                    <components jcr:primaryType="nt:unstructured">
+                        <content jcr:primaryType="nt:unstructured">
+                            <title
+                                cq:policy="citraining/components/content/title/policy_1517864189042"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <text
+                                cq:policy="citraining/components/content/text/policy_1517871601580"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <list
+                                cq:policy="citraining/components/content/list/policy_1517887018503"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </content>
+                    </components>
+                </citraining>
+            </responsivegrid>
+            <responsivegrid_293518411
+                cq:policy="wcm/foundation/components/responsivegrid/policy_203475578183982"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <citraining jcr:primaryType="nt:unstructured">
+                    <components jcr:primaryType="nt:unstructured">
+                        <content jcr:primaryType="nt:unstructured">
+                            <text
+                                cq:policy="citraining/components/content/text/policy_1517871601580"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <list
+                                cq:policy="citraining/components/content/list/policy_1517887018503"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </content>
+                    </components>
+                </citraining>
+            </responsivegrid_293518411>
+            <header
+                cq:policy="citraining/components/structure/header/policy_1518032716844"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <navigation
+                    cq:policy="citraining/components/structure/navigation/policy_242352059801938"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                <search
+                    cq:policy="citraining/components/structure/search/policy_1517972628569"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping"/>
+            </header>
+            <responsivegrid_1040133357
+                cq:policy="wcm/foundation/components/responsivegrid/policy_232014041553082"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <navigation
+                    cq:policy="citraining/components/structure/navigation/policy_1517972603822"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping"/>
+            </responsivegrid_1040133357>
+        </root>
+    </jcr:content>
     <wcm jcr:primaryType="nt:unstructured">
         <foundation jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
-                    <citraining-structure
-                        jcr:description="Policy for templates to allow structure components"
-                        jcr:lastModified="{Date}2017-01-31T16:05:46.568-05:00"
+                    <policy_514466126514480
+                        jcr:description="Ci training structure policy"
+                        jcr:lastModified="{Date}2018-04-10T11:22:44.629+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Summit Toys Structure"
+                        jcr:title="Citraining Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid]"
-                        policyResourceType="wcm/foundation/components/responsivegrid">
-                        <cq:authoring jcr:primaryType="nt:unstructured">
-                            <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
-                        </cq:authoring>
-                        <jcr:content
-                            jcr:primaryType="nt:unstructured"
-                            mergeList="{Boolean}true"/>
-                    </citraining-structure>
-                    <citraining-content
-                        jcr:lastModified="{Date}2017-04-18T09:55:17.550-04:00"
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:citraining.Structure]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_514466126514480>
+                    <policy_514594624796503
+                        jcr:description="citraining Content"
+                        jcr:lastModified="{Date}2018-04-10T11:24:33.405+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Citraining Content"
+                        jcr:title="citraining Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/core/wcm/components/image,/apps/core/wcm/components/text,/apps/core/wcm/components/title&#xa;,/apps/citraining/components/displayStores,/apps/citraining/components/content/hero,/apps/citraining/components/content/banner]">
-                        <jcr:content
-                            jcr:primaryType="nt:unstructured"
-                            mergeList="{Boolean}true"/>
-                    </citraining-content>
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:citraining.Content]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_514594624796503>
                 </responsivegrid>
             </components>
         </foundation>
     </wcm>
-    <core
-        jcr:primaryType="nt:unstructured"
-        sling:resourceType="nt:unstructured">
-        <wcm
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="nt:unstructured">
-            <components
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="nt:unstructured">
-                <title
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="nt:unstructured">
-                    <policy_1475741491582
-                        jcr:description=""
-                        jcr:lastModified="{Date}2016-10-06T10:11:49.934+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="title"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        defaultType="h2">
-                        <jcr:content
-                            jcr:primaryType="nt:unstructured"
-                            mergeList="{Boolean}true"/>
-                    </policy_1475741491582>
-                </title>
-            </components>
-        </wcm>
-    </core>
 </jcr:root>

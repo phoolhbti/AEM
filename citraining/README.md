@@ -121,3 +121,11 @@ Configruation of admin session:
 https://helpx.adobe.com/experience-manager/using/jqom.html
 How to access retriwe service in OSGI 
 http://blog.vogella.com/2016/09/26/configuring-osgi-declarative-services/
+---------------------
+Debugging Client Libraries
+With different methods of categories and embeds to include multiple client libraries it can be cumbersome to troubleshoot. AEM exposes several tools to help with this. One of the most important tools is Rebuild Client Libraries which will force AEM to re-compile any LESS files and generate the CSS. 
+
+Dump Libs - Lists all of the client libraries registered in the AEM instance. <host>/libs/granite/ui/content/dumplibs.html
+Test Output - allows a user to see the expected HTML output of clientlib includes based on category. <host>/libs/granite/ui/content/dumplibs.test.html
+Libraries Dependencies validation - highlights any dependencies or embedded categories that cannot be found. <host>/libs/granite/ui/content/dumplibs.validate.html
+Rebuild Client Libraries - allows a user to force AEM to rebuild all of the client libraries or invalidate the cache of client libraries. This tool is particularly effective when developing with LESS as this can force AEM to re-compile the generated CSS. In general it is more effective to Invalidate Caches and then perform a page refresh versus rebuilding all of the libraries. <host>/libs/granite/ui/content/dumplibs.rebuild.html

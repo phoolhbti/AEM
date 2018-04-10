@@ -4,5 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="citraining Page"
     sling:resourceSuperType="core/wcm/components/page/v2/page"
-    componentGroup=".hidden"
-    designDialogPath="core/wcm/components/page/v2/page/cq:design_dialog"/>
+    componentGroup=".hidden"/>

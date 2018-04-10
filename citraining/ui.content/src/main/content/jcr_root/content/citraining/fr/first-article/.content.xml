@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-04-10T11:44:26.075+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/citraining/settings/wcm/templates/article-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="First Article"
+        sling:resourceType="citraining/components/structure/page">
+        <root
+            jcr:lastModified="{Date}2018-04-10T11:23:04.607+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:created="{Date}2018-04-10T11:23:16.225+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-10T11:23:40.662+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:created="{Date}2018-04-10T11:42:25.717+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-10T11:42:25.717+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/title"/>
+                <text
+                    jcr:created="{Date}2018-04-10T11:42:50.369+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-10T11:42:59.664+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/text"
+                    text="&lt;p>HHHHHHHHHHHHHHH&lt;/p>&#xa;"
+                    textIsRich="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="5"/>
+                    </cq:responsive>
+                </text>
+                <image
+                    jcr:created="{Date}2018-04-10T11:43:46.718+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-10T11:43:55.820+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/image"
+                    altValueFromDAM="true"
+                    displayPopupTitle="true"
+                    fileReference="/content/dam/citraining/92603548_WM.jpeg"
+                    isDecorative="false"
+                    titleValueFromDAM="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="7"/>
+                    </cq:responsive>
+                </image>
+                <responsivegrid
+                    jcr:created="{Date}2018-04-10T11:42:33.339+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-10T11:42:33.339+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/responsivegrid">
+                    <cq:responsive jcr:primaryType="nt:unstructured"/>
+                </responsivegrid>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+</jcr:root>

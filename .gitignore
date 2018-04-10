@@ -1,14 +1,22 @@
-## generic files to ignore
-*~
-*.lock
-*.DS_Store
-*.swp
-*.out
-*.log
-Thumbs.db
+.vlt
+target/
+*/bin/
+.DS_Store
+ 
+#Eclipse
+MANIFEST.MF
+.classpath
+.project
+.settings/
+ 
+#Intellij
+.idea/
 *.iml
-*.idea
-*.classpath
-*.project
-*.settings/
-*.vlt
+ 
+#vlt directories
+content/src/main/content/jcr_root/.content.xml
+content/src/main/content/jcr_root/apps/.content.xml
+content/src/main/content/jcr_root/etc/.content.xml
+content/src/main/content/jcr_root/etc/designs/.content.xml
+content/src/main/content/jcr_root/etc/clientlibs/.content.xml
+.pmd

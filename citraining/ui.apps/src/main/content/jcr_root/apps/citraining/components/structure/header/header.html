@@ -1,16 +1,11 @@
-<div class="wrapper row0">
-	<header id="header" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div id="logo" class="fl_left">
-      <h1><a href="#">The Summit Toy Store</a></h1>
-		<h3><i>"Your ticket to play in Vegas!"</i></h3>
-    </div>
-    <div id="quickinfo" class="fl_right">
-      <ul class="nospace inline">
-        <li><strong>Search Products</strong><br></li>
-      </ul>
-      <div data-sly-resource="${'search' @ resourceType='citraining/components/content/solrsearch'}"></div>
-    </div>
-    <!-- ################################################################################################ -->
-	</header>
-</div>
+<!--/* Header Component for citraining Site 
+ 
+*/-->
+ 
+<header class="wknd-header">
+	<div class="container">
+		<a class="wknd-header-logo" href="${properties.rootPath || currentStyle.rootPath @ extension='html'}">Citraining</a>
+    	<div class="cmp-search--header" data-sly-resource="${'search' @ resourceType='citraining/components/structure/search'}"></div>
+    	<div class="cmp-navigation--header" id="header-navbar" data-sly-resource="${'navigation' @ resourceType='citraining/components/structure/navigation'}"></div>	
+	</div>
+</header>
