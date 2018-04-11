@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2018-04-10T14:18:34.904+05:30"
+        cq:lastModified="{Date}2018-04-11T17:13:07.438+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/citraining/settings/wcm/templates/article-page-template"
         jcr:primaryType="cq:PageContent"
@@ -47,6 +47,23 @@
                             sling:resourceType="citraining/components/content/title"/>
                     </par0>
                 </contentfragment>
+                <contentfragment_1074402813
+                    jcr:created="{Date}2018-04-11T17:11:21.580+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-11T17:11:21.580+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/contentfragment"
+                    text=""/>
+                <text
+                    jcr:created="{Date}2018-04-11T17:13:01.593+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-11T17:13:07.436+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/text"
+                    text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum&lt;/p>&#xa;"
+                    textIsRich="true"/>
             </responsivegrid>
             <image
                 jcr:created="{Date}2018-04-10T13:32:19.333+05:30"

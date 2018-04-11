@@ -15,7 +15,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.factory.ModelFactory;
 
 import com.adobe.cq.wcm.core.components.models.Image;
-import com.citraining.core.component.Card;
+import com.citraining.core.components.Card;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 

@@ -1,4 +1,4 @@
-package com.citraining.core.component;
+package com.citraining.core.components;
 
 public interface Card {
 	/***

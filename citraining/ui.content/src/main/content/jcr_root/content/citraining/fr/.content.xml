@@ -6,7 +6,7 @@
         cq:allowedTemplates="/conf/citraining/settings/wcm/templates/.*"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2018-04-11T11:47:25.164+05:30"
+        cq:lastModified="{Date}2018-04-11T17:15:57.854+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/citraining/settings/wcm/templates/landing-template"
         jcr:language="fr"
@@ -19,13 +19,20 @@
         <root jcr:primaryType="nt:unstructured">
             <responsivegrid jcr:primaryType="nt:unstructured">
                 <card
-                    jcr:lastModified="{Date}2018-04-11T11:47:25.157+05:30"
+                    jcr:lastModified="{Date}2018-04-11T16:49:16.314+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/card"
+                    articlePath="/content/citraining/fr/ultimate-guide-to-la-how-to"
+                    hideDescription="false"
+                    titleOverride="this is override title"/>
+                <card_765755359
+                    jcr:lastModified="{Date}2018-04-11T17:15:57.851+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/card"
                     articlePath="/content/citraining/fr/first-article"
-                    hideDescription="false"
-                    titleOverride="this is override title"/>
+                    hideDescription="false"/>
             </responsivegrid>
         </root>
     </jcr:content>
