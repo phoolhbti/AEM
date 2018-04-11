@@ -10,7 +10,7 @@
         cq:lastModifiedBy="admin"
         cq:template="/apps/citraining/templates/contentpage"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Summit Toys"
+        jcr:title="citraing"
         sling:resourceType="citraining/components/structure/contentpage">
         <image jcr:primaryType="nt:unstructured">
             <file/>

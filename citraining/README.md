@@ -129,3 +129,6 @@ Dump Libs - Lists all of the client libraries registered in the AEM instance. <h
 Test Output - allows a user to see the expected HTML output of clientlib includes based on category. <host>/libs/granite/ui/content/dumplibs.test.html
 Libraries Dependencies validation - highlights any dependencies or embedded categories that cannot be found. <host>/libs/granite/ui/content/dumplibs.validate.html
 Rebuild Client Libraries - allows a user to force AEM to rebuild all of the client libraries or invalidate the cache of client libraries. This tool is particularly effective when developing with LESS as this can force AEM to re-compile the generated CSS. In general it is more effective to Invalidate Caches and then perform a page refresh versus rebuilding all of the libraries. <host>/libs/granite/ui/content/dumplibs.rebuild.html
+
+**Sling Models are entirely annotation driven "POJOs", making it easy to map data from the JCR into a Java variable.
+

@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
+    <hello-article/>
     <jcr:content
         cq:allowedTemplates="/conf/citraining/settings/wcm/templates/.*"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2017-05-03T16:50:44.000-04:00"
+        cq:lastModified="{Date}2018-04-11T11:47:25.164+05:30"
         cq:lastModifiedBy="admin"
-        cq:template="/apps/citraining/templates/homepage"
+        cq:template="/conf/citraining/settings/wcm/templates/landing-template"
+        jcr:language="fr"
         jcr:primaryType="cq:PageContent"
         jcr:title="Français"
-        sling:resourceType="citraining/components/structure/homepage">
+        sling:resourceType="citraining/components/structure/page">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
+        <root jcr:primaryType="nt:unstructured">
+            <responsivegrid jcr:primaryType="nt:unstructured">
+                <card
+                    jcr:lastModified="{Date}2018-04-11T11:47:25.157+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/card"
+                    articlePath="/content/citraining/fr/first-article"
+                    hideDescription="false"
+                    titleOverride="this is override title"/>
+            </responsivegrid>
+        </root>
     </jcr:content>
     <first-article/>
+    <ultimate-guide-to-la-how-to/>
+    <restaurant/>
 </jcr:root>

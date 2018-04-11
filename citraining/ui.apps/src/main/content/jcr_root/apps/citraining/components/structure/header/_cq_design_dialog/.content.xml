@@ -22,10 +22,10 @@
                            <rootpath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldDescription="Populate the link of the WKND logo"
+                                fieldDescription="Populate the link of the citraining logo"
                                 fieldLabel="Root Path"
                                 name="./rootPath"
-                                rootPath="/content/wknd"/>
+                                rootPath="/content/citraining"/>
                         </items>
                     </properties>
                     <styletab

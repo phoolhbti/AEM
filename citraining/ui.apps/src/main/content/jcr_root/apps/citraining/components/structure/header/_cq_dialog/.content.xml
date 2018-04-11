@@ -28,7 +28,7 @@
                                         fieldDescription="Populate the link of the WKND logo"
                                         fieldLabel="Root Path"
                                         name="./rootPath"
-                                        rootPath="/content/wknd"/>
+                                        rootPath="/content/citraining"/>
                                 </items>
                             </column>
                         </items>

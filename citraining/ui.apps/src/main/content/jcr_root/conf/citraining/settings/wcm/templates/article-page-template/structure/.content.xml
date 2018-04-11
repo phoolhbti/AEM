@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:lastModified="{Date}2018-04-10T11:26:14.269+05:30"
+        cq:lastModified="{Date}2018-04-11T10:35:59.928+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/citraining/settings/wcm/templates/article-page-template"
         jcr:primaryType="cq:PageContent"
@@ -14,19 +14,48 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <header
-                jcr:created="{Date}2018-04-10T11:26:11.599+05:30"
+                jcr:created="{Date}2018-04-11T10:13:06.520+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2018-04-10T11:26:11.599+05:30"
+                jcr:lastModified="{Date}2018-04-11T10:13:06.520+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="citraining/components/structure/header">
                 <navigation
+                    jcr:lastModified="{Date}2018-04-11T10:35:59.923+05:30"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wknd/components/structure/navigation"/>
+                    sling:resourceType="citraining/components/structure/navigation"
+                    collectAllPages="false"
+                    navigationRoot="/content/citraining/en"
+                    skipNavigationRoot="true"
+                    structureDepth="1"/>
                 <search
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wknd/components/structure/search"/>
+                    sling:resourceType="citraining/components/structure/search"/>
             </header>
+            <image
+                jcr:created="{Date}2018-04-10T13:32:19.333+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-10T13:32:19.333+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/image"
+                editable="{Boolean}true"/>
+            <breadcrumb
+                jcr:created="{Date}2018-04-10T13:33:06.521+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-10T13:33:06.521+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/breadcrumb"/>
+            <title
+                jcr:created="{Date}2018-04-10T13:34:06.472+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-10T13:34:06.472+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/content/title"
+                editable="{Boolean}true"/>
             <responsivegrid
                 jcr:created="{Date}2018-04-10T11:23:16.225+05:30"
                 jcr:createdBy="admin"
@@ -35,8 +64,50 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"
                 editable="{Boolean}true">
-                <cq:responsive jcr:primaryType="nt:unstructured"/>
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="8"/>
+                    <phone
+                        jcr:primaryType="nt:unstructured"
+                        width="11"/>
+                </cq:responsive>
             </responsivegrid>
+            <responsivegrid_1539433064
+                jcr:created="{Date}2018-04-10T13:35:16.843+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-10T13:35:16.843+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        behavior="none"
+                        offset="0"
+                        width="4"/>
+                    <phone
+                        jcr:primaryType="nt:unstructured"
+                        behavior="hide"/>
+                </cq:responsive>
+            </responsivegrid_1539433064>
+            <responsivegrid_1148456505
+                jcr:created="{Date}2018-04-10T14:34:16.333+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-11T09:44:18.613+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <navigation
+                    jcr:created="{Date}2018-04-11T09:46:09.990+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-11T09:46:09.990+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/structure/navigation"/>
+            </responsivegrid_1148456505>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
@@ -52,5 +123,3 @@
         </cq:responsive>
     </jcr:content>
 </jcr:root>
-
-
