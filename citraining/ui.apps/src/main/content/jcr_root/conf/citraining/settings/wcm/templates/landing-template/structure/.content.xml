@@ -17,51 +17,9 @@
                 jcr:lastModified="{Date}2018-04-10T14:33:12.829+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid">
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true">
                 <cq:responsive jcr:primaryType="nt:unstructured"/>
-                <header
-                    jcr:created="{Date}2018-04-11T10:29:55.041+05:30"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2018-04-11T10:29:55.041+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="citraining/components/structure/header">
-                    <navigation
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="citraining/components/structure/navigation"/>
-                    <search
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="citraining/components/structure/search"/>
-                </header>
-                <card
-                    jcr:created="{Date}2018-04-11T11:27:38.981+05:30"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2018-04-11T11:27:38.981+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="citraining/components/content/card"
-                    editable="{Boolean}true">
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            offset="0"
-                            width="6"/>
-                    </cq:responsive>
-                </card>
-                <card_765755359
-                    jcr:created="{Date}2018-04-11T17:09:22.501+05:30"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2018-04-11T17:09:22.501+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="citraining/components/content/card"
-                    editable="{Boolean}true">
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            width="6"/>
-                    </cq:responsive>
-                </card_765755359>
             </responsivegrid>
             <responsivegrid_1350842287
                 jcr:created="{Date}2018-04-11T09:57:05.544+05:30"

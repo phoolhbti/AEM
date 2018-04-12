@@ -292,6 +292,71 @@
                 </list>
                 <image jcr:primaryType="nt:unstructured"/>
                 <breadcrumb jcr:primaryType="nt:unstructured"/>
+                <card jcr:primaryType="nt:unstructured">
+                    <policy_1523507356440
+                        jcr:lastModified="{Date}2018-04-12T10:04:40.203+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="citraining Card Policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Text Alignment"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-card--left"
+                                        cq:styleId="1523507464356"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-card--center"
+                                        cq:styleId="1523507495339"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-card--right"
+                                        cq:styleId="1523507533812"
+                                        cq:styleLabel="Right"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Text Position"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-card--top"
+                                        cq:styleId="1523507572844"
+                                        cq:styleLabel="Top"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-card--bottom"
+                                        cq:styleId="1523507591924"
+                                        cq:styleLabel="Bottom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+                            <item2
+                                cq:styleGroupLabel="Size"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses=" cmp-card--default"
+                                        cq:styleId="1523507632829"
+                                        cq:styleLabel="Default"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses=" cmp-card--mini"
+                                        cq:styleId="1523507643095"
+                                        cq:styleLabel="Mini"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item2>
+                        </cq:styleGroups>
+                    </policy_1523507356440>
+                </card>
             </content>
             <structure jcr:primaryType="nt:unstructured">
                 <navigation jcr:primaryType="nt:unstructured">
