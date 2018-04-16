@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-04-16T10:59:41.673+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2018-04-16T10:59:41.678+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:template="/conf/citraining/settings/wcm/templates/landing-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Restaurant"
+        jcr:uuid="d5786394-0193-4fda-8a62-f915ffe36e53"
+        sling:resourceType="citraining/components/structure/page"/>
+</jcr:root>

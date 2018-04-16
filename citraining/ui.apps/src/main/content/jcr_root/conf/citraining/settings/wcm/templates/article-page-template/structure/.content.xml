@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:lastModified="{Date}2018-04-11T10:35:59.928+05:30"
+        cq:lastModified="{Date}2018-04-12T15:41:36.396+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/citraining/settings/wcm/templates/article-page-template"
         jcr:primaryType="cq:PageContent"
@@ -14,21 +14,19 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <header
-                jcr:created="{Date}2018-04-11T10:13:06.520+05:30"
+                jcr:created="{Date}2018-04-12T15:40:37.708+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2018-04-11T10:13:06.520+05:30"
+                jcr:lastModified="{Date}2018-04-12T15:41:36.393+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="citraining/components/structure/header">
+                sling:resourceType="citraining/components/structure/header"
+                rootPath="/content/citraining/en">
                 <navigation
-                    jcr:lastModified="{Date}2018-04-11T10:35:59.923+05:30"
+                    jcr:lastModified="{Date}2018-04-12T15:40:47.693+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/structure/navigation"
-                    collectAllPages="false"
-                    navigationRoot="/content/citraining/en"
-                    skipNavigationRoot="true"
-                    structureDepth="1"/>
+                    editable="{Boolean}true"/>
                 <search
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/structure/search"/>

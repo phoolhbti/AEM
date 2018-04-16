@@ -83,7 +83,7 @@
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <policy_514466126514480
                         jcr:description="Ci training structure policy"
-                        jcr:lastModified="{Date}2018-04-10T14:28:01.769+05:30"
+                        jcr:lastModified="{Date}2018-04-13T10:49:34.191+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Citraining Structure"
@@ -93,12 +93,12 @@
                     </policy_514466126514480>
                     <policy_514594624796503
                         jcr:description="citraining Content"
-                        jcr:lastModified="{Date}2018-04-11T11:18:32.752+05:30"
+                        jcr:lastModified="{Date}2018-04-16T10:49:43.859+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/citraining/components/content/card,/apps/citraining/components/content/contentfragment,/apps/citraining/components/content/list,/apps/citraining/components/content/text]">
+                        components="[/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,/apps/citraining/components/content/card,/apps/citraining/components/content/contentfragment,/apps/citraining/components/content/list,/apps/citraining/components/content/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -133,6 +133,24 @@
                         components="[group:citraining.Content,group:citraining.Structure]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_526030331859315>
+                    <policy_1523596953187
+                        jcr:lastModified="{Date}2018-04-13T10:54:03.124+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Citraining Default for Experience Fragments"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:citraining.Content,group:citraining.Structure]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1523596953187>
+                    <policy_773201414893029
+                        jcr:lastModified="{Date}2018-04-13T13:48:12.757+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="CI EXP"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:citraining.Content]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_773201414893029>
                 </responsivegrid>
             </components>
         </foundation>
@@ -142,7 +160,7 @@
             <content jcr:primaryType="nt:unstructured">
                 <title jcr:primaryType="nt:unstructured">
                     <policy_1523344043798
-                        jcr:lastModified="{Date}2018-04-10T13:41:41.804+05:30"
+                        jcr:lastModified="{Date}2018-04-13T11:03:03.744+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Title-Article"
@@ -258,6 +276,113 @@
                             </item0>
                         </cq:styleGroups>
                     </policy_1523344504776>
+                    <policy_773542437250415
+                        jcr:lastModified="{Date}2018-04-13T11:20:39.969+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="citraining XP text"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="-">
+                                <formats
+                                    jcr:primaryType="nt:unstructured"
+                                    override="true">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Paragraph"
+                                        tag="p"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 1"
+                                        tag="h1"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <item5
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 5"
+                                        tag="h5"/>
+                                    <item6
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 6"
+                                        tag="h6"/>
+                                    <item7
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Quote"
+                                        tag="blockquote"/>
+                                    <item8
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Preformatted"
+                                        tag="pre"/>
+                                </formats>
+                            </paraformat>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="-">
+                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                    <chars
+                                        jcr:primaryType="nt:unstructured"
+                                        override="true">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="&amp;copy;"
+                                            name="copyright"/>
+                                        <item1
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="&amp;euro;"
+                                            name="euro"/>
+                                        <item2
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="&amp;reg;"
+                                            name="registered"/>
+                                        <item3
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="&amp;trade;"
+                                            name="trademark"/>
+                                    </chars>
+                                </specialCharsConfig>
+                            </misctools>
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                            <spellcheck
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="bold,italic"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="modifylink,unlink"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
+                        </rtePlugins>
+                    </policy_773542437250415>
                 </text>
                 <list jcr:primaryType="nt:unstructured">
                     <policy_1523345457355
@@ -388,7 +513,7 @@
                 </navigation>
                 <header jcr:primaryType="nt:unstructured">
                     <policy_1523422359048
-                        jcr:lastModified="{Date}2018-04-11T10:30:19.677+05:30"
+                        jcr:lastModified="{Date}2018-04-12T15:38:09.534+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Header"
@@ -399,7 +524,7 @@
                 </header>
                 <search jcr:primaryType="nt:unstructured">
                     <policy_1523422635062
-                        jcr:lastModified="{Date}2018-04-11T10:31:16.370+05:30"
+                        jcr:lastModified="{Date}2018-04-12T15:41:56.217+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Header- Search "
@@ -413,4 +538,14 @@
             </structure>
         </components>
     </citraining>
+    <policy_1523525402924
+        jcr:lastModified="{Date}2018-04-12T15:00:41.240+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="citraining Language Navigation Global"
+        sling:resourceType="wcm/core/components/policy/policy"
+        navigationRoot="/content/citraining"
+        structureDepth="1">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+    </policy_1523525402924>
 </jcr:root>

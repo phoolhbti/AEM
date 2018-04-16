@@ -5,4 +5,5 @@
     <empty-experience-fragment/>
     <empty-page/>
     <content-page/>
+    <redirect-page/>
 </jcr:root>

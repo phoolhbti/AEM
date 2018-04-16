@@ -6,10 +6,10 @@
     jcr:uuid="09f63efe-4eb1-407c-b95d-3524cffe6a07">
     <jcr:content
         cq:name="27156923_WM.jpeg"
-        cq:parentPath="/content/dam/summit-toys"
+        cq:parentPath="/content/dam/citraining"
         dam:assetState="processed"
-        dam:relativePath="summit-toys/27156923_WM.jpeg"
-        jcr:lastModified="{Date}2017-04-18T09:45:17.323-04:00"
+        dam:relativePath="citraining/27156923_WM.jpeg"
+        jcr:lastModified="{Date}2018-04-13T09:33:31.378+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -28,7 +28,7 @@
             dam:size="{Long}321813"
             dc:format="image/jpeg"
             dc:modified="{Date}2017-02-13T15:26:59.753-05:00"
-            jcr:lastModified="{Date}2017-04-18T09:45:17.227-04:00"
+            jcr:lastModified="{Date}2018-04-13T09:33:28.673+05:30"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

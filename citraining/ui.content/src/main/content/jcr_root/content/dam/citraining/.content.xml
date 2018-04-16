@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="sling:OrderedFolder">
+    <_x0031_01387006_WM.jpeg/>
+    <_x0031_07832111_WM.jpeg/>
+    <_x0031_16360141_WM.jpeg/>
+    <_x0032_7156923_WM.jpeg/>
+    <_x0034_2458013_WM.jpeg/>
+    <_x0034_8106748_WM.jpeg/>
+    <_x0037_7149351_WM.jpeg/>
+    <_x0038_0180781_WM.jpeg/>
+    <_x0039_2603548_WM.jpeg/>
+    <_x0039_535657_WM.jpeg/>
+    <detail_header.png/>
+    <detail_header2.png/>
+    <products/>
+    <pt/>
+    <summit_image_set/>
+    <thumbnails/>
     <jcr:content
         jcr:primaryType="nt:unstructured"
         jcr:title="CITraining Site">

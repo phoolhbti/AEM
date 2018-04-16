@@ -57,6 +57,27 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/list"/>
             </responsivegrid_1539433064>
+            <header
+                jcr:created="{Date}2018-04-12T15:35:29.446+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-04-12T15:38:14.276+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="citraining/components/structure/header"
+                rootPath="/content/citraining/en">
+                <search
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/structure/search"/>
+                <navigation
+                    jcr:lastModified="{Date}2018-04-12T15:40:56.484+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/structure/navigation"
+                    collectAllPages="false"
+                    navigationRoot="/content/citraining/en"
+                    skipNavigationRoot="true"
+                    structureDepth="1"/>
+            </header>
         </root>
     </jcr:content>
 </jcr:root>

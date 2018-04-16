@@ -5,14 +5,14 @@
     jcr:uuid="3740050d-54e6-47be-b527-567ad7155f97">
     <jcr:content
         dam:assetState="processed"
-        dam:relativePath="summit-toys/80180781_WM.jpeg"
+        dam:relativePath="citraining/80180781_WM.jpeg"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2017-05-26T14:21:19.693-04:00"
+        jcr:lastModified="{Date}2018-04-13T09:33:32.647+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
-            dam:extracted="{Date}2017-05-26T14:21:17.929-04:00"
+            dam:extracted="{Date}2017-02-13T15:26:59.379-05:00"
             dam:Fileformat="JPEG"
             dam:MIMEtype="image/jpeg"
             dam:Numberofimages="{Long}1"
@@ -22,8 +22,8 @@
             dam:Physicalwidthindpi="{Long}63"
             dam:Physicalwidthininches="{Decimal}15.873015403747559"
             dam:Progressive="no"
-            dam:sha1="1f5ddec75263988414e899501484ce4b8ac7580a"
-            dam:size="{Long}301884"
+            dam:sha1="e7564d1a3427391909fa81d1ce6bca8764fe63a0"
+            dam:size="{Long}302087"
             dc:format="image/jpeg"
             dc:modified="{Date}2017-02-13T15:26:59.516-05:00"
             jcr:mixinTypes="[cq:Taggable]"

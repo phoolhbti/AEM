@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:mixinTypes="[mix:referenceable]"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
     jcr:primaryType="dam:Asset"
     jcr:uuid="4b78b289-793d-4d01-8c4f-0e2197b594dc">
     <jcr:content
+        cq:name="77149351_WM.jpeg"
+        cq:parentPath="/content/dam/citraining"
         dam:assetState="processed"
-        dam:relativePath="summit-toys/77149351_WM.jpeg"
+        dam:relativePath="citraining/77149351_WM.jpeg"
         dam:s7damType="Image"
-        jcr:lastModified="{Date}2017-05-26T14:21:19.762-04:00"
+        jcr:lastModified="{Date}2018-04-13T09:33:29.903+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
-            dam:extracted="{Date}2017-05-26T14:21:17.930-04:00"
+            dam:extracted="{Date}2017-02-13T15:26:58.072-05:00"
             dam:Fileformat="JPEG"
             dam:MIMEtype="image/jpeg"
             dam:Numberofimages="{Long}1"
@@ -23,9 +26,11 @@
             dam:Physicalwidthininches="{Decimal}14.285714149475098"
             dam:Progressive="no"
             dam:sha1="1511410011bbf7730cb72d63d2fa9be67e75818f"
-            dam:size="{Long}507523"
+            dam:size="{Long}507727"
             dc:format="image/jpeg"
             dc:modified="{Date}2017-02-13T15:26:58.086-05:00"
+            jcr:lastModified="{Date}2018-04-13T09:33:29.652+05:30"
+            jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             tiff:ImageLength="{Long}667"

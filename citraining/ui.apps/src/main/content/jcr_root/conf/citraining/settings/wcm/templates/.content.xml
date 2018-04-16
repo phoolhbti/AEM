@@ -5,4 +5,6 @@
     <citraining-section-page/>
     <article-page-template/>
     <landing-template/>
+    <redirect-page/>
+    <citraining-experience-fragment/>
 </jcr:root>

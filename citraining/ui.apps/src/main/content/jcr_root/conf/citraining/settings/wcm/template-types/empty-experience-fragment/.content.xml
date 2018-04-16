@@ -6,6 +6,5 @@
     <jcr:content
         jcr:description="Generic template for empty experience fragments variations"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Citraining Empty Experience Fragment"
-        status="draft"/>
+        jcr:title="Citraining Empty Experience Fragment"/>
 </jcr:root>

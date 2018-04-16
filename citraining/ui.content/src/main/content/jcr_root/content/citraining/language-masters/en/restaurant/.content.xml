@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-04-16T12:01:34.627+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2018-04-16T12:01:34.634+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:lastTranslationDone="{Date}2018-04-16T11:56:14.044+05:30"
+        cq:lastTranslationUpdate="{Date}2018-04-16T11:54:50.852+05:30"
+        cq:template="/conf/citraining/settings/wcm/templates/landing-template"
+        cq:translationMethod="MACHINE_TRANSLATION"
+        cq:translationProviderCloudConfig="/libs/settings/cloudconfigs/translation/msft-translation/msft_trial"
+        cq:translationProviderName="microsoft"
+        cq:translationSourcePath="/content/citraining/language-masters/fr/restaurant"
+        cq:translationStatus="READY_FOR_REVIEW"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Restaurant"
+        jcr:uuid="b772b7c9-f237-4cab-b0b3-f110eb98a626"
+        sling:resourceType="citraining/components/structure/page"/>
+</jcr:root>
