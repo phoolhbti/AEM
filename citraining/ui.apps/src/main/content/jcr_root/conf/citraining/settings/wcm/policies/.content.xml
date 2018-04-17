@@ -93,12 +93,12 @@
                     </policy_514466126514480>
                     <policy_514594624796503
                         jcr:description="citraining Content"
-                        jcr:lastModified="{Date}2018-04-16T10:49:43.859+05:30"
+                        jcr:lastModified="{Date}2018-04-17T13:12:28.645+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,/apps/citraining/components/content/card,/apps/citraining/components/content/contentfragment,/apps/citraining/components/content/list,/apps/citraining/components/content/text]">
+                        components="[/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:citraining,/apps/citraining/components/content/card,/apps/citraining/components/content/contentfragment,/apps/citraining/components/content/list,/apps/citraining/components/content/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -482,6 +482,38 @@
                         </cq:styleGroups>
                     </policy_1523507356440>
                 </card>
+                <banner jcr:primaryType="nt:unstructured">
+                    <policy_1523959386691
+                        jcr:lastModified="{Date}2018-04-17T15:38:16.379+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="citraining carousel"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Text Alignment"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="text-left"
+                                        cq:styleId="1523959461334"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleId="1523959469270"
+                                        cq:styleLabel="default"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="text-right"
+                                        cq:styleId="1523959482110"
+                                        cq:styleLabel="Right"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1523959386691>
+                </banner>
             </content>
             <structure jcr:primaryType="nt:unstructured">
                 <navigation jcr:primaryType="nt:unstructured">

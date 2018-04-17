@@ -1,15 +1,28 @@
-<div class="wrapper row2">
-	<header id="header" class="hoc clear">		
-		<div id="logo" class="fl_left">
-			<h1>
-				<a href="#">${properties.bannerTitle}</a>
-			</h1>
-		</div>
-		<div id="quickinfo" class="fl_right">
-			<ul class="nospace inline">
-				<li><img src="${properties.pathOne}" /></li>
-				<li><img src="${properties.pathTwo}" /></li>
-			</ul>
-		</div>		
-	</header>
-</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-sly-use.carouselModel="com.citraining.core.components.Carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators" data-sly-test="${carouselModel.list}" data-sly-list.slideNumber="${carouselModel.list}"  >
+          <li data-target="#myCarousel" data-slide-to="${slideNumberList.index}"  class="${slideNumberList.first ? 'active' : ''}"></li>
+        </ol>
+      <div class="carousel-inner" role="listbox" data-sly-test="${carouselModel.list}" data-sly-list.list="${carouselModel.list}">
+        <div class="${listList.first ? 'item  active' : 'item'}">
+          <img class="first-slide" src="${list.sliderimage}" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>${list.slidertitle}</h1>
+              <p>${list.sliderdescription}</p>
+              <p><a class="btn btn-lg btn-primary" href="${list.sliderpath}" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div><!-- /.carousel -->
