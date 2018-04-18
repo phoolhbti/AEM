@@ -34,20 +34,20 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                             <leftslider
-                                                   jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
-                                                        fieldDescription="Select Image Path"
-                                                        fieldLabel="Left Slider Image"
-                                                        name="./leftslider"
-                                                        rootPath="/content/dam/citraining"/>
-                                             <righslider
-                                                   jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
-                                                        fieldDescription="Select Image Path"
-                                                        fieldLabel="Right Slider Image"
-                                                        name="righslider"
-                                                        rootPath="/content/dam/citraining"/>
+                                            <leftslider
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldDescription="Select Image Path"
+                                                fieldLabel="Left Slider Image"
+                                                name="./leftslider"
+                                                rootPath="/content/dam/citraining"/>
+                                            <righslider
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldDescription="Select Image Path"
+                                                fieldLabel="Right Slider Image"
+                                                name="righslider"
+                                                rootPath="/content/dam/citraining"/>
                                             <pages
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/form/multifield"
@@ -67,7 +67,7 @@
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/foundation/container">
-                                                            <items jcr:primaryType="nt:unstructured">                                                               
+                                                            <items jcr:primaryType="nt:unstructured">
                                                                 <sliderpath
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
@@ -75,7 +75,7 @@
                                                                     fieldLabel="Path"
                                                                     name="./sliderpath"
                                                                     rootPath="/content"/>
-                                                                  <sliderimage
+                                                                <sliderimage
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
                                                                     fieldDescription="Select Image Path"
@@ -93,7 +93,7 @@
                                                                     sling:resourceType="granite/ui/components/foundation/form/textarea"
                                                                     fieldDescription="Slide Description"
                                                                     fieldLabel="Slide Description"
-                                                                    name="./sliderdescription"/>                                                                
+                                                                    name="./sliderdescription"/>
                                                             </items>
                                                         </column>
                                                     </items>

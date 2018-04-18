@@ -484,7 +484,7 @@
                 </card>
                 <banner jcr:primaryType="nt:unstructured">
                     <policy_1523959386691
-                        jcr:lastModified="{Date}2018-04-17T15:38:16.379+05:30"
+                        jcr:lastModified="{Date}2018-04-18T13:07:07.717+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining carousel"
@@ -496,18 +496,19 @@
                                 jcr:primaryType="nt:unstructured">
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
-                                        cq:styleClasses="text-left"
+                                        cq:styleClasses="cmp-banner--left"
                                         cq:styleId="1523959461334"
                                         cq:styleLabel="Left"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
-                                        cq:styleId="1523959469270"
-                                        cq:styleLabel="default"
-                                        jcr:primaryType="nt:unstructured"/>
-                                    <item2
-                                        cq:styleClasses="text-right"
+                                        cq:styleClasses="cmp-banner--right"
                                         cq:styleId="1523959482110"
                                         cq:styleLabel="Right"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-banner--center"
+                                        cq:styleId="1523963791289"
+                                        cq:styleLabel="Center"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item0>

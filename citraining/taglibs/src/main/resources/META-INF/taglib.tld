@@ -9,6 +9,7 @@
 	<tag>
 		<description>Citrining  World</description>
 		<name>authorbox</name>
-		<tag-class>com.citraining.core.taglibs.AuthorBoxTag</tag-class>		
+		<tag-class>com.citraining.core.taglibs.AuthorBoxTag</tag-class>	
+		<body-content>scriptless</body-content>	
 	</tag>
 </taglib>

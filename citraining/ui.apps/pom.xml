@@ -56,9 +56,9 @@
 				</excludes>
 			</resource>
 			<resource>
-                <directory>src/main/content/META-INF/vault/definition</directory>
-                <targetPath>../vault-work/META-INF/vault/definition</targetPath>
-            </resource>
+				<directory>src/main/content/META-INF/vault/definition</directory>
+				<targetPath>../vault-work/META-INF/vault/definition</targetPath>
+			</resource>
 		</resources>
 		<plugins>
 			<!-- we want to keep some of the META-INF files and not configure everything 
@@ -80,7 +80,7 @@
 				<artifactId>content-package-maven-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>					
+					<filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
 					<group>citraining</group>
 					<properties>
 						<acHandling>merge_preserve</acHandling>
@@ -112,6 +112,11 @@
 							<groupId>com.citraining</groupId>
 							<target>/apps/citraining/install</target>
 						</embedded>
+						<embedded>
+							<groupId>com.citraining</groupId>
+							<artifactId>citraining.taglibs</artifactId>
+							<target>/apps/citraining/install</target>
+						</embedded>
 					</embeddeds>
 
 					<subPackages>
@@ -141,7 +146,11 @@
 			<artifactId>citraining.core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.citraining</groupId>
+			<artifactId>citraining.taglibs</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.adobe.aem</groupId>
 			<artifactId>uber-jar</artifactId>
@@ -150,7 +159,7 @@
 
 		<dependency>
 			<groupId>com.adobe.cq</groupId>
-			<artifactId>core.wcm.components.all</artifactId>			
+			<artifactId>core.wcm.components.all</artifactId>
 			<type>zip</type>
 		</dependency>
 

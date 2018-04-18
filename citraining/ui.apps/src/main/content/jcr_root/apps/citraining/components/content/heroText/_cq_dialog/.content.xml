@@ -45,17 +45,17 @@
                                     sling:resourceType="/apps/citraining/components/datasource"/>
                             </taskPriority>
                             <checkbox
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                    fieldLabel="kitten"
-                                    id="kitten"
-                                    text="Kitten text"
-                                    name="./kitten"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                fieldLabel="kitten"
+                                id="kitten"
+                                name="./kitten"
+                                text="Kitten text"/>
                             <color
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="citraining/components/custom-colorpicker"
-                                    fieldLabel="Color"
-                                    name="./color"/>
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="citraining/components/custom-colorpicker"
+                                fieldLabel="Color"
+                                name="./color"/>
                         </items>
                     </column>
                 </items>

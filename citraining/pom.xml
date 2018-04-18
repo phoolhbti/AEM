@@ -19,7 +19,7 @@
 	<modules>
 		<module>soap-weater</module>
 		<module>core</module>
-
+		<module>taglibs</module>
 		<module>ui.apps</module>
 		<module>ui.content</module>
 		<module>it.tests</module>
