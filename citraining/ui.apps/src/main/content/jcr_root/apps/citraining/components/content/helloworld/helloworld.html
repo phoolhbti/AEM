@@ -29,12 +29,12 @@ Language: ${pageProperties['jcr:language']}
     Your parameter brought next content:
     string: ${model.stringContent}
     integer: ${model.integerContent}
-    regexp: ${model.regexpContent}
+    regular expression: ${model.regexpContent}
 </pre>
 <div data-sly-use.heroTextObject="com.citraining.core.models.HeroWSComponent" data-sly-test="${heroTextObject}">
 
  <h3>Specified Country:</h3>
- <h3>${heroTextObject.heroTextBean.county}</h2>
+ <h2>${heroTextObject.heroTextBean.county}</h2>
 <h4>Here are the Cities: </h4>
     <ul data-sly-list="${heroTextObject.heroTextBean.list}"> 
         <li>${item}</li>

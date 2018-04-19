@@ -13,24 +13,26 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<%@page import="com.citraining.core.utils.SearchUtils" %>
-<%@include file="/libs/foundation/global.jsp"%>
-<%@taglib prefix="citraining" uri="http://com.citraining.taglibs/authorbox/1.1" %>
+<%@page import="com.citraining.core.utils.SearchUtils"%>
+<%@include file="/apps/citraining/global.jsp"%>
+<%@taglib prefix="citraining"
+	uri="http://com.citraining.taglibs/authorbox/1.1"%>
 <%
-final String DEFAULT_TITLE="Supported Query Languages";
-String title=properties.get("sqlTitle",DEFAULT_TITLE);
+	final String DEFAULT_TITLE = "Supported Query Languages";
+	String title = properties.get("sqlTitle", DEFAULT_TITLE);
 %>
-<c:set var="languages" value="<%= SearchUtils.getSupportedQueryLanguage(resourceResolver.adaptTo(Session.class)) %>"/>
+<c:set var="languages"
+	value="<%=SearchUtils.getSupportedQueryLanguage(resourceResolver.adaptTo(Session.class))%>" />
 <div>
-<ul>
-<c:forEach items="${languages}" var="result" varStatus="status">
-   <li>${result}</li>  
-</c:forEach>
-</ul>
+	<ul>
+		<c:forEach items="${languages}" var="result" varStatus="status">
+			<li>${result}</li>
+		</c:forEach>
+	</ul>
 </div>
 <div>
-    <%
-String pageName=SearchUtils.getLastMoidifedPage(resourceResolver.adaptTo(Session.class),"/content","/libs/cq/personalization/templates/campaign");
-out.println("Hello worl.."+pageName);
-    %>
+	<%
+		String pageName = SearchUtils.getLastMoidifedPage(resourceResolver.adaptTo(Session.class), "/content", "/libs/cq/personalization/templates/campaign");
+		out.println("Hello worl.." + pageName);
+	%>
 </div>

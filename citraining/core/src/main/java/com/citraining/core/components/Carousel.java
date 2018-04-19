@@ -28,6 +28,7 @@ public class Carousel {
 
 	@PostConstruct
 	protected void init() {
+		if(null!=slides) { 
 		logger.info("slides{}", slides);
 		this.slideList = new ArrayList<>();
 		Gson gson = new Gson();
@@ -38,6 +39,7 @@ public class Carousel {
 			slideList.add(eachSlide);
 		}
 		logger.info("linkList is{}", slideList);
+		}
 	}
 
 	public List<Slide> getList() {
