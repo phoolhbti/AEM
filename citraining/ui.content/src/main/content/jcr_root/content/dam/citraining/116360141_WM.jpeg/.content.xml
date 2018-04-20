@@ -9,7 +9,7 @@
         cq:parentPath="/content/dam/citraining"
         dam:assetState="processed"
         dam:relativePath="citraining/116360141_WM.jpeg"
-        jcr:lastModified="{Date}2018-04-13T09:33:28.654+05:30"
+        jcr:lastModified="{Date}2018-04-20T10:53:04.179+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -24,7 +24,7 @@
             dam:Physicalwidthindpi="{Long}60"
             dam:Physicalwidthininches="{Decimal}16.66666603088379"
             dam:Progressive="no"
-            dam:sha1="c6966aa1d5b106988f157b6b1396e62260169bb2"
+            dam:sha1="6466b27bf55e88badc2405a65acba69462663c6d"
             dam:size="{Long}487589"
             dc:format="image/jpeg"
             dc:modified="{Date}2017-02-13T15:27:00.425-05:00"

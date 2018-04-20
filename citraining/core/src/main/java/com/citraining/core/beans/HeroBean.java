@@ -1,7 +1,6 @@
 package com.citraining.core.beans;
 
 public class HeroBean {
-
 	private String heading;
 
 	private String description;

@@ -11,4 +11,5 @@
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"/>
     <en/>
+    <fr/>
 </jcr:root>

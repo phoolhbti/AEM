@@ -1,1 +1,0 @@
-/media/scripts/citraining/foundation/gist-embed/script.js

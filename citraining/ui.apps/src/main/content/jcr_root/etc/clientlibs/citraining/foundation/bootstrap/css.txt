@@ -1,5 +1,0 @@
-/media/scripts/citraining/foundation/bootstrap/dist/css/bootstrap.css
-/media/scripts/citraining/foundation/bootstrap/dist/css/bootstrap.css.map
-/media/scripts/citraining/foundation/bootstrap/dist/css/bootstrap-theme.css
-/media/scripts/citraining/foundation/bootstrap/dist/css/bootstrap-theme.css.map
-

@@ -5,9 +5,9 @@
     <rep:policy/>
     <dam/>
     <experience-fragments/>
+    <cq:tags/>
     <projects/>
     <usergenerated/>
-    <cq:tags/>
     <screens/>
     <catalogs/>
     <launches/>
@@ -19,5 +19,4 @@
     <community-components/>
     <we-retail/>
     <citraining/>
-    <aem-developer-learning-jquery-validator/>
 </jcr:root>

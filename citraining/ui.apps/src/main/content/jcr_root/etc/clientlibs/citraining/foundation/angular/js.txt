@@ -1,2 +1,0 @@
-/media/scripts/citraining/foundation/angular/angular.min.js
-/media/scripts/citraining/foundation/angular/angular.route.min.js

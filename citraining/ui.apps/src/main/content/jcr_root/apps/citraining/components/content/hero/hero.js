@@ -21,11 +21,12 @@ use([ "/libs/wcm/foundation/components/utils/AuthoringUtils.js" ], function(
 		var res = resource.getChild("file");
 		if (res != null) {
 			image = res.getPath();
+            hero.image=image;
 		}
 	}
 
 	if (image != "undefined") {
-		hero.style = "background-image:url(" + image + ");";
+		hero.image =  image ;
 	}
 
 	//Add uppercase design to hero text

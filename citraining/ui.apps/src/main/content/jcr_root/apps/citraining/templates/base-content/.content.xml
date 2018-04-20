@@ -2,21 +2,12 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:description="Template with focus on Base content."
     jcr:primaryType="cq:Template"
-    jcr:title="CITraining Site Content Base Page"
+    jcr:title="citraining Angular base template"
     allowedPaths="[/content/citraining/.+]"
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="citraining/components/structure/base">
-        <logo
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="citraining/components/structure/logo"/>
-        <title
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="citraining/components/content/title"/>
-        <topnav
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="citraining/components/structure/topnav"/>
+        sling:resourceType="citraining/components/structure/base">        
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys">

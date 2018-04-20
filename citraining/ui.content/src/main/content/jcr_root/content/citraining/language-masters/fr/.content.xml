@@ -6,17 +6,18 @@
         cq:allowedTemplates="/conf/citraining/settings/wcm/templates/.*"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2018-04-16T10:59:41.311+05:30"
+        cq:lastModified="{Date}2018-04-17T10:18:41.825+05:30"
         cq:lastModifiedBy="admin"
         cq:lastRolledout="{Date}2018-04-16T10:59:41.312+05:30"
         cq:lastRolledoutBy="admin"
+        cq:propertyInheritanceCancelled="[jcr:language]"
         cq:template="/conf/citraining/settings/wcm/templates/landing-template"
         jcr:isCheckedOut="{Boolean}true"
         jcr:language="fr"
-        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync,mix:versionable]"
+        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync,cq:PropertyLiveSyncCancelled,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="French"
-        jcr:uuid="fce36c16-4cb9-434a-abe5-6efe702d0620"
+        jcr:uuid="4a6d61e8-346a-468f-b191-051ee8ad33a1"
         sling:resourceType="citraining/components/structure/page">
         <image
             cq:lastRolledout="{Date}2018-04-16T10:59:41.243+05:30"
@@ -34,13 +35,15 @@
                 cq:lastRolledout="{Date}2018-04-16T10:59:41.288+05:30"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
-                jcr:primaryType="nt:unstructured">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
                 <card
+                    cq:isCancelledForChildren="{Boolean}true"
                     cq:lastRolledout="{Date}2018-04-16T10:59:41.295+05:30"
                     cq:lastRolledoutBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.291+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSyncCancelled]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/card"
                     articlePath="/content/citraining/fr/fr/ultimate-guide-to-la-how-to"
@@ -60,11 +63,12 @@
                     </cq:responsive>
                 </card>
                 <card_765755359
+                    cq:isCancelledForChildren="{Boolean}true"
                     cq:lastRolledout="{Date}2018-04-16T10:59:41.305+05:30"
                     cq:lastRolledoutBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.303+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSyncCancelled]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/card"
                     articlePath="/content/citraining/fr/fr/first-article"
@@ -83,10 +87,20 @@
                             width="6"/>
                     </cq:responsive>
                 </card_765755359>
+                <banner
+                    jcr:created="{Date}2018-04-16T15:03:28.996+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2018-04-16T15:04:02.770+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="citraining/components/content/banner"
+                    bannerTitle="Ci training banner "
+                    pathOne="/content/dam/citraining/thumbnails/float_right.png"
+                    pathTwo="/content/dam/citraining/thumbnails/marble.png"/>
             </responsivegrid>
         </root>
         <cq:LiveSyncConfig
-            cq:isDeep="{Boolean}true"
+            cq:isDeep="{Boolean}false"
             cq:master="/content/citraining/language-masters/fr"
             cq:rolloutConfigs="[]"
             jcr:primaryType="cq:LiveCopy"/>

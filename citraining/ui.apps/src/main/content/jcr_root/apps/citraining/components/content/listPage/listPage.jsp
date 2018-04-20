@@ -13,7 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<%@include file="/libs/foundation/global.jsp"%>
+<%@include file="/apps/citraining/global.jsp"%>
 <%@taglib prefix="citraining"
 	uri="http://com.citraining.taglibs/authorbox/1.1"%>
 <jsp:useBean id="pageHelper"

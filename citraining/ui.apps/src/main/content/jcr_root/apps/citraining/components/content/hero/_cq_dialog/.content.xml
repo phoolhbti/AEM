@@ -14,7 +14,7 @@
         <items jcr:primaryType="nt:unstructured">
             <image
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Image"
+                jcr:title="Hero Image(Text and Image)"
                 sling:resourceType="granite/ui/components/foundation/section">
                 <layout
                     jcr:primaryType="nt:unstructured"

@@ -14,7 +14,6 @@
 	String lastName = request.getParameter("lastName");
 	String city = request.getParameter("city");
 	String address = request.getParameter("address");
-
 	HandleForm formHandler = sling.getService(HandleForm.class);
 	formHandler.injestFormData(firstName, lastName, city, address);
 %>

@@ -14,7 +14,7 @@
         dam:copiedAt="{Date}2017-05-25T09:09:19.948-04:00"
         dam:parentAssetID="09f63efe-4eb1-407c-b95d-3524cffe6a07"
         dam:relativePath="citraining/pt/27156923_WM.jpeg"
-        jcr:lastModified="{Date}2018-04-13T09:33:30.993+05:30"
+        jcr:lastModified="{Date}2018-04-20T10:53:04.261+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -29,7 +29,7 @@
             dam:Physicalwidthindpi="{Long}77"
             dam:Physicalwidthininches="{Decimal}12.98701286315918"
             dam:Progressive="no"
-            dam:sha1="8240066ca1ec7bc517503562457006ccccf8f0af"
+            dam:sha1="686dcf3c55c2bc662ef1ee7728bed8ad5cbe0e96"
             dam:size="{Long}321813"
             dc:format="image/jpeg"
             dc:modified="{Date}2017-02-13T15:26:59.753-05:00"

@@ -1,10 +1,9 @@
 <p>This is your Hero Template Language component:</p>
 <div data-sly-use.hero="com.citraining.core.models.HeroTextComponent" data-sly-test="${hero}">
-       <h1>${hero.heroBean.heading}</h1>
-       <p>${hero.heroTextBean.description}</p> 
-       <p>${hero.heroTextBean.drop}</p>
-       <p>Check is: ${hero.heroBean.check}</p>
-       <p> Color : ${hero.heroBean.color}</p>
-      <p style="color:${hero.heroBean.color @ context='styleToken'};"> Text : ${hero.heroBean.text}</p>    
+       <h1>${hero.heading}</h1>
+       <p>${hero.description}</p> 
+       <p>${hero.drop}</p>
+       <p>Check is: ${hero.check}</p>     
+      <p style="color:${hero.color @ context='styleToken'};"> Text : ${hero.text}</p>    
 </div>
 

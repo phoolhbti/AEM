@@ -4,42 +4,34 @@
     <jcr:content
         cq:lastModified="{Date}2018-04-16T10:59:41.665+05:30"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2018-04-16T10:59:41.669+05:30"
-        cq:lastRolledoutBy="admin"
         cq:template="/conf/citraining/settings/wcm/templates/article-page-template"
         jcr:description="he purpose of HTML Template Language (HTL), supported by Adobe Experience Manager (AEM), is to offer a highly productive enterprise-level web ... HTL itself is standard HTML5 as it uses expressions and data attributes to annotate the markup with the desired dynamic behavior, meaning that it doesn't"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Ultimate Guide to LA how to"
-        jcr:uuid="560868c5-5701-4d6e-870f-66800a99019d"
+        jcr:uuid="0a2ca43f-129d-4d04-94ea-a1c4552df36b"
         sling:resourceType="citraining/components/structure/page">
         <root
-            cq:lastRolledout="{Date}2018-04-16T10:59:41.586+05:30"
-            cq:lastRolledoutBy="admin"
             jcr:lastModified="{Date}2018-04-16T10:59:41.581+05:30"
             jcr:lastModifiedBy="admin"
-            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:mixinTypes="[]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
-                cq:lastRolledout="{Date}2018-04-16T10:59:41.596+05:30"
-                cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2018-04-10T11:23:16.225+05:30"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2018-04-16T10:59:41.592+05:30"
                 jcr:lastModifiedBy="admin"
-                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:mixinTypes="[]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <contentfragment
-                    cq:lastRolledout="{Date}2018-04-16T10:59:41.607+05:30"
-                    cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2018-04-10T14:05:28.598+05:30"
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.603+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/contentfragment"
                     element="main"
@@ -47,62 +39,50 @@
                     text="&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;            Hello world&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;            here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;"
                     variation="master">
                     <par2
-                        cq:lastRolledout="{Date}2018-04-16T10:59:41.612+05:30"
-                        cq:lastRolledoutBy="admin"
-                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:mixinTypes="[]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/foundation/components/responsivegrid"/>
                     <par0
-                        cq:lastRolledout="{Date}2018-04-16T10:59:41.614+05:30"
-                        cq:lastRolledoutBy="admin"
-                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:mixinTypes="[]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="dam/cfm/components/grid">
                         <title
-                            cq:lastRolledout="{Date}2018-04-16T10:59:41.620+05:30"
-                            cq:lastRolledoutBy="admin"
                             jcr:created="{Date}2018-04-10T14:17:57.664+05:30"
                             jcr:createdBy="admin"
                             jcr:lastModified="{Date}2018-04-16T10:59:41.617+05:30"
                             jcr:lastModifiedBy="admin"
-                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:mixinTypes="[]"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Welcome to our blog"
                             sling:resourceType="citraining/components/content/title"/>
                     </par0>
                 </contentfragment>
                 <contentfragment_1074402813
-                    cq:lastRolledout="{Date}2018-04-16T10:59:41.623+05:30"
-                    cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2018-04-11T17:11:21.580+05:30"
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.621+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/contentfragment"
                     text=""/>
                 <text
-                    cq:lastRolledout="{Date}2018-04-16T10:59:41.628+05:30"
-                    cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2018-04-11T17:13:01.593+05:30"
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.624+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/text"
                     text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum&lt;/p>&#xa;"
                     textIsRich="true"/>
             </responsivegrid>
             <image
-                cq:lastRolledout="{Date}2018-04-16T10:59:41.633+05:30"
-                cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2018-04-10T13:32:19.333+05:30"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2018-04-16T10:59:41.629+05:30"
                 jcr:lastModifiedBy="admin"
-                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:mixinTypes="[]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="citraining/components/content/image"
                 altValueFromDAM="true"
@@ -111,34 +91,28 @@
                 isDecorative="false"
                 titleValueFromDAM="true"/>
             <title
-                cq:lastRolledout="{Date}2018-04-16T10:59:41.636+05:30"
-                cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2018-04-10T13:34:06.472+05:30"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2018-04-16T10:59:41.634+05:30"
                 jcr:lastModifiedBy="admin"
-                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:mixinTypes="[]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="citraining/components/content/title"/>
             <responsivegrid_1539433064
-                cq:lastRolledout="{Date}2018-04-16T10:59:41.659+05:30"
-                cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2018-04-10T13:35:16.843+05:30"
                 jcr:createdBy="admin"
                 jcr:lastModified="{Date}2018-04-16T10:59:41.656+05:30"
                 jcr:lastModifiedBy="admin"
-                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:mixinTypes="[]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <list
-                    cq:lastRolledout="{Date}2018-04-16T10:59:41.668+05:30"
-                    cq:lastRolledoutBy="admin"
                     cq:styleIds="[1523345559650]"
                     jcr:created="{Date}2018-04-10T14:05:33.001+05:30"
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2018-04-16T10:59:41.663+05:30"
                     jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:mixinTypes="[]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="citraining/components/content/list"
                     childDepth="1"

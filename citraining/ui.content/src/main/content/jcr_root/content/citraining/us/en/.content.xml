@@ -7,9 +7,9 @@
         cq:conf=""
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2018-04-16T12:01:34.380+05:30"
+        cq:lastModified="{Date}2018-04-16T12:52:25.829+05:30"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2018-04-16T12:01:34.382+05:30"
+        cq:lastRolledout="{Date}2018-04-16T12:52:25.830+05:30"
         cq:lastRolledoutBy="admin"
         cq:lastTranslationDone="{Date}2018-04-16T11:56:13.269+05:30"
         cq:lastTranslationUpdate="{Date}2018-04-16T11:54:50.708+05:30"
@@ -25,30 +25,30 @@
         jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
-        jcr:uuid="e349f80b-f8a1-4796-82f9-e552bdf5618f"
+        jcr:uuid="964fa4b7-2e58-4aae-b212-42ed409322d3"
         sling:resourceType="citraining/components/structure/page">
         <image
-            cq:lastRolledout="{Date}2018-04-16T12:01:34.328+05:30"
+            cq:lastRolledout="{Date}2018-04-16T12:52:25.767+05:30"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured">
             <file/>
         </image>
         <root
-            cq:lastRolledout="{Date}2018-04-16T12:01:34.354+05:30"
+            cq:lastRolledout="{Date}2018-04-16T12:52:25.800+05:30"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured">
             <responsivegrid
-                cq:lastRolledout="{Date}2018-04-16T12:01:34.357+05:30"
+                cq:lastRolledout="{Date}2018-04-16T12:52:25.803+05:30"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <card
-                    cq:lastRolledout="{Date}2018-04-16T12:01:34.363+05:30"
+                    cq:lastRolledout="{Date}2018-04-16T12:52:25.809+05:30"
                     cq:lastRolledoutBy="admin"
-                    jcr:lastModified="{Date}2018-04-16T12:01:34.360+05:30"
+                    jcr:lastModified="{Date}2018-04-16T12:52:25.806+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
@@ -57,12 +57,12 @@
                     hideDescription="false"
                     titleOverride="this is override title">
                     <cq:responsive
-                        cq:lastRolledout="{Date}2018-04-16T12:01:34.364+05:30"
+                        cq:lastRolledout="{Date}2018-04-16T12:52:25.811+05:30"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured">
                         <default
-                            cq:lastRolledout="{Date}2018-04-16T12:01:34.366+05:30"
+                            cq:lastRolledout="{Date}2018-04-16T12:52:25.814+05:30"
                             cq:lastRolledoutBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
@@ -70,9 +70,9 @@
                     </cq:responsive>
                 </card>
                 <card_765755359
-                    cq:lastRolledout="{Date}2018-04-16T12:01:34.369+05:30"
+                    cq:lastRolledout="{Date}2018-04-16T12:52:25.818+05:30"
                     cq:lastRolledoutBy="admin"
-                    jcr:lastModified="{Date}2018-04-16T12:01:34.367+05:30"
+                    jcr:lastModified="{Date}2018-04-16T12:52:25.815+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
@@ -80,12 +80,12 @@
                     articlePath="/content/citraining/us/en/first-article"
                     hideDescription="false">
                     <cq:responsive
-                        cq:lastRolledout="{Date}2018-04-16T12:01:34.370+05:30"
+                        cq:lastRolledout="{Date}2018-04-16T12:52:25.820+05:30"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured">
                         <default
-                            cq:lastRolledout="{Date}2018-04-16T12:01:34.374+05:30"
+                            cq:lastRolledout="{Date}2018-04-16T12:52:25.823+05:30"
                             cq:lastRolledoutBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
@@ -94,11 +94,11 @@
                     </cq:responsive>
                 </card_765755359>
                 <card_1663800018
-                    cq:lastRolledout="{Date}2018-04-16T12:01:34.378+05:30"
+                    cq:lastRolledout="{Date}2018-04-16T12:52:25.827+05:30"
                     cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2018-04-16T11:34:43.378+05:30"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2018-04-16T12:01:34.375+05:30"
+                    jcr:lastModified="{Date}2018-04-16T12:52:25.824+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
@@ -106,11 +106,11 @@
                     articlePath="/content/citraining/us/en/first-article"
                     hideDescription="false"/>
                 <card_1024684392
-                    cq:lastRolledout="{Date}2018-04-16T12:01:34.382+05:30"
+                    cq:lastRolledout="{Date}2018-04-16T12:52:25.830+05:30"
                     cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2018-04-16T11:35:30.523+05:30"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2018-04-16T12:01:34.379+05:30"
+                    jcr:lastModified="{Date}2018-04-16T12:52:25.828+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
@@ -120,7 +120,7 @@
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"
             cq:master="/content/citraining/language-masters/en"
-            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
+            cq:rolloutConfigs="[]"
             jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
     <hello-article/>

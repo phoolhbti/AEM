@@ -3,11 +3,14 @@ package com.citraining.core.models;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.citraining.core.beans.HeroBean;
 
+@Model (adaptables = Resource.class)
 public class HeroTextComponent {
 
 	private HeroBean heroBean = null;

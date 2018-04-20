@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2018-04-16T12:01:34.627+05:30"
+        cq:lastModified="{Date}2018-04-16T12:52:26.196+05:30"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2018-04-16T12:01:34.634+05:30"
+        cq:lastRolledout="{Date}2018-04-16T12:52:26.204+05:30"
         cq:lastRolledoutBy="admin"
         cq:lastTranslationDone="{Date}2018-04-16T11:56:14.044+05:30"
         cq:lastTranslationUpdate="{Date}2018-04-16T11:54:50.852+05:30"
@@ -18,6 +18,6 @@
         jcr:mixinTypes="[cq:LiveRelationship,mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Restaurant"
-        jcr:uuid="b772b7c9-f237-4cab-b0b3-f110eb98a626"
+        jcr:uuid="cb1bf171-9a22-4c78-b97f-4dbdcd72c35c"
         sling:resourceType="citraining/components/structure/page"/>
 </jcr:root>

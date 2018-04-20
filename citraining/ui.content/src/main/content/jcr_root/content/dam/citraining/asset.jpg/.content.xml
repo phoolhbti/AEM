@@ -9,7 +9,7 @@
         cq:parentPath="/content/dam/citraining"
         dam:assetState="processed"
         dam:relativePath="citraining/asset.jpg"
-        jcr:lastModified="{Date}2018-04-13T09:33:31.141+05:30"
+        jcr:lastModified="{Date}2018-04-20T10:53:08.608+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
@@ -38,11 +38,13 @@
             exif:ExifVersion="0221"
             exif:PixelXDimension="{Long}940"
             exif:PixelYDimension="{Long}51"
-            jcr:lastModified="{Date}2018-04-13T09:33:31.093+05:30"
+            jcr:lastModified="{Date}2018-04-20T10:53:08.537+05:30"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             photoshop:ColorMode="{Long}3"
+            tiff:BitsPerSample="{Long}[8,8,8]"
+            tiff:BitsPerSample_xmpArrayType="rdf:Seq"
             tiff:Compression="{Long}6"
             tiff:ImageLength="{Long}51"
             tiff:ImageWidth="{Long}940"

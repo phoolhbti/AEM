@@ -1,4 +1,4 @@
-<%@include file="/libs/foundation/global.jsp"%>
+<%@include file="/apps/citraining/global.jsp"%>
 <h1>press-release</h1>
 <div style="width: 90%;">
 	<cq:include path="head"	resourceType="citraining/components/content/press-release/head" />
