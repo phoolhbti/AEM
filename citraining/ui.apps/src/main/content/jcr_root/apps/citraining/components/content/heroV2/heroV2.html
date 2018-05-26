@@ -1,0 +1,16 @@
+<div data-sly-use.hero="com.citraining.core.models.HeroTextImage" data-sly-test="${hero}" class="cmp-card">
+
+	<a class="cmp-card__link" href="${hero.linkPath @ extension = 'html'}">
+
+		<div class="cmp-card__wrapper"
+			style="background-image: url(${ hero.imageSrc @ context = 'uri'})">
+			<div class="cmp-card__content">
+
+				<h2 class="cmp-card__title" data-sly-test.heading="${hero.heading}">${heading}</h2>
+
+				<h3 class="cmp-card__description"
+					data-sly-test.description="${hero.description}">${description}</h3>
+			</div>
+		</div>
+	</a>
+</div>
