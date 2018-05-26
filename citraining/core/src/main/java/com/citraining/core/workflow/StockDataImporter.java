@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Objects;
-import java.util.Optional;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -67,7 +66,7 @@ public class StockDataImporter implements Importer {
 	}
 
 	private void writeToRepository(String stockSymbol, String lastTrade, Resource resource) throws RepositoryException {
-		logger.debug("starting point of writeToRepository");
+		
 		try{
 			ResourceResolver resolver = CommonUtil.getResourceResolver(resolverFactory);
 			session = resolver.adaptTo(Session.class);

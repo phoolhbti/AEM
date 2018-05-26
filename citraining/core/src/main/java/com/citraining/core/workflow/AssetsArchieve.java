@@ -26,14 +26,14 @@ import com.day.cq.dam.api.AssetManager;
 public class AssetsArchieve implements WorkflowProcess {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	@Reference
 	private ResourceResolverFactory resolverFactory;
+
 	@Override
 	public void execute(WorkItem item, WorkflowSession wfsession, MetaDataMap args) throws WorkflowException {
 
 		try{
-			log.info("**** Here in execute method"); // ensure that the execute method is invoked
-
 			// Get the Assets from the file system for a test
 			WorkflowNode myNode = item.getNode();
 			String myTitle = myNode.getTitle(); // returns the title of the workflow step
@@ -54,7 +54,7 @@ public class AssetsArchieve implements WorkflowProcess {
 		}
 
 		catch (Exception e){
-			log.error("Exception{}",e);
+			log.error("Exception{}", e);
 		}
 	}
 
@@ -62,15 +62,15 @@ public class AssetsArchieve implements WorkflowProcess {
 	private String writeToDam(String path, String fileName, WorkflowSession wfsession) {
 		try{
 			// Inject a ResourceResolver - make sure to whitelist the bundle
-			Session session = wfsession.adaptTo(Session.class);			
-			ResourceResolver resourceResolver=CommonUtil.getResourceResolver(resolverFactory);
-			//ResourceResolver resourceResolver = resolverFactory.getResourceResolver()
+			Session session = wfsession.adaptTo(Session.class);
+			ResourceResolver resourceResolver = CommonUtil.getResourceResolver(resolverFactory);
+			// ResourceResolver resourceResolver = resolverFactory.getResourceResolver()
 			// Remove the first / char - JCR API does not like that
 			String newPath = path.replaceFirst("/", "");
 
 			// USE JCR API TO get the Asset Data so we can move it to another JCR location
 			Node root = session.getRootNode();
-			
+
 			// Append the path where the Asset data is stored
 			String dataPath = newPath + "/jcr:content/renditions/original/jcr:content";
 
@@ -81,10 +81,12 @@ public class AssetsArchieve implements WorkflowProcess {
 			// Use AssetManager to place the file into the AEM DAM
 			AssetManager assetMgr = resourceResolver.adaptTo(AssetManager.class);
 			String newFile = "/content/dam/trash/" + fileName;
-			assetMgr.createAsset(newFile, content, "image/jpeg", true);
+			if (null != assetMgr){
+				assetMgr.createAsset(newFile, content, "image/jpeg", true);
+			}
 			return fileName;
-		} catch (Exception e){		
-			log.error("**** Error: {}",e);
+		} catch (Exception e){
+			log.error("**** Error: {}", e);
 		}
 		return "";
 	}

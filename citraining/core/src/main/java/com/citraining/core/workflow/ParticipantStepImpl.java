@@ -17,11 +17,12 @@ import com.adobe.granite.workflow.metadata.MetaDataMap;
 @Component (immediate = true, service = ParticipantStepChooser.class, property = { "chooser.label=Citraining Workflow Dynamic Participant Chooser" })
 public class ParticipantStepImpl implements ParticipantStepChooser {
 	private static final Logger logger = LoggerFactory.getLogger(ParticipantStepImpl.class);
-@Override
+
+	@Override
 	public String getParticipant(WorkItem workItem, WorkflowSession wfSession, MetaDataMap metaDataMap) throws WorkflowException {
-		logger.info("################ Inside the SampleProcessStepChooserImpl GetParticipant ##########################");	
-		  String initiator = workItem.getWorkflow().getInitiator();
-		  logger.info("Assigning Dynamic Participant Step work item to {}",initiator);
+
+		String initiator = workItem.getWorkflow().getInitiator();
+		logger.info("Assigning Dynamic Participant Step work item to {}", initiator);
 		Workflow wf = workItem.getWorkflow();
 		List<HistoryItem> wfHistory = wfSession.getHistory(wf);
 		if (!wfHistory.isEmpty()){

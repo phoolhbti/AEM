@@ -36,7 +36,7 @@ public class StockAlertProcess implements WorkflowProcess {
 
 	@Override
 	public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap args) throws WorkflowException {
-		LOGGER.info("Starting point of execute method...");
+		
 		try{
 			WorkflowData workflowData = workItem.getWorkflowData();
 			Session session = workflowSession.adaptTo(Session.class);
