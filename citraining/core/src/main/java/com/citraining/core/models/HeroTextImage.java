@@ -36,6 +36,9 @@ public class HeroTextImage {
 	@Named ("fileReference")
 	private String imageSrc;
 	
+	@Inject
+    protected Resource resource;
+	
 	public String getHeading() {
 		return heading;
 	}
@@ -50,6 +53,10 @@ public class HeroTextImage {
 	}
 
 	public String getImageSrc() {
+		/*if(resource.hasChildren()) {
+		Resource file = resource.getChild("file");
+		imageSrc=file.getPath();
+		}*/
 		return imageSrc;
 	}
 
