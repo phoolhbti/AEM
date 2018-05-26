@@ -4,7 +4,7 @@ This is a project template for AEM-based applications. It is intended as a best-
 
 ## Modules
 
-The main parts of the template are:
+### The main parts of the template are:
 
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
 * taglib: Java bundle containing all JSTL functionality.
@@ -131,4 +131,8 @@ Libraries Dependencies validation - highlights any dependencies or embedded cate
 Rebuild Client Libraries - allows a user to force AEM to rebuild all of the client libraries or invalidate the cache of client libraries. This tool is particularly effective when developing with LESS as this can force AEM to re-compile the generated CSS. In general it is more effective to Invalidate Caches and then perform a page refresh versus rebuilding all of the libraries. <host>/libs/granite/ui/content/dumplibs.rebuild.html
 
 **Sling Models are entirely annotation driven "POJOs", making it easy to map data from the JCR into a Java variable.
+** mvn -PautoInstallPackage -Padobe-public clean install
 
+----------------New setup--------------------
+1. create a citraining system user and assign its required permessions
+2. install acs-aem-common package. 

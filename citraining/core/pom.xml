@@ -168,8 +168,7 @@
 		</dependency>
 		<dependency>
 			<artifactId>gson</artifactId>
-			<groupId>com.google.code.gson</groupId>
-			<version>2.6.2</version>
+			<groupId>com.google.code.gson</groupId>			
 		</dependency>
 		<dependency>
 			<artifactId>citraining.soap.weather</artifactId>

@@ -5,6 +5,7 @@ import javax.jcr.Session;
 import javax.jcr.observation.Event;
 import javax.jcr.observation.EventIterator;
 import javax.jcr.observation.EventListener;
+import javax.jcr.observation.ObservationManager;
 
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -47,16 +48,15 @@ public class SimpleResourceListener implements EventListener {
 		logger.info("activating ExampleObservation");
 		try{
 			ResourceResolver resolver = CommonUtil.getResourceResolver(resolverFactory);
-			adminSession = resolver.adaptTo(Session.class);			
-				adminSession.getWorkspace().getObservationManager().addEventListener(	this, // handler
-																						Event.PROPERTY_ADDED | Event.NODE_ADDED, // binary combination
-																																	// of event types
-																						"/apps/citraining", // path
-																						true, // is Deep?
-																						null, // uuids filter
-																						null, // nodetypes filter
-																						false);
-		
+			adminSession = resolver.adaptTo(Session.class);				
+				ObservationManager observationManager=adminSession.getWorkspace().getObservationManager();
+				observationManager.addEventListener(this, // handler
+													Event.PROPERTY_ADDED | Event.NODE_ADDED, // binary combination	// of event types
+													"/apps/citraining", // path
+													true, // is Deep?
+													null, // uuids filter
+													null, // nodetypes filter
+													false);
 		} catch (RepositoryException | LoginException e){
 			logger.error("unable to register session", e);
 		}
