@@ -24,7 +24,9 @@ ${hello.message}
 Language of Page:${currentPage.language}
 Language: ${pageProperties['jcr:language']}
 </pre>
-
+<pre data-sly-use.slingModel="com.citraining.core.models.AdaptationModel">
+${slingModel.message}
+</pre>
 <pre data-sly-use.model="com.citraining.core.models.RequestParamsInjected">
     Your parameter brought next content:
     string: ${model.stringContent}

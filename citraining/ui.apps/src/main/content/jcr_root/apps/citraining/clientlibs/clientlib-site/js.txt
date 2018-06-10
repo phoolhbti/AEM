@@ -1,5 +1,6 @@
 #base=.
 
 site/js/vendor/util.js
+components/login/login.js
 components/header/header.js
 components/navigation/navigation.js

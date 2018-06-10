@@ -41,6 +41,16 @@
                                         sling:resourceType="granite/ui/components/foundation/form/textfield"
                                         fieldLabel="Numbers of Cities"
                                         name="./countyNum"/>
+                                     <firstName
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldLabel="First Name"
+                                        name="./firstName"/>
+                                    <lastName
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldLabel="Last Name"
+                                        name="./lastName"/>
                                 </items>
                             </column>
                         </items>

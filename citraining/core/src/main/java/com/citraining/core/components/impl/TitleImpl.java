@@ -1,4 +1,4 @@
-package com.citraining.core.models;
+package com.citraining.core.components.impl;
 /*
 import javax.annotation.Nonull;
 import javax.annotation.PostConstruct;

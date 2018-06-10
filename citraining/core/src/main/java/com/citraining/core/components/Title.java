@@ -1,4 +1,4 @@
-package com.citraining.core.models;
+package com.citraining.core.components;
 
 import org.osgi.annotation.versioning.ConsumerType;
 
