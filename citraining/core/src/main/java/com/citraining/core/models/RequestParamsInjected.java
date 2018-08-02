@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import com.citraining.core.request.param.RequestParameter;
 
@@ -18,6 +19,8 @@ public class RequestParamsInjected {
 		CONTENT.put(963, "Content 2");
 		CONTENT.put("regexpparam", "Content for regexp");
 	}
+	@SlingObject
+	private SlingHttpServletRequest request;
 
 	@RequestParameter
 	private String stringParam;
