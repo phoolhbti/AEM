@@ -5,7 +5,7 @@ $footer-text-color: #fff;
 
 
 .cmp-layout-container--footer {
-	background: @footer-background-color;
+	background: $footer-background-color;
     min-height: 365px;
     margin-top: 3em;
     padding: 0 3em;

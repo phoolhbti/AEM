@@ -5,11 +5,11 @@
  
 
  .full-width  {
-	margin: ~"0px calc((100vw - 100%) / -2)";
+	margin: "0px calc((100vw - 100%) / -2)";
     width: 100vw !important;
     
     .aem-Grid {
-  		.container-fixed();
+  		@mixin container-fixed(){
 
   		@media (min-width: $screen-sm-min) {
     		width: $container-sm;
@@ -21,4 +21,5 @@
     		width: $container-lg;
   		}
 	}
+}
 }

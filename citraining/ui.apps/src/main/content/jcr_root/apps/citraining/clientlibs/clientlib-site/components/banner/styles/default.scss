@@ -18,7 +18,7 @@
   > .item {
     display: none;
     position: relative;
-    .transition(.6s ease-in-out left);
+    @include transition(.6s ease-in-out left);
 
     // Account for jankitude on images
     > img,
@@ -29,24 +29,24 @@
 
     // WebKit CSS3 transforms for supported devices
     @media all and (transform-3d), (-webkit-transform-3d) {
-      .transition-transform(~'0.6s ease-in-out');
-      .backface-visibility(~'hidden');
-      .perspective(1000px);
+      @include transition-transform('0.6s ease-in-out');
+      @include backface-visibility('hidden');
+      @include perspective(1000px);
 
       &.next,
       &.active.right {
-        .translate3d(100%, 0, 0);
+        @include translate3d(100%, 0, 0);
         left: 0;
       }
       &.prev,
       &.active.left {
-        .translate3d(-100%, 0, 0);
+        @include translate3d(-100%, 0, 0);
         left: 0;
       }
       &.next.left,
       &.prev.right,
       &.active {
-        .translate3d(0, 0, 0);
+        @include translate3d(0, 0, 0);
         left: 0;
       }
     }
@@ -98,7 +98,7 @@
   left: 0;
   bottom: 0;
   width: $carousel-control-width;
-  .opacity($carousel-control-opacity);
+  @include opacity($carousel-control-opacity);
   font-size: $carousel-control-font-size;
   color: $carousel-control-color;
   text-align: center;
@@ -123,7 +123,7 @@
     outline: 0;
     color: $carousel-control-color;
     text-decoration: none;
-    .opacity(.9);
+    @include opacity(.9);
   }
 
   // Toggles

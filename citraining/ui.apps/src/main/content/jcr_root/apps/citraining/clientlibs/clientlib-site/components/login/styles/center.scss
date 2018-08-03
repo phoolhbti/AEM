@@ -9,9 +9,9 @@
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: @carousel-caption-color;
+  color: $carousel-caption-color;
   text-align: center;
-  text-shadow: @carousel-text-shadow;
+  text-shadow: $carousel-text-shadow;
   & .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }

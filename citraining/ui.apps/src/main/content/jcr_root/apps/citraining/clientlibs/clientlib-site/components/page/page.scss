@@ -9,5 +9,5 @@ body.page {
 }
 
 .root {
-	.container-content();
+	@include container-content();
 }

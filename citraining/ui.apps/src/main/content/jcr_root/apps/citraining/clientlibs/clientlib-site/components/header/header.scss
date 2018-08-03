@@ -10,7 +10,7 @@
 	padding-top: 45px;
 	
 	.container {
-	.container-fixed();
+	@mixin container-fixed(){
 
   		@media (min-width: $screen-sm-min) {
     		width: ($container-sm - 48px);
@@ -22,7 +22,7 @@
     		width: ($container-lg - 48px);
   		}
 	}
-	
+	}
 	&.navbar-sticky {
     	background-color: $body-bg;
     	-webkit-box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.26);

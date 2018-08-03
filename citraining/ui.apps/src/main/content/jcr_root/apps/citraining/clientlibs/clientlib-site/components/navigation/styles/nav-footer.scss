@@ -43,7 +43,7 @@
         
         li.cmp-navigation__item--active .cmp-navigation__item-link {
             background-color: $navbar-inverse-bg;
-            color: @brand-primary;
+            color: $brand-primary;
         }
     
          @media (max-width: $grid-float-breakpoint) {

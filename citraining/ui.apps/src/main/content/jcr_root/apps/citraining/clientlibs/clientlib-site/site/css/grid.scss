@@ -1,29 +1,27 @@
-$max_col: 12;
-/*
-$gridpath : "/libs/wcm/foundation/clientlibs/grid";
-@import "${gridpath}/grid_base.scss";
+/* $gridpath : "/libs/wcm/foundation/clientlibs/grid";
+@import "#{$gridpath}/grid_base.scss";
  */
  @import "grid_base.scss";
 /* maximum amount of grid cells to be provided */
-
+$max_col: 12;
  
 /* default breakpoint */
 .aem-Grid {
-    .generate-grid(default, $max_col);
+    @include generate-grid(default, $max_col);
     width: auto;
 }
 
 /* phone breakpoint */
 @media (max-width: ($screen-sm-min - 1)) {
     .aem-Grid {
-        .generate-grid(phone, $max_col);
+        @include generate-grid(phone, $max_col);
     }
 }
 
 /* tablet breakpoint */
 @media (min-width: $screen-sm-min) and (max-width: $screen-lg-min) {
     .aem-Grid {
-        .generate-grid(tablet, $max_col);
+        @include generate-grid(tablet, $max_col);
     }
 }
 

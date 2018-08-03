@@ -1,4 +1,4 @@
-.cmp-banner--right{
+.cmp-banner--left{
 .carousel-caption {
   position: absolute;
   left: 15%;
@@ -7,9 +7,9 @@
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: @carousel-caption-color;
-  text-align: right;
-  text-shadow: @carousel-text-shadow;
+  color: $carousel-caption-color;
+  text-align: left;
+  text-shadow: $carousel-text-shadow;
   & .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
