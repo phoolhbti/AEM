@@ -1,12 +1,12 @@
 /* WKND Card - card.less*/
  
 $card-default-height: 365px;
-$card-mini-height: ((@card-default-height / 2) - 10px);
+$card-mini-height: (($card-default-height / 2) - 10px);
 $card-mobile-height: 265px;
 $light-color: #fff;
 $dark-color: $text-color;
  
-@import-once "styles/default.scss";
-@import-once "styles/position.scss";
-@import-once "styles/color.scss";
-@import-once "styles/size.scss";
+@import "styles/default.scss";
+@import "styles/position.scss";
+@import "styles/color.scss";
+@import "styles/size.scss";
