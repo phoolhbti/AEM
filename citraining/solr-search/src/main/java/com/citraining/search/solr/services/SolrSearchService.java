@@ -1,4 +1,4 @@
-package com.citraining.core.search;
+package com.citraining.search.solr.services;
 
 import java.io.IOException;
 

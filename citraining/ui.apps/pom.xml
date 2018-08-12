@@ -91,22 +91,22 @@
 							<artifactId>citraining.core</artifactId>
 							<target>/apps/citraining/install</target>
 						</embedded>
-						<!-- solor dependencies -->
+						
 						<embedded>
 							<groupId>org.apache.servicemix.bundles</groupId>
 							<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
 							<target>/apps/citraining/install</target>
 						</embedded>
 						<embedded>
-							<groupId>org.noggit</groupId>
-							<artifactId>noggit</artifactId>
+							<groupId>org.apache.servicemix.bundles</groupId>
+							<artifactId>org.apache.servicemix.bundles.noggit</artifactId>
 							<target>/apps/citraining/install</target>
-						</embedded>
+						</embedded>	
 						<embedded>
-							<groupId>org.apache.zookeeper</groupId>
-							<artifactId>zookeeper</artifactId>
+							<artifactId>citraining.search.solr</artifactId>
+							<groupId>com.citraining</groupId>
 							<target>/apps/citraining/install</target>
-						</embedded>
+						</embedded>					
 						<embedded>
 							<artifactId>citraining.soap.weather</artifactId>
 							<groupId>com.citraining</groupId>
@@ -141,16 +141,7 @@
 	<!-- D E P E N D E N C I E S -->
 	<!-- ====================================================================== -->
 	<dependencies>
-		<dependency>
-			<groupId>com.citraining</groupId>
-			<artifactId>citraining.core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.citraining</groupId>
-			<artifactId>citraining.taglibs</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.adobe.aem</groupId>
 			<artifactId>uber-jar</artifactId>
@@ -177,28 +168,36 @@
 			<groupId>com.day.cq.wcm</groupId>
 			<artifactId>cq-wcm-taglib</artifactId>
 		</dependency>
+	
+		<!-- solr dependency start -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.solr-solrj</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-		</dependency>
-		<dependency>
-			<groupId>org.noggit</groupId>
-			<artifactId>noggit</artifactId>
-			<version>0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.zookeeper</groupId>
-			<artifactId>zookeeper</artifactId>
-			<version>3.4.5</version>
-		</dependency>
+				<groupId>org.apache.servicemix.bundles</groupId>
+				<artifactId>org.apache.servicemix.bundles.noggit</artifactId>				
+			</dependency>
+		
+		<!-- solr dependency end -->
 		<dependency>
 			<artifactId>citraining.soap.weather</artifactId>
 			<groupId>com.citraining</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<artifactId>citraining.search.solr</artifactId>
+			<groupId>com.citraining</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.citraining</groupId>
+			<artifactId>citraining.core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.citraining</groupId>
+			<artifactId>citraining.taglibs</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

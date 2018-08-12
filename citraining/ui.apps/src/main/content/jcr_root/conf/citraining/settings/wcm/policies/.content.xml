@@ -125,7 +125,7 @@
                     </policy_522490878468126>
                     <policy_526030331859315
                         cq:styleDefaultClasses="cmp-layout-container--footer full-width"
-                        jcr:lastModified="{Date}2018-04-11T09:57:29.337+05:30"
+                        jcr:lastModified="{Date}2018-08-06T22:03:29.972+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Layout Container - Footer"
@@ -520,7 +520,7 @@
                 <navigation jcr:primaryType="nt:unstructured">
                     <policy_1523420175711
                         cq:styleDefaultClasses="cmp-navigation--footer"
-                        jcr:lastModified="{Date}2018-04-11T09:57:54.562+05:30"
+                        jcr:lastModified="{Date}2018-08-06T22:04:49.445+05:30"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="citraining Navigation - Footer"

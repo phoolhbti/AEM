@@ -1,4 +1,4 @@
-package com.citraining.core.config;
+package com.citraining.search.solr.config;
 
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;

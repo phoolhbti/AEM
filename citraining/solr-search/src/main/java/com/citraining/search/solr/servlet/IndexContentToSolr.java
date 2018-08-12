@@ -1,4 +1,4 @@
-package com.citraining.core.servlets;
+package com.citraining.search.solr.servlet;
 
 import java.io.IOException;
 
@@ -22,8 +22,8 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.citraining.core.config.SolrConfiguration;
-import com.citraining.core.search.SolrSearchService;
+import com.citraining.search.solr.config.SolrConfiguration;
+import com.citraining.search.solr.services.SolrSearchService;
 
 /**
  * This servlet acts as a bulk update to index content pages and assets to the configured Solr server
@@ -58,7 +58,9 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 		final String coreName = solrConfiguration.getSolrCoreName();
 		final String pagesResourcePath = solrConfiguration.getSolrCorePagepath();
 		String url = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
-		server = new HttpSolrClient(url);
+	//	server = new HttpSolrClient(url);
+		server = new HttpSolrClient.Builder(url).build();
+	//	server=
 		if (indexType.equalsIgnoreCase("indexpages")){
 			try{
 				JSONArray indexPageData = solrSearchService.crawlContent(pagesResourcePath, "cq:PageContent");

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workspaceFilter version="1.0">
-    <filter root="/content/citraining" mode="merge"/>
+<workspaceFilter version="1.0">   
     <filter root="/content/dam/citraining"/>
+    <filter root="/content/citraining"/>
     <filter root="/content/experience-fragments/citraining" mode="merge"/>
     <filter root="/etc/segmentation/citraining" mode="merge"/>
     <filter root="/content/campaigns/citraining" mode="merge"/>

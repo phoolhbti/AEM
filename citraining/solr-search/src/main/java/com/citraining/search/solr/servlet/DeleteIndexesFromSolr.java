@@ -1,4 +1,4 @@
-package com.citraining.core.servlets;
+package com.citraining.search.solr.servlet;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.citraining.core.config.SolrConfiguration;
+import com.citraining.search.solr.config.SolrConfiguration;
 
 /**
  * @author Phool Chandra 
@@ -62,7 +62,8 @@ public class DeleteIndexesFromSolr extends SlingAllMethodsServlet {
 		final String serverPort = solrConfiguration.getSolrServerPort();
 		final String coreName = solrConfiguration.getSolrCoreName();
 		String url = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
-		server = new HttpSolrClient(url);
+		//server = new HttpSolrClient(url);
+		server = new HttpSolrClient.Builder(url).build();
 	}
 
 	@Deactivate

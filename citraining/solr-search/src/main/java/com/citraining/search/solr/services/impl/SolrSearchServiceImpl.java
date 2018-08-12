@@ -1,4 +1,4 @@
-package com.citraining.core.search.impl;
+package com.citraining.search.solr.services.impl;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -9,7 +9,10 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
@@ -23,8 +26,9 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.citraining.core.search.SolrSearchService;
-import com.citraining.core.utils.SolrUtils;
+import com.citraining.search.solr.utils.SolrUtils;
+import com.citraining.search.solr.utils.CommonUtil;
+import com.citraining.search.solr.services.SolrSearchService;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -42,6 +46,8 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 	@Reference
 	private SlingRepository repository;
 	
+	@Reference
+	private ResourceResolverFactory resolverFactory;
 	/**
 	 * This method takes path and type of resource to perform search in JCR
 	 * 
@@ -59,9 +65,11 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 		params.put("p.limit", "10000");
 
 		Session session = null;
-
-		try{
-			session = repository.loginAdministrative(null);
+		ResourceResolver resourceResolver = null;
+		try{		
+			resourceResolver = CommonUtil.getResourceResolver(resolverFactory);
+			session = resourceResolver.adaptTo(Session.class);
+			//session = repository.loginAdministrative(null);
 			Query query = queryBuilder.createQuery(PredicateGroup.create(params), session);
 			SearchResult searchResults = query.getResult();
 			LOG.info("Found '{}' matches for query", searchResults.getTotalMatches());
@@ -69,7 +77,7 @@ public class SolrSearchServiceImpl implements SolrSearchService {
 				return createPageMetadataArray(searchResults);
 			}
 
-		} catch (RepositoryException e){
+		} catch (RepositoryException | LoginException e){
 			LOG.error("Exception due to", e);
 		}
 		finally{

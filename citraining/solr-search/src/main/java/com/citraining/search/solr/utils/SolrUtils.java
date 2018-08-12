@@ -1,4 +1,4 @@
-package com.citraining.core.utils;
+package com.citraining.search.solr.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
