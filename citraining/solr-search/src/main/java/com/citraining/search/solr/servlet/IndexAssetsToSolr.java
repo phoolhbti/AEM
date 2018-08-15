@@ -1,6 +1,7 @@
 package com.citraining.search.solr.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -9,8 +10,6 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.apache.sling.commons.json.JSONArray;
-import org.apache.sling.commons.json.JSONException;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.osgi.framework.Constants;
@@ -22,25 +21,27 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.citraining.search.solr.beans.AssetsBean;
 import com.citraining.search.solr.config.SolrConfiguration;
-import com.citraining.search.solr.services.SolrSearchService;
+import com.citraining.search.solr.services.SolrSearchAssetsService;
 
 /**
- * This servlet acts as a bulk update to index content pages and assets to the configured Solr server
+ * This servlet acts as a bulk update to index DAM Assets and assets to the configured Solr server
  */
-@Component (service = Servlet.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = { Constants.SERVICE_DESCRIPTION + "=IndexContentToSolr Service", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=/bin/solr/push/pagesbackup" })
+@Component (service = Servlet.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = { Constants.SERVICE_DESCRIPTION + "=IndexAssetsToSolr Service", "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=/bin/solr/push/pages" })
 @Designate (ocd = SolrConfiguration.class)
-public class IndexContentToSolr extends SlingAllMethodsServlet {
+public class IndexAssetsToSolr extends SlingAllMethodsServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger LOG = LoggerFactory.getLogger(IndexContentToSolr.class);
+	private static final Logger LOG = LoggerFactory.getLogger(IndexAssetsToSolr.class);
 
 	private transient SolrConfiguration solrConfiguration;
+
 	HttpSolrClient server;
 
 	@Reference
-	private transient SolrSearchService solrSearchService;
+	private transient SolrSearchAssetsService solrAssetsSearchService;
 
 	@Override
 	protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -56,24 +57,23 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 		final String serverName = solrConfiguration.getSolrServerName();
 		final String serverPort = solrConfiguration.getSolrServerPort();
 		final String coreName = solrConfiguration.getSolrCoreName();
-		final String pagesResourcePath = solrConfiguration.getSolrCorePagepath();
+		final String assetsResourcePath = solrConfiguration.getSolrCorePagepath();
 		String url = protocol + "://" + serverName + ":" + serverPort + "/solr/" + coreName;
-	//	server = new HttpSolrClient(url);
 		server = new HttpSolrClient.Builder(url).build();
-	//	server=
 		if (indexType.equalsIgnoreCase("indexpages")){
 			try{
-				JSONArray indexPageData = solrSearchService.crawlContent(pagesResourcePath, "cq:PageContent");
-				boolean resultindexingPages = solrSearchService.indexPagesToSolr(indexPageData, server);
+				List<AssetsBean> indexPageData = solrAssetsSearchService.crawlAssets(assetsResourcePath, "dam:Asset");
+				boolean resultindexingPages = solrAssetsSearchService.indexAssetsToSolr(indexPageData, server);
 				if (resultindexingPages == true){
-					response.getWriter().write("<h3>Successfully indexed content pages to Solr server </h3>");
+					response.getWriter().write("<h3>Successfully indexed DAM assets to Solr server </h3>");
 				} else{
 					response.getWriter().write("<h3>Something went wrong</h3>");
 				}
-			} catch (JSONException | SolrServerException e){
+			} catch (SolrServerException e){
 				LOG.error("Exception due to", e);
 				response.getWriter().write("<h3>Something went wrong. Please make sure Solr server is configured properly in Felix</h3>");
-			}finally{
+			}
+			finally{
 				server.close();
 			}
 
@@ -82,9 +82,10 @@ public class IndexContentToSolr extends SlingAllMethodsServlet {
 		}
 
 	}
-	 @Activate
-	    protected void activate( SolrConfiguration config ) {
-		 solrConfiguration=config;
-	 }
+
+	@Activate
+	protected void activate(SolrConfiguration config) {
+		solrConfiguration = config;
+	}
 
 }

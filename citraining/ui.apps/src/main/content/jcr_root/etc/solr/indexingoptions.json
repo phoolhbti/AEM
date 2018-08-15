@@ -3,5 +3,10 @@
         value: 'indexPages', 
         text: 'Index Pages',
         qtip: 'Index Pages' 
+    },
+     {
+        value: 'indexAssets', 
+        text: 'Index Assets',
+        qtip: 'Index Assets' 
     }
 ] 
